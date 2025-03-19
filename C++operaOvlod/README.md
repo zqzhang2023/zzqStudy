@@ -624,7 +624,15 @@ Boy boy1(“hacker”, 28, 10000, 5);
 int power = boy1; // power();
 char *name = boy1; // “hacker
 
-
+Boy::operator int() const
+{
+    return power();
+}
+ 
+Boy::operator char* () const
+{
+    return name;
+}
 //头
 // 特殊的运算符重载：类型转换函数，不需要写返回类型
 operator int() const;
