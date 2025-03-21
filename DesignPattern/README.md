@@ -40,3 +40,22 @@
 GPS：专业GPS导航
 
 ## 高内聚、低耦合
+
+## 创建型模式
+
+### 简单工厂模式
+
+只需要知道水果的名字则可得到相应的水果
+
+![alt text](0_images/1_简单工厂模式.png)
+
+![alt text](0_images/2_简单工厂模式_角色.png)
+
+角色：
+
+- Factory：工厂角色
+
+- Product：抽象产品角色
+
+- ConcreteProduct：具体产品角色
+
