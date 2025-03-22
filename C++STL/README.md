@@ -1110,7 +1110,7 @@ a1.data()  //第四  返回内建数组的指针
 
 find、find_if、find_first_of、adjacent_find、search、binary_search、lower_bound、upper_bound、equal_range
 
-# C++ 查找算法速查表
+### C++ 查找算法速查表
 
 | 函数             | 作用                                                                 |
 |------------------|----------------------------------------------------------------------|
@@ -1135,9 +1135,9 @@ find、find_if、find_first_of、adjacent_find、search、binary_search、lower_
 
 ```cpp
 #include<iostream>
-#include <vector>
-#include <algorithm>
-#include <iterator>
+#include<vector>
+#include<algorithm>
+#include<iterator>
 
 using namespace std;
 
@@ -1195,5 +1195,667 @@ int main(){
     cout << "equal_range(3): [" << distance(data.begin(), eq_pair.first) 
          << "," << distance(data.begin(), eq_pair.second) << ")" << endl; // 输出:[2,5)
     
+}
+```
+
+## 排序
+
+
+### C++ 排序算法速查表
+
+| 函数                | 作用                                                                 | 时间复杂度      | 适用场景                  |
+|---------------------|----------------------------------------------------------------------|----------------|--------------------------|
+| `sort`              | 对范围进行**快速排序**（非稳定排序）                                 | O(n log n)     | 通用排序/高性能需求       |
+| `stable_sort`       | 对范围进行**稳定排序**（保持相等元素原始顺序）                       | O(n log² n)    | 需要稳定性的排序          |
+| `partial_sort`      | 对范围前N个元素进行排序（剩余元素无序）                              | O(n log k)     | 获取TopN元素              |
+| `nth_element`       | 将第N个元素放到排序位置，左侧≤它，右侧≥它                            | O(n)           | 快速查找中位数/分位数     |
+| `is_sorted`         | 检查范围是否已排序                                                   | O(n)           | 排序状态验证              |
+| `partial_sort_copy` | 将部分排序结果复制到新范围（不修改原数据）                           | O(n log k)     | 安全获取TopN              |
+| `inplace_merge`     | 原地合并两个**已排序的连续子序列**                                    | O(n log n)     | 归并排序实现              |
+| `sort_heap`         | 将堆结构转换为有序范围（会破坏堆特性）                               | O(n log n)     | 堆排序场景                |
+
+---
+
+```cpp
+#include<iostream>
+#include <vector>
+#include <algorithm> // 包含所有排序相关函数
+using namespace std;
+
+struct Data{
+    int id;
+    int value;
+    Data(int i,int v):id(i),value(v){};
+};
+
+
+int main(){
+    vector<int> nums = {5, 2, 9, 1, 5, 3};
+    vector<Data> items = {{1,5}, {2,2}, {3,9}, {4,1}, {5,5}};
+
+    //sort() 示例（快速排序，非稳定）
+    sort(nums.begin(),nums.end());
+    cout << "sort(): ";
+    for (int i = 0; i < nums.size(); i++){
+        cout<<nums[i]<<" ";
+    }
+    cout<<endl;
+    cout << "Is sorted? " <<boolalpha<<is_sorted(nums.begin(), nums.end()) << "\n\n";
+    
+    // stable_sort() 示例（归并排序，稳定）
+    stable_sort(items.begin(), items.end(), [](const Data& a, const Data& b) {
+        return a.value < b.value; // 按value升序，保持相等元素的原始id顺序
+    });
+    cout << "stable_sort():\n";
+    for (int i = 0; i < items.size(); i++){
+        cout << "ID:" << items[i].id << " Val:" << items[i].value << "\n";
+    }
+    cout << "Is sorted? " << is_sorted(items.begin(), items.end(),
+    [](const Data& a, const Data& b) { return a.value < b.value; }) << "\n";
+
+    //  partial_sort() 示例（堆排序，部分排序）
+    vector<int> vec = {5, 2, 9, 1, 5, 3};
+    partial_sort(vec.begin(), vec.begin()+3, vec.end(), greater<int>());
+    cout << "partial_sort() (top3 descending): ";
+    for (int i = 0; i < vec.size(); i++){
+        cout<<vec[i]<<" ";
+    }
+    cout<<endl;
+
+
+    // 4. is_sorted() 示例（检查排序状态）
+    vector<int> unsorted = {3, 1, 4, 2};
+    cout << "Before sorting: ";
+    cout << "Is sorted? " << is_sorted(unsorted.begin(), unsorted.end()) << "\n";
+    sort(unsorted.begin(), unsorted.end());
+    cout << "After sorting: ";
+    cout << "Is sorted? " << is_sorted(unsorted.begin(), unsorted.end()) << "\n";
+    
+    return 0;
+}
+```
+
+## 替换
+| 函数                 | 作用                                                                 | 时间复杂度 | 适用场景                                 |
+|----------------------|----------------------------------------------------------------------|------------|-----------------------------------------|
+| `replace`            | 将范围内**所有等于指定值**的元素替换为新值                           | O(n)       | 批量替换特定值的元素                    |
+| `replace_if`         | 将范围内**满足谓词条件**的元素替换为新值                             | O(n)       | 条件替换（如替换负数、特殊字符等）      |
+| `replace_copy`       | 复制范围元素到新容器，并将**所有等于指定值**的元素替换为新值         | O(n)       | 保留原数据并生成替换副本                |
+| `replace_copy_if`    | 复制范围元素到新容器，并将**满足谓词条件**的元素替换为新值           | O(n)       | 保留原数据并生成条件替换副本            |
+
+
+| 特征                | 直接替换       | 条件替换         | 保留原数据     |
+|--------------------|----------------|------------------|----------------|
+| `replace`          | ✔️ (值匹配)    | ❌               | ❌             |
+| `replace_if`       | ❌             | ✔️ (谓词判断)    | ❌             |
+| `replace_copy`     | ✔️ (值匹配)    | ❌               | ✔️             |
+| `replace_copy_if`  | ❌             | ✔️ (谓词判断)    | ✔️             |
+
+
+```cpp
+#include<iostream>
+#include <vector>
+#include <deque>
+#include <string>
+#include <algorithm>
+#include <iterator>
+using namespace std;
+
+int main(){
+
+    vector<int> vec{1, 2, 10, 4, 10, 6, 7, -3};
+    string str = "Hello World! C++ STL";
+
+    //replace：原地替换所有等于 10 的元素为 99 */
+    replace(vec.begin(), vec.end(), 10, 99);
+    cout << "After replace(10→99): ";
+
+    for (int i = 0; i < vec.size(); i++){
+        cout << vec[i] << " ";
+    }
+    cout<<endl;
+
+    //replace_if：替换字符串中的空格为下划线
+    replace_if(str.begin(), str.end(),[](char c) { return isspace(c); }, '_');
+    cout << "After replace_if(space→_): " << str << "\n";  // 输出：Hello_World!_C++_STL
+    
+    //replace_copy：复制并替换负数为 0（原容器不变）
+    vector<int> vec_copy;
+    replace_copy(vec.begin(), vec.end(), back_inserter(vec_copy), -3, 0);
+    cout << "vec_copy after replace_copy(-3→0): ";
+    for (int i = 0; i < vec_copy.size(); i++){
+        cout << vec_copy[i] << " ";
+    }
+    cout<<endl;
+
+    //replace_copy_if：复制并替换奇数为 100
+    deque<int> dq;
+    replace_copy_if(vec.begin(), vec.end(), back_inserter(dq),
+        [](int n) { return n % 2 != 0; }, 100);
+    cout << "dq after replace_copy_if(odd→100): ";
+    for (int i = 0; i < dq.size(); i++){
+        cout << dq[i] << " ";
+    }
+    cout<<endl;
+
+    return 0;
+}
+
+```
+
+## 删除
+### C++ remove 系列函数对比表
+
+| 函数                | 作用                                                                 | 时间复杂度 | 适用场景                                  |
+|---------------------|----------------------------------------------------------------------|------------|-----------------------------------------|
+| `remove`            | 通过覆盖方式逻辑删除指定值的元素，返回新序列终点迭代器               | O(n)       | 需原地删除指定值元素（需配合`erase`物理删除） |
+| `remove_if`         | 通过覆盖方式逻辑删除满足谓词条件的元素，返回新序列终点迭代器         | O(n)       | 需按条件原地删除元素（配合`erase`使用）    |
+| `remove_copy`       | 复制源序列到目标容器时跳过指定值的元素，返回目标容器终点迭代器        | O(n)       | 保留原数据同时生成过滤后的新序列           |
+| `remove_copy_if`    | 复制源序列到目标容器时跳过满足谓词条件的元素，返回目标容器终点迭代器 | O(n)       | 按条件生成过滤副本且不修改原数据           |
+
+---
+
+### 特性总结
+1. **操作方式**  
+   - `remove`/`remove_if`：原地操作（直接修改原容器）  
+   - `remove_copy`/`remove_copy_if`：生成副本（保留原数据）  
+
+2. **过滤条件**  
+   - 值匹配：`remove`、`remove_copy`  
+   - 谓词判断：`remove_if`、`remove_copy_if`  
+
+3. **性能**  
+   - 所有函数均为线性时间复杂度，需遍历全部元素  
+
+**提示**：关联容器（如 `set/map`）请使用其自带的 `erase` 方法，而非标准算法。
+
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+
+using namespace std;
+
+int main(){
+
+    vector<int> vec = {1, 2, 3, 2, 5, 4, 2, 6};
+    for(auto it = vec.begin();it!=vec.end();it++){
+        cout<<*it<<" ";
+    }
+    cout<<endl;
+
+    // remove 示例：删除所有值为 2 的元素
+    auto new_end = remove(vec.begin(), vec.end(), 2);
+    cout << "remove 后逻辑范围: ";
+    for(auto it = vec.begin();it!=new_end;it++){
+        cout<<*it<<" ";
+    }
+    cout<<endl;
+    cout << "实际容器内容: ";
+    for(auto it = vec.begin();it!=vec.end();it++){
+        cout<<*it<<" ";
+    }
+    cout<<endl;
+
+    vec.erase(new_end, vec.end()); 
+    cout << "物理删除后容器: ";
+    for(auto it = vec.begin();it!=vec.end();it++){
+        cout<<*it<<" ";
+    }
+    cout<<endl;
+
+
+    //remove_if 示例：删除所有偶数
+    vec = {1, 2, 3, 4, 5, 6, 7, 8};  // 重置数据
+    new_end = remove_if(vec.begin(), vec.end(), [](int x) { return x % 2 == 0; });
+    cout << "remove_if 后逻辑范围: ";
+    for(auto it = vec.begin();it!=new_end;it++){
+        cout<<*it<<" ";
+    }
+    cout<<endl;
+    cout << "物理删除后容器: ";
+    vec.erase(new_end, vec.end());
+    for(auto it = vec.begin();it!=vec.end();it++){
+        cout<<*it<<" ";
+    }
+    cout << endl;
+
+
+    //remove_copy 示例：复制时跳过 3
+    vector<int> dest1;
+    vec = {1, 3, 5, 3, 7, 9};  // 重置数据
+    remove_copy(vec.begin(), vec.end(), back_inserter(dest1), 3);
+    cout << "remove_copy 结果（跳过3）: ";
+    for(auto it = dest1.begin();it!=dest1.end();it++){
+        cout<<*it<<" ";
+    }
+    cout << endl;
+
+    // remove_copy_if 示例：复制时跳过长度超过3的字符串
+    vector<string> str_vec = {"cat", "apple", "dog", "elephant", "bee"};
+    vector<string> dest2;
+    remove_copy_if(str_vec.begin(), str_vec.end(), back_inserter(dest2),
+        [](const string& s) { return s.length() > 3; });
+    cout << "remove_copy_if 结果（跳过长度>3的字符串）: ";
+    for(auto it = dest2.begin();it!=dest2.end();it++){
+        cout<<*it<<" ";
+    }
+    cout << endl;
+
+    return 0;
+}
+```
+
+## 复制和合并
+
+| 函数                 | 作用                                                                 | 时间复杂度 | 适用场景                                |
+|----------------------|----------------------------------------------------------------------|------------|----------------------------------------|
+| `copy`               | 复制源序列的全部元素到目标位置                                       | O(n)       | 简单复制整个序列                        |
+| `copy_n`             | 精确复制源序列的前 N 个元素                                          | O(n)       | 复制固定数量元素                        |
+| `copy_if`            | 仅复制满足谓词条件的元素                                             | O(n)       | 筛选复制（如过滤偶数、特定类型数据）    |
+| `copy_backward`      | 从后向前复制元素到目标容器尾部                                       | O(n)       | 覆盖操作避免元素冲突（需预分配空间）    |
+| `reverse_copy`       | 逆序复制源序列到目标位置                                             | O(n)       | 生成反向副本（如回文处理、反向遍历）    |
+| `merge`              | 合并两个**有序序列**到新容器，保持整体有序                           | O(m+n)     | 合并有序数据集（如合并日志、有序流）    |
+| `inplace_merge`     | 原地合并同一容器中两个**相邻有序子序列**                             | O(n)       | 归并排序实现/合并分段排序结果           |
+
+
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+using namespace std;
+
+int main() {
+    vector<int> src = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    // 1. copy: 复制整个序列
+    vector<int> dest1;
+    copy(src.begin(), src.end(), back_inserter(dest1));
+    cout << "copy 结果: ";
+    for (int x : dest1) cout << x << " ";
+    cout << "\n\n";
+
+    // 2. copy_n: 复制前5个元素
+    vector<int> dest2;
+    copy_n(src.begin(), 5, back_inserter(dest2));
+    cout << "copy_n(5) 结果: ";
+    for (int x : dest2) cout << x << " ";
+    cout << "\n\n";
+
+    // 3. copy_if: 复制偶数
+    vector<int> dest3;
+    copy_if(src.begin(), src.end(), back_inserter(dest3),
+                 [](int x) { return x % 2 == 0; });
+    cout << "copy_if(偶数) 结果: ";
+    for (int x : dest3) cout << x << " ";
+    cout << "\n\n";
+
+    // 4. copy_backward: 从后向前复制到目标容器末尾
+    vector<int> dest4(8, 0); // 目标容器需预分配空间
+    copy_backward(src.begin() + 2, src.begin() + 6, dest4.end());
+    cout << "copy_backward 结果: ";
+    for (int x : dest4) cout << x << " ";
+    cout << "\n\n";
+
+    // 5. reverse_copy: 逆序复制
+    vector<int> dest5;
+    reverse_copy(src.begin(), src.end(), back_inserter(dest5));
+    cout << "reverse_copy 结果: ";
+    for (int x : dest5) cout << x << " ";
+    cout << "\n\n";
+
+    // 6. merge: 合并两个有序序列
+    vector<int> sorted1 = {2, 4, 6, 8};
+    vector<int> sorted2 = {1, 3, 5, 7};
+    vector<int> merged;
+    merge(sorted1.begin(), sorted1.end(), 
+              sorted2.begin(), sorted2.end(), 
+              back_inserter(merged));
+    cout << "merge 结果: ";
+    for (int x : merged) cout << x << " ";
+    cout << "\n\n";
+
+    // 7. inplace_merge: 原地合并已排序的子序列
+    vector<int> vec = {1, 3, 5, 2, 4, 6};
+    sort(vec.begin(), vec.begin() + 3); // 前半部分排序
+    sort(vec.begin() + 3, vec.end());    // 后半部分排序
+    inplace_merge(vec.begin(), vec.begin() + 3, vec.end());
+    cout << "inplace_merge 结果: ";
+    for (int x : vec) cout << x << " ";
+    cout << "\n\n";
+    return 0;
+}
+```
+
+
+## 交换、反转、移动、旋转
+
+### C++ 容器操作算法对比表
+
+| 函数                | 作用                                                                 | 时间复杂度      | 适用场景                  |
+|---------------------|----------------------------------------------------------------------|----------------|--------------------------|
+| `swap`              | 交换两个变量/容器的**值**（支持基本类型、容器、智能指针）           | O(1)           | 变量交换/容器快速内容交换 |
+| `swap_ranges`       | 交换两个范围（range）的**元素**（要求长度相同）                     | O(n)           | 容器部分元素交换          |
+| `reverse`           | **反转**指定范围内的元素顺序                                        | O(n)           | 逆序输出/回文处理         |
+| `rotate`            | **循环移动**元素，使中间元素成为新起始位置                          | O(n)           | 环形缓冲区/循环队列       |
+| `move`              | 转移资源所有权（右值引用转换，避免拷贝）                            | O(1)           | 资源管理/大对象转移       |
+| `unique`            | 去除**相邻重复**元素（需先排序才能完全去重）                        | O(n)           | 数据去重/日志过滤         |
+
+---
+
+### 关键特性说明
+1. **`swap`**  
+   - 容器特化版本（如 `vector::swap`）直接交换内部指针，时间复杂度为 O(1)  
+   - 示例：`swap(a, b)` 或 `vec1.swap(vec2)`
+
+2. **`swap_ranges`**  
+   - 需保证两个范围长度一致，否则行为未定义  
+   - 示例：`swap_ranges(vec1.begin(), vec1.end(), vec2.begin())`
+
+3. **`rotate`**  
+   - 实际效果：`[first, middle) ∪ [middle, last) → [middle, last) + [first, middle)`  
+   - 示例：`rotate(vec.begin(), vec.begin()+2, vec.end())` 左移2位
+
+4. **`unique`**  
+   - 返回去重后的新逻辑终点（需配合 `erase` 物理删除）  
+   - 示例：`nums.erase(unique(nums.begin(), nums.end()), nums.end())`
+
+---
+
+### 性能对比（n=元素数量）
+| 操作                | 性能影响因子                  | 典型用例                          |
+|---------------------|-----------------------------|----------------------------------|
+| `swap`              | 容器内部指针交换成本          | 快速清空容器 `vector<int>().swap(v)` |
+| `move`              | 对象移动构造函数效率          | `unique_ptr`/大型对象转移         |
+| `rotate`            | 元素移动次数                  | 实现约瑟夫环问题（Josephus Problem）|
+
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <utility>  // for swap and move
+#include <memory>   // for unique_ptr
+
+using namespace std;
+
+int main() {
+    // 1. swap 交换两个变量
+    int a = 10, b = 20;
+    swap(a, b);
+    cout << "After swap: a=" << a << ", b=" << b << endl;  // a=20, b=10
+
+    // 2. swap_ranges 交换两个容器的部分元素
+    vector<int> vec1{1, 2, 3, 4, 5};
+    vector<int> vec2{10, 20, 30, 40, 50};
+    swap_ranges(vec1.begin(), vec1.begin() + 3, vec2.begin());  // 交换前3个元素
+    cout << "vec1: ";
+    for (auto x : vec1) cout << x << " ";  // 10 20 30 4 5
+    cout << "\nvec2: ";
+    for (auto x : vec2) cout << x << " ";  // 1 2 3 40 50
+
+    // 3. reverse 反转容器
+    reverse(vec1.begin(), vec1.end());
+    cout << "\nReversed vec1: ";
+    for (auto x : vec1) cout << x << " ";  // 5 4 30 20 10
+
+    // 4. rotate 旋转元素（将中间元素移动到起始位置）
+    vector<string> words{"A", "B", "C", "D", "E"};
+    rotate(words.begin(), words.begin() + 2, words.end());  // 将C移到开头
+    cout << "\nRotated words: ";
+    for (auto& s : words) cout << s << " ";  // C D E A B
+
+    // 5. move 转移资源所有权（结合智能指针）
+    unique_ptr<int> ptr1 = make_unique<int>(42);
+    unique_ptr<int> ptr2 = move(ptr1);
+    cout << "\nptr2 value: " << *ptr2 << (ptr1 ? " (ptr1 valid)" : " (ptr1 empty)");
+
+    // 6. unique 去重（需先排序）
+    vector<int> nums{5, 2, 2, 3, 3, 3, 1};
+    sort(nums.begin(), nums.end());
+    auto last = unique(nums.begin(), nums.end());
+    nums.erase(last, nums.end());
+    cout << "\nUnique nums: ";
+    for (auto x : nums) cout << x << " ";  // 1 2 3 5
+    cout<<endl;
+
+    return 0;
+}
+```
+
+## 填充、遍历
+
+| 函数                | 作用                                                                 | 时间复杂度      | 适用场景                  |
+|---------------------|----------------------------------------------------------------------|----------------|--------------------------|
+| `for_each`          | 对范围内的每个元素**应用指定函数**                                   | O(n)           | 遍历修改/执行副作用操作   |
+| `fill`              | 将指定值**填充整个范围**                                             | O(n)           | 批量初始化/重置容器       |
+| `fill_n`            | 将指定值**填充前N个元素**                                            | O(k) (k为填充数)| 局部覆盖/部分初始化       |
+| `generate`          | 用生成器函数**生成值填充整个范围**                                   | O(n)           | 动态值生成（如随机数）    |
+| `generate_n`        | 用生成器函数**生成前N个元素**                                        | O(k) (k为生成数)| 局部动态生成              |
+| `transform`         | 对输入范围应用操作，将结果**写入目标范围**                           | O(n)           | 数据转换（如数学运算）    |
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <ctime>
+#include <iterator>
+
+using namespace std;
+
+int main() {
+    // 初始化一个包含5个元素的向量，默认值为0
+    vector<int> vec(5);
+
+    // 1. 使用fill将整个容器填充为5
+    fill(vec.begin(), vec.end(), 5);
+    cout << "1. fill结果: ";
+    for_each(vec.begin(), vec.end(), [](int x) { cout << x << " "; });
+    cout << "\n\n";
+
+    // 2. 使用fill_n修改前2个元素为10
+    fill_n(vec.begin(), 2, 10);
+    cout << "2. fill_n结果: ";
+    for_each(vec.begin(), vec.end(), [](int x) { cout << x << " "; });
+    cout << "\n\n";
+
+    // 3. 使用generate生成随机数（0-99）
+    srand(time(nullptr)); // 设置随机种子
+    generate(vec.begin(), vec.end(), []() { return rand() % 100; });
+    cout << "3. generate结果: ";
+    for_each(vec.begin(), vec.end(), [](int x) { cout << x << " "; });
+    cout << "\n\n";
+
+    // 4. 使用generate_n生成等差数列（100, 200, 300...）
+    vector<int> vec2(5, 0); // 初始化5个0
+    int start = 100;
+    generate_n(vec2.begin(), 3, [&start]() {
+        int current = start;
+        start += 100;
+        return current;
+    });
+    cout << "4. generate_n结果: ";
+    for_each(vec2.begin(), vec2.end(), [](int x) { cout << x << " "; });
+    cout << "\n\n";
+
+    // 5. 使用transform计算平方并存储到新容器
+    vector<int> vec3(vec.size());
+    transform(vec.begin(), vec.end(), vec3.begin(), [](int x) {
+        return x * x;
+    });
+    cout << "5. transform结果: ";
+    for_each(vec3.begin(), vec3.end(), [](int x) { cout << x << " "; });
+
+    return 0;
+}
+```
+
+## 计数、比较、求和、数学
+
+| 函数                | 作用                                                                 | 时间复杂度      | 适用场景                  |
+|---------------------|----------------------------------------------------------------------|-----------------|--------------------------|
+| `count`             | 统计范围内**等于特定值**的元素数量                                   | O(n)            | 精确值统计               |
+| `count_if`          | 统计范围内**满足谓词条件**的元素数量                                 | O(n)            | 条件计数/过滤统计        |
+| `all_of`            | 检查范围内**所有元素**是否都满足谓词条件                             | O(n)            | 全局条件验证（如全为正数）|
+| `any_of`            | 检查范围内**至少有一个元素**满足谓词条件                             | O(n)            | 存在性验证（如包含负数）  |
+| `none_of`           | 检查范围内**没有元素**满足谓词条件                                   | O(n)            | 反向存在性验证           |
+| `max`               | 返回两个值中的**较大值**                                             | O(1)            | 简单值比较               |
+| `min`               | 返回两个值中的**较小值**                                             | O(1)            | 简单值比较               |
+| `max_element`       | 返回范围内**最大元素**的迭代器                                       | O(n)            | 容器极值查找             |
+| `min_element`       | 返回范围内**最小元素**的迭代器                                       | O(n)            | 容器极值查找             |
+| `abs`               | 返回数值的**绝对值**                                                 | O(1)            | 数值符号处理             |
+| `accumulate`        | 计算范围内元素的**累加和**（或自定义二元操作的累积结果）             | O(n)            | 求和/累积运算            |
+
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>  // 包含算法库
+#include <numeric>    // 包含accumulate
+using namespace std;
+
+
+int main() {
+    vector<int> vec = {3, 1, 4, -2, 5, 3, 0, 7};
+
+    // 1. count：统计值为3的元素个数
+    int cnt = count(vec.begin(), vec.end(), 3);
+    cout << "count(3): " << cnt << endl;  // 输出2
+
+    // 2. count_if：统计偶数的个数
+    int even_cnt = count_if(vec.begin(), vec.end(), [](int x) { return x % 2 == 0; });
+    cout << "count_if(even): " << even_cnt << endl;  // 输出3（4, -2, 0）
+
+    // 3. all_of：是否所有元素都>0？
+    bool all_positive = all_of(vec.begin(), vec.end(), [](int x) { return x > 0; });
+    cout << "all_of(>0): " << boolalpha << all_positive << endl;  // false（存在-2和0）
+
+    // 4. any_of：是否存在负数？
+    bool has_negative = any_of(vec.begin(), vec.end(), [](int x) { return x < 0; });
+    cout << "any_of(<0): " << has_negative << endl;  // true（-2）
+
+    // 5. none_of：是否所有元素都不等于10？
+    bool no_ten = none_of(vec.begin(), vec.end(), [](int x) { return x == 10; });
+    cout << "none_of(==10): " << no_ten << endl;  // true
+
+    // 6. max/min：比较两个值
+    cout << "max(5,3): " << max(5, 3) << endl;  // 5
+    cout << "min(5,3): " << min(5, 3) << endl;  // 3
+
+    // 7. max_element/min_element：找容器中的极值
+    auto max_it = max_element(vec.begin(), vec.end());
+    auto min_it = min_element(vec.begin(), vec.end());
+    cout << "max_element: " << *max_it << endl;  // 7
+    cout << "min_element: " << *min_it << endl;   // -2
+
+    // 8. abs：绝对值
+    cout << "abs(-5): " << abs(-5) << endl;  // 5
+
+    // 9. accumulate：求和
+    int sum = accumulate(vec.begin(), vec.end(), 0);
+    cout << "accumulate(sum): " << sum << endl;  // 3+1+4-2+5+3+0+7 = 21
+
+    return 0;
+}
+```
+
+## 分组、排列
+
+| 函数                   | 作用                                                                 | 时间复杂度      | 适用场景                          | 备注                               |
+|------------------------|----------------------------------------------------------------------|----------------|-----------------------------------|----------------------------------|
+| `partition`           | 根据条件将元素分为两组（不保证相对顺序）                            | O(n)           | 快速分组/条件筛选                 | 非稳定操作                      |
+| `is_partitioned`      | 验证范围是否按指定条件分区                                          | O(n)           | 分区状态检查                      | 需先执行分区操作                |
+| `stable_partition`    | 根据条件分组并保持元素相对顺序                                      | O(n log n)     | 需要保留原始顺序的分组            | 内存充足时使用                  |
+| `partition_point`     | 查找已分区序列的分界点                                              | O(log n)       | 定位分区边界                      | 必须在已分区序列使用            |
+| `partition_copy`      | 将分区结果复制到两个不同容器                                        | O(n)           | 保留原始数据的分区操作            | 输出迭代器需要预分配空间        |
+| `next_permutation`    | 将序列转换为字典序更大的排列（返回是否成功）                        | O(n)           | 全排列生成/组合优化               | 通常需要先排序                  |
+| `prev_permutation`    | 将序列转换为字典序更小的排列（返回是否成功）                        | O(n)           | 逆序全排列生成                    | 通常需要先降序排序              |
+| `is_permutation`      | 判断两个序列是否为同一组元素的排列                                  | O(n²)          | 排列关系验证                      | 允许不同容器的比较              |
+
+| 函数                   | 稳定性 | 数据修改 | 排序关联          |
+|------------------------|--------|----------|-------------------|
+| `partition`           | 否     | 原地     | 常用于预处理      |
+| `stable_partition`    | 是     | 原地     | 类似stable_sort   |
+| `nth_element`         | 否     | 原地     | 与排序相关        |
+| `next_permutation`    | 保持   | 原地     | 依赖排序结果      |
+
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+using namespace std;
+
+bool isOdd(int x) { return x % 2 != 0; } // 分区条件：奇数在前，偶数在后
+
+int main() {
+    // 初始数据
+    vector<int> data{3,1,4,5,8,6,7,2};
+    vector<int> copy1, copy2;
+
+    // 1. partition 基础分区
+    auto it = partition(data.begin(), data.end(), isOdd);
+    cout << "After partition: ";
+    copy(data.begin(), data.end(), ostream_iterator<int>(cout, " "));
+    cout << "\nPartition point: " << *it << "\n\n";
+
+    // 2. is_partitioned 验证分区
+    cout << "Is partitioned? " 
+              << (is_partitioned(data.begin(), data.end(), isOdd) ? "Yes" : "No")
+              << "\n\n";
+
+    // 3. stable_partition 稳定分区（保留原始顺序）
+    data = {3,1,4,5,8,6,7,2}; // 重置数据
+    auto it_stable = stable_partition(data.begin(), data.end(), isOdd);
+    cout << "After stable_partition: ";
+    copy(data.begin(), data.end(), ostream_iterator<int>(cout, " "));
+    cout << "\nStable partition point: " << *it_stable << "\n\n";
+
+    // 4. partition_point 查找分界点
+    auto pp = partition_point(data.begin(), data.end(), isOdd);
+    cout << "Partition point via partition_point: " << *pp << "\n\n";
+
+    // 5. partition_copy 分区复制
+    partition_copy(data.begin(), data.end(),
+                       back_inserter(copy1), // 奇数容器
+                       back_inserter(copy2), // 偶数容器
+                       isOdd);
+    cout << "Odd elements: ";
+    copy(copy1.begin(), copy1.end(), ostream_iterator<int>(cout, " "));
+    cout << "\nEven elements: ";
+    copy(copy2.begin(), copy2.end(), ostream_iterator<int>(cout, " "));
+    cout << "\n\n";
+
+    // 6. next_permutation 下一个排列
+    vector<int> perm{1,2,3};
+    cout << "All permutations (ascending):\n";
+    do {
+        copy(perm.begin(), perm.end(), ostream_iterator<int>(cout, " "));
+        cout << " → ";
+    } while (next_permutation(perm.begin(), perm.end()));
+    cout << "\n\n";
+
+    // 7. prev_permutation 上一个排列
+    sort(perm.rbegin(), perm.rend()); // 先降序排序
+    cout << "All permutations (descending):\n";
+    do {
+        copy(perm.begin(), perm.end(), ostream_iterator<int>(cout, " "));
+        cout << " → ";
+    } while (prev_permutation(perm.begin(), perm.end()));
+    cout << "\n\n";
+
+    // 8. is_permutation 验证排列
+    vector<int> test1{1,2,3}, test2{3,2,1}, test3{1,2,4};
+    cout << "Is permutation (1-2-3 vs 3-2-1): " 
+              << boolalpha << is_permutation(test1.begin(), test1.end(), test2.begin())
+              << "\nIs permutation (1-2-3 vs 1-2-4): "
+              << is_permutation(test1.begin(), test1.end(), test3.begin()) << "\n";
+
+    return 0;
 }
 ```
