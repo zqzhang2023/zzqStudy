@@ -806,6 +806,7 @@ int main(){
 4. 总结：
 - public 继承全不变 private 继承全变私
 - protected 继承只把 public 降级为 protected
+- 如果不标注继承方式则默认为private 
 
 **子类对父类成员的访问权限**
 
