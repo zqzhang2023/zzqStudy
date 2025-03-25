@@ -79,3 +79,384 @@
 
 
 # 第二章 线性表
+
+# 第三章 栈、队列和数组
+
+## 栈
+
+### 栈的定义和基本操作
+
+只允许在一端进行插入或删除的线性表
+
+![alt text](0_images/3_1_栈.png)
+
+当有n个不同的元素入栈的时候，出栈排列有(1/n+1)/C^n_{2n}种
+
+**共享栈**
+
+一个数组两个栈用，一个用栈底一个用栈顶（好奇怪）
+
+栈的实现（数组实现比较简单，这里采用链栈实现）
+
+链栈的优点在于不存在上溢问题
+
+```cpp
+#include<iostream>
+using namespace std;
+
+enum operation_code {success,overflow,underflow};
+
+template <typename T>
+struct Node{
+    T data;
+    Node<T>* next;
+};
+
+template <typename T>
+class LinkStack{
+private:
+    Node<T> *top;
+    int stackSize;
+
+public:
+    LinkStack(){
+        top = new Node<T>();
+        top->next = nullptr;
+        stackSize = 0;
+    };
+
+    //判空
+    bool isEmpty(){
+        return stackSize==0;
+    }
+
+    //入栈
+    operation_code push(T data){
+        Node<T>* newNode = new Node<T>();
+        newNode->data = data;
+        newNode->next = top->next;
+        top->next = newNode;
+        stackSize++;
+        return success;
+    }
+
+    //读栈顶元素
+    operation_code getTop(T &x){
+        if (!top->next){
+            return underflow;
+        }
+        x = top->next->data;
+        return success;
+    }
+
+    //出栈
+    operation_code pop(T &x){
+        if (!top->next){
+            return underflow;
+        }
+        Node<T>* popNode = top->next;
+        x = popNode->data;
+        top->next = popNode->next;
+        delete popNode;
+        stackSize--;
+        return success;
+    }
+
+    ~LinkStack(){
+        T temp;
+        while(!isEmpty()){
+            pop(temp);
+        }
+        delete top;
+        top = nullptr;
+    }
+};
+
+
+int main(){
+    LinkStack<int> stack;
+
+    // 测试空栈弹出
+    int x;
+    if (stack.pop(x) == underflow) {
+        cout << "1. 空栈弹出失败测试通过" << endl;
+    }
+
+    // 测试入栈和栈顶
+    stack.push(10);
+    stack.getTop(x);
+    cout << "2. 当前栈顶元素（应为10）: " << x << endl;
+
+    stack.push(20);
+    stack.push(30);
+
+    // 连续弹出测试
+    stack.pop(x);
+    cout << "3. 弹出元素（应为30）: " << x << endl;
+    stack.pop(x);
+    cout << "4. 弹出元素（应为20）: " << x << endl;
+
+    // 测试栈顶更新
+    stack.getTop(x);
+    cout << "5. 当前栈顶元素（应为10）: " << x << endl;
+
+    // 清空栈测试
+    stack.pop(x);
+    cout << "6. 弹出元素（应为10）: " << x << endl;
+
+    if (stack.isEmpty()) {
+        cout << "7. 栈已空测试通过" << endl;
+    }
+
+    // 再次测试空栈操作
+    if (stack.getTop(x) == underflow) {
+        cout << "8. 空栈获取栈顶测试通过" << endl;
+    }
+
+    return 0;
+}
+```
+
+## 队列
+### 队列的定义
+
+先进先出的受限线性表
+
+![alt text](0_images/3_2_队列.png)
+
+### 顺序存储
+
+这里有一个假溢出的概念
+
+![alt text](0_images/3_3_队列的假溢出.png)
+
+这个时候如果使用rear == front 判断栈满，就会出现假溢出现象
+
+引入循环队列：
+
+![alt text](0_images/3_4_循环队列.png)
+
+还是无法判断队列满不满（rear == front 可能是空，也可能是满）
+
+- 牺牲一个存储单元
+  - (rear+1) % maxSize == front 满
+  - rear == front  空
+  - (rear - front + MaxSize) % MaxSize 队内元素
+- 增加size属性
+  - size == 0 空
+  - size == maxSize 满
+- 增加tag
+  - 出队的时候 将 tag = 0, 入队的时候 将 tag = 1
+  - tag == 0 && rear == front 空
+  - tag == 1 && rear == front 满
+  
+### 循环队列的实现
+
+```cpp
+#include<iostream>
+using namespace std;
+
+#define MaxSize 100
+enum operation_code {success,overflow,underflow};
+
+template <typename T>
+class Queue{
+private:
+    T data[MaxSize];
+    int size;
+    int front;
+    int rear;
+public:
+    //构造初始化
+    Queue(){
+        front = 0;
+        rear = 0;
+        size = 0;
+    }
+    //判空
+    bool isEmpty(){
+        return size==0;
+    }
+    //判满
+    bool isFull(){
+        return size==MaxSize;
+    }
+    //入队
+    operation_code push(T x){
+        if (isFull()){
+            return overflow;
+        }
+        data[rear]= x;
+        rear = (rear + 1)%MaxSize;
+        size++;
+        return success;
+    }
+    //出队
+    operation_code pop(T &x){
+        if (isEmpty()){
+            return underflow;
+        }
+        x = data[front];
+        front = (front + 1)%MaxSize;
+        size--;
+        return success;
+    }
+};
+
+int main() {
+    Queue<int> q;
+    int x;
+
+    // 填满队列
+    for (int i = 0; i < 100; ++i) {
+        if (q.push(i) != success) {
+            cout << "队列已满，无法入队元素 " << i << endl;
+        }
+    }
+
+    // 测试满队列入队
+    operation_code result = q.push(100);
+    cout << "满队列入队结果: " << result << " (1 表示overflow)" << endl;
+
+    // 清空队列
+    while (q.pop(x) == success) {
+        cout << x << " ";
+    }
+    cout << "\n队列已清空" << endl;
+
+    // 测试空队列出队
+    result = q.pop(x);
+    cout << "空队列出队结果: " << result << " (2 表示underflow)" << endl;
+
+    // 正常入队和出队测试
+    q.push(10);
+    q.push(20);
+    q.pop(x);
+    cout << "出队元素: " << x << endl;  // 应输出10
+    q.pop(x);
+    cout << "出队元素: " << x << endl;  // 应输出20
+
+    return 0;
+}
+```
+
+
+### 链式队列
+
+```cpp
+#include<iostream>
+using namespace std;
+
+enum operation_code {success,overflow,underflow};
+
+template <typename T>
+struct Node{
+    T data;
+    Node<T>* next;
+};
+
+template <typename T>
+class Queue{
+private:
+    Node<T>* front;
+    Node<T>* rear;
+    int size;
+public:
+    Queue(){
+        front = new Node<T>();
+        front->next = nullptr;
+        rear = front;
+        size = 0;
+    }
+
+    //判空
+    bool isEmpty(){
+        // return rear == front;
+        return size == 0;
+    }
+
+    //入队
+    operation_code push(T x){
+        Node<T> * newNode = new Node<T>();
+        newNode->data = x;
+        newNode->next = nullptr;
+        rear->next = newNode;
+        rear = newNode;
+        size++;
+        return success;
+    }   
+
+    //出队
+    operation_code pop(T &x){
+        if (isEmpty()){
+            return underflow;
+        }
+        Node<T> *tmp = front->next;
+        x = tmp->data;
+        front->next = tmp->next;
+        if (rear == tmp){
+            rear = front;
+        }
+        delete tmp;
+        size--;
+        return success;      
+    }
+
+    ~Queue(){
+        while (front != nullptr) {
+            Node<T>* tmp = front;
+            front = front->next;
+            delete tmp;
+        }
+    }
+};
+
+
+
+
+int main(){
+    Queue<int> q;
+    int val;
+
+    // 测试空队列出队
+    cout << "空队列出队结果: " << q.pop(val) << " (应返回2 underflow)" << endl;
+
+    // 入队测试
+    q.push(10);
+    q.push(20);
+    q.push(30);
+
+    // 出队测试
+    q.pop(val);
+    cout << "第一次出队元素: " << val << " (应输出10)" << endl;
+    q.pop(val);
+    cout << "第二次出队元素: " << val << " (应输出20)" << endl;
+
+    // 再次入队
+    q.push(40);
+    q.pop(val);
+    cout << "第三次出队元素: " << val << " (应输出30)" << endl;
+    q.pop(val);
+    cout << "第四次出队元素: " << val << " (应输出40)" << endl;
+
+    // 测试空队列
+    cout << "空队列出队结果: " << q.pop(val) << " (应返回2 underflow)" << endl;
+
+    return 0;
+}
+```
+
+### 双端队列（了解）
+
+![alt text](0_images/3_5_双端口队列.png)
+
+## 栈和队列的应用
+
+看一看书，队列的遍历非常重要！！！
+
+![alt text](0_images/3_6_队列在遍历之中的应用.png)
+
+## 数组（了解）
+
+
+
