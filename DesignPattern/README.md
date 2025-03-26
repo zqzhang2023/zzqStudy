@@ -596,3 +596,204 @@ int main(){
     return 0;
 }
 ```
+
+## 结构型模式
+
+描述如何将类和对象按某种布局组成更大的结构
+
+### 代理模式
+
+为其他对象提供一种代理以控制对该对象的访问
+
+
+- 远程（Remote）代理：为一个对象在不同地址空间提供局部代表
+  
+- 虚拟（Virtual）代理：在需要创建开销很大对象时缓存对象信息
+
+- 保护（Protection）代理：控制对原始对象的访问
+  
+- 智能引用（Smart Reference）代理：当一个对象被引用时，提供一些额外的操作，例如记录访问的流量和次数等
+
+结构：
+
+- 抽象主题类：通过接口或抽象类声明真实主题和代理对象实现的业务方法
+
+- 真实主题类：实现了抽象主题中的具体业务，是代理对象所代表的真实对象，是最终要引用的对象
+
+- 代理类：提供了与真实主题相同的接口，其内部含有对真实主题的引用，它可以访问、控制、扩展真实主图的功能
+
+![alt text](0_images/8_代理模式.png)
+
+样例：
+
+如果对象是一个大图片,需要花费很长时间才能显示出来，此时需要做个图片Proxy来代替真正的图片
+
+如果对象在某远端服务器上,直接操作这个对象因为网络速度原因可能比较慢，那我们可以先用Proxy来代替那个对象
+
+
+
+```cpp
+#include<iostream>
+#include<string>
+using namespace std;
+
+// 抽象主题接口
+class Image{
+public:
+    virtual void display() = 0;
+    virtual ~Image() = default;
+};
+
+// 真实主题类
+class RealImage: public Image{
+private:
+    string filename;
+    // 从磁盘之中加载图片
+    void loadFromDisk() {
+        cout << "Loading image: " << filename << " from disk" << endl;
+    }
+public:
+    RealImage(const string& filename):filename(filename){
+        loadFromDisk();
+    };
+
+    void display() override {
+        cout << "Displaying image: " << filename << endl;
+    }
+
+};
+
+// 代理类
+class ProxyImage :public Image{
+private:
+    RealImage* realImage = nullptr;
+    string filename;
+    bool accessAllowed = true; // 简单的访问控制标志
+
+    bool checkAccess() const {
+        // 这里可以添加更复杂的访问控制逻辑
+        return accessAllowed;
+    }
+
+    void logAccess() {
+        cout << "Logged access to image: " << filename << endl;
+    }
+    
+public:
+    ProxyImage(const string& filename) : filename(filename) {}
+
+    void display() override {
+        if (!checkAccess()) {
+            std::cout << "Access denied for image: " << filename << std::endl;
+            return;
+        }
+
+        if (realImage == nullptr) {
+            realImage = new RealImage(filename); // 延迟初始化
+        }
+        realImage->display();
+        logAccess();
+    }
+
+    ~ProxyImage() {
+        delete realImage;
+    }
+
+};
+
+
+
+int main(){
+
+    Image* image1 = new ProxyImage("photo1.jpg");
+    Image* image2 = new ProxyImage("photo2.jpg");
+
+    // 第一次访问会加载图片
+    image1->display(); 
+
+    // 第二次访问直接显示（已加载）
+    image1->display();
+
+    image2->display();
+
+    delete image1;
+    delete image2;
+    
+    return 0;
+}
+```
+
+
+### 适配器模式
+
+将一个类的接口换成客户希望的另一个接口，使得原本由于接口不兼容而不能在一起工作那些类能一起工作
+
+分类：
+
+- 类适配器模式（耦合更高，应用较少）
+
+- 对象适配器模式
+
+结构：
+
+- 目标接口：当前系统业务所期待的接口，它可以是抽象类或者接口
+
+- 适配者类：它是被访问和适配的现存主件库中的组件接口
+
+- 适配器类：它是一个转换器，通过继承或引用适配者的对象，把适配者接口转换成目标接口，让客户按照目标接口的格式访问适配者
+
+
+```cpp
+#include<iostream>
+using namespace std;
+
+// 目标接口（Target Interface） - 客户端期望的充电器规格
+class Charger{
+public:
+    virtual void charge() const = 0;
+    virtual ~Charger() = default;
+};
+
+
+// 被适配者（Adaptee） - 已存在的欧洲插头实现
+class EuroPlug{
+public:
+    void specificCharge() const {
+        cout << "⚡ 使用欧洲插头充电 (220V)" << endl;
+    }
+};
+
+// 适配器（Adapter） - 将欧洲插头适配到标准充电器接口
+class EuroChargerAdapter : public Charger{
+private:
+    EuroPlug* euroPlug_;  // 持有被适配对象的指针
+public:
+    EuroChargerAdapter(EuroPlug* plug){
+        this->euroPlug_ = plug;
+    }
+
+    void charge() const override {
+        if(euroPlug_) {
+            //使用转接口之后，就可以用欧洲的插头了
+            cout << "🔌 使用电源适配器转换" << endl;
+            euroPlug_->specificCharge();
+        }
+    }
+
+};
+
+// 客户端代码
+int main() {
+    // 创建被适配的欧洲插头
+    EuroPlug euroPlug;
+    
+    // 创建适配器并将欧洲插头接入
+    Charger* charger = new EuroChargerAdapter(&euroPlug);
+    
+    // 使用标准接口充电
+    charger->charge();
+    
+    delete charger;
+    return 0;
+}
+```
