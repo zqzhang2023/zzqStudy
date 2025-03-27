@@ -22,6 +22,7 @@ public:
 };
 
 int main() {
-    Singleton::getInstance().testFunction();
+    cout<<&Singleton::getInstance()<<endl;
+    cout<<&Singleton::getInstance()<<endl;
     return 0;
 }
