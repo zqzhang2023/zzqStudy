@@ -884,3 +884,282 @@ int main(){
     delete espressoWithMochaMilk;
 }
 ```
+
+### 桥接模式
+
+​ 将抽象和实现分离，使它们可以独立变化。它是组合关系代替继承关系来实现的，从而降低了抽象和实现这两个可变维度的耦合度。
+
+![alt text](0_images/10_桥接模式引例.png)
+
+结构：
+
+- 抽象化角色：定义抽象类，并包含一个对实现化角色的引用
+
+- 扩展抽象化角色：是抽象化角色的子类，实现父类中的业务方法，并通过组合关系调用实现化角色中的业务方法
+  
+- 实现化角色：定义实现化角色的接口，供扩展抽象化角色调用
+
+- 具体实现化角色：给出实现化角色接口的具体实现
+
+
+![alt text](0_images/11_桥接模式.png)
+
+
+```cpp
+#include<iostream>
+#include<memory>
+#include<string>
+using namespace std;
+
+class DrawAPI{
+public:
+    virtual void draw(const string& shape) = 0;
+    virtual ~DrawAPI() = default;
+};
+
+// 具体实现：使用OpenGL绘图
+class OpenGLAPI:public DrawAPI{
+public:
+    void draw(const string& shape) override{
+        cout << "OpenGL绘制: "<<shape<< endl;
+    }
+};
+
+// 具体实现：使用DirectX绘图
+class DirectXAPI: public DrawAPI{
+public:
+void draw(const string& shape) override{
+    cout << "DirectX绘制: "<<shape<< endl;
+}
+};
+
+// 抽象部分：图形基类
+class Shape{
+protected:
+    unique_ptr<DrawAPI> drawAPI;
+public:
+    Shape(DrawAPI * api):drawAPI(api){};
+    virtual void draw() = 0;
+    virtual ~Shape() = default;
+};
+
+//圆形
+class Circle:public Shape{
+private:
+    string myShape;
+public:
+    Circle(string shape,DrawAPI * api):Shape(api),myShape(shape){};
+    void draw() override{
+        drawAPI->draw(this->myShape);
+    }
+};
+
+//矩形
+class Rectangle:public Shape{
+private:
+    string myShape;
+public:
+    Rectangle(string shape,DrawAPI * api):Shape(api),myShape(shape){};
+    void draw() override{
+        drawAPI->draw(this->myShape);
+    }
+};
+
+int main(){
+
+    // 使用OpenGL绘制圆形
+    unique_ptr<Shape> circle = make_unique<Circle>("圆形", new OpenGLAPI());
+    // 使用DirectX绘制矩形
+    unique_ptr<Shape> rect = make_unique<Rectangle>("矩形", new DirectXAPI());
+    
+    circle->draw();
+    rect->draw();
+
+    // 测试其他组合
+    Shape* openglRect = new Rectangle("矩形", new OpenGLAPI());
+    Shape* directxCircle = new Circle("圆形", new DirectXAPI());
+    
+    openglRect->draw();
+    directxCircle->draw();
+    
+    delete openglRect;
+    delete directxCircle;
+
+    return 0;
+}
+```
+### 外观模式
+
+![alt text](0_images/12_外观模式引例.png)
+
+结构：
+
+- 外观角色：为多个子系统对外提供一个共同的接口
+
+- 子系统角色：实现系统的部分功能，客户可以通过外观角色访问它
+
+```cpp
+#include<iostream>
+using namespace std;
+
+//子系统类：音频解码器
+class AudioDecoder{
+public:
+    void decodeAudio(const string& file){
+        cout << "解码音频: " << file << endl;
+    }
+};
+
+//子系统类：视频解码器
+class VideoDecoder {
+public:
+    void decodeVideo(const string& file){
+        cout << "解码视频: " << file << endl;
+    }
+};
+
+//子系统类：文件加载器
+class FileLoader {
+public:
+    string load(const string& path){
+        cout << "加载文件: " << path << endl;
+        return path.substr(path.find_last_of("/") + 1);
+    }
+};
+
+//外观类：封装多媒体播放的复杂操作
+class PlaybackManager{
+private:
+    FileLoader    fileLoader;
+    AudioDecoder  audioDecoder;
+    VideoDecoder  videoDecoder;
+
+public:
+    void play(const string& filePath) {
+        string fileName = fileLoader.load(filePath);
+        audioDecoder.decodeAudio(fileName);
+        videoDecoder.decodeVideo(fileName);
+        cout << "开始播放 " << fileName << endl;
+    }
+
+};
+
+// 客户端代码
+int main() {
+    PlaybackManager player;
+    player.play("/media/movie.mp4");
+    return 0;
+}
+```
+
+### 组合模式
+部分整体模式，是用于把一组相似的对象当做一个单一的对象，组合模式依据树形结构来组合对象，用来表示部分以及整体层次。这种类型的设计模式属于结构型模式，她创建了对象组的树形结构。
+
+![alt text](0_images/13_组合模式引例.png)
+
+结构：
+
+- 抽象根节点：定义系统各层次对象共有方法和属性，可以预先定义一些默认行为和属性
+
+- 树枝节点：定义树枝节点的行为，存储子节点，组合树枝节点和叶子节点形成一个树形结构
+
+- 叶子节点：叶子节点对象，其下再无分支，是系统层次遍历的最小单位
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <memory>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+//抽象接口
+class FileSystemComponent{
+public:
+    virtual void display(int depth = 0) const = 0;
+    virtual size_t getSize() const = 0;
+    virtual ~FileSystemComponent() = default;
+};
+
+// 叶子节点：文件
+class File : public FileSystemComponent {
+private:
+    string name_;
+    size_t size_;
+public:
+    File(const string& name,size_t size):name_(name),size_(size){}
+
+    void display(int depth = 0) const override{
+        cout << string(depth, '\t') << "📄 " << name_ 
+            << " (" << size_ << " bytes)" << endl;
+    }
+
+    size_t getSize() const override { return size_; }
+};
+
+// 复合节点：目录
+class Directory:public FileSystemComponent{
+private:
+    string name_;
+    vector<shared_ptr<FileSystemComponent>> children_;
+public:
+    Directory(const string& name) : name_(name) {}
+
+    void addComponent(shared_ptr<FileSystemComponent> component){
+        children_.push_back(component);
+    }
+
+    void removeComponent(shared_ptr<FileSystemComponent> component){
+        children_.erase(
+            remove(children_.begin(), children_.end(), component),
+            children_.end()
+        );
+    }
+
+    void display(int depth = 0) const override {
+        cout << string(depth, '\t') << "📁 " << name_ 
+            << " [" << getSize() << " bytes]" << endl;
+
+        for (const auto& child : children_) {
+            child->display(depth + 1);
+        }
+    }
+
+    size_t getSize() const override {
+        size_t total = 0;
+        for (const auto& child : children_) {
+            total += child->getSize();
+        }
+        return total;
+    }
+};
+
+int main(){
+    // 创建文件
+    auto file1 = make_shared<File>("document.txt", 1500);
+    auto file2 = make_shared<File>("image.jpg", 2500);
+    auto file3 = make_shared<File>("notes.md", 800);
+
+    // 创建子目录
+    auto subdir = make_shared<Directory>("Downloads");
+    subdir->addComponent(file2);
+    subdir->addComponent(file3);
+
+    // 创建根目录
+    auto root = make_shared<Directory>("Root");
+    root->addComponent(file1);
+    root->addComponent(subdir);
+
+    // 添加另一个文件到根目录
+    root->addComponent(make_shared<File>("backup.zip", 4200));
+
+    // 显示整个结构
+    cout << "File System Structure:\n";
+    root->display();
+
+    cout << "\nTotal size of root: " 
+            << root->getSize() << " bytes" << endl;
+
+    return 0;
+}
+```
