@@ -1,0 +1,3 @@
+/home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/build/CMakeFiles/transcode.dir
+/home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/build/CMakeFiles/edit_cache.dir
+/home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/build/CMakeFiles/rebuild_cache.dir
