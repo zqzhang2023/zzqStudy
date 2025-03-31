@@ -459,4 +459,973 @@ int main(){
 ## 数组（了解）
 
 
+# 第六章 图
 
+## 图的基本概念
+
+## 图的存储以及基本操作
+
+```cpp
+#include<iostream>
+#include<vector>
+using namespace std;
+
+class GraphMatrix{
+private:
+    int nodeNum = 5;
+    int data[5][5];
+public:
+    GraphMatrix(){
+        for(int i=0;i<nodeNum;i++){
+            for(int j=0;j<nodeNum;j++){
+                data[i][j] = 0;
+            }
+        }
+        data[0][1] = 1;   // 0 -> 1
+        data[0][3] = 1;   // 0 -> 3
+        data[1][4] = 1;   // 1 -> 4
+        data[2][4] = 1;   // 2 -> 4
+        data[3][1] = 1;   // 3 -> 1
+        data[4][3] = 1;   // 4 -> 3
+    }
+
+    int firstNeighbor(int x){
+        if(x>nodeNum-1||x<0){
+            return -1;
+        }
+
+        for (int  i = 0; i < nodeNum; i++){
+            if(data[x][i]!=0){
+                return i;
+            }
+        }
+
+        return -1;
+        
+    }
+
+    int nextNeighbor(int x,int y){
+        if(x>nodeNum-1||x<0){
+            return -1;
+        }
+        if(y>nodeNum-1||y<0){
+            return -1;
+        }
+
+        for (int  i = y+1; i < nodeNum; i++){
+            if(data[x][i]!=0){
+                return i;
+            }
+        }
+        return -1;   
+    }
+};
+
+class GraphTable{
+private:
+    const int nodeNum = 5;
+    vector<int> data[5];
+public:
+    GraphTable(){
+        data[0].push_back(1);   // 0 -> 1
+        data[0].push_back(3);   // 0 -> 3
+        data[1].push_back(4);   // 1 -> 4
+        data[2].push_back(4);   // 2 -> 4
+        data[3].push_back(1);   // 3 -> 1
+        data[4].push_back(3);   // 4 -> 3
+    }
+
+    int firstNeighbor(int x) {
+        if (x < 0 || x >= nodeNum || data[x].empty()) {
+            return -1;
+        }
+        return data[x][0];
+    }
+
+    int nextNeighbor(int x, int y) {
+        if (x < 0 || x >= nodeNum || y < 0 || y >= nodeNum) {
+            return -1;
+        }
+        for (int i = 0; i < data[x].size(); ++i) {
+            if (data[x][i] == y) {
+                if (i + 1 < data[x].size()) {
+                    return data[x][i + 1];
+                } else {
+                    return -1;
+                }
+            }
+        }
+        return -1;
+    }
+};
+
+
+int main(){
+    // 测试 GraphMatrix
+    GraphMatrix gm;
+    cout << "Testing GraphMatrix:" << endl;
+    for (int x = 0; x < 5; x++) {
+        cout << "Node " << x << " neighbors: ";
+        int current = gm.firstNeighbor(x);
+        if (current == -1) {
+            cout << "None" << endl;
+            continue;
+        }
+        cout << current;
+        while ((current = gm.nextNeighbor(x, current)) != -1) {
+            cout << ", " << current;
+        }
+        cout << endl;
+    }
+
+    // 测试 GraphTable
+    GraphTable gt;
+    cout << "\nTesting GraphTable:" << endl;
+    for (int x = 0; x < 5; x++) {
+        cout << "Node " << x << " neighbors: ";
+        int current = gt.firstNeighbor(x);
+        if (current == -1) {
+            cout << "None" << endl;
+            continue;
+        }
+        cout << current;
+        while ((current = gt.nextNeighbor(x, current)) != -1) {
+            cout << ", " << current;
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+这个例子有点取巧了，对于临接表法的处理，因为是存储的node是int型的，而且连续的，所以直接使用下标作为顶点表了
+
+## 图的遍历
+
+```cpp
+#include<iostream>
+#include<queue>
+using namespace std;
+
+class GraphMatrix{
+private:
+    int nodeNum = 5;
+    int data[5][5];
+    bool visited[5];
+public:
+    GraphMatrix(){
+        for(int i=0;i<nodeNum;i++){
+            for(int j=0;j<nodeNum;j++){
+                data[i][j] = 0;
+            }
+        }
+        data[0][1] = 1;   // 0 -> 1
+        data[0][3] = 1;   // 0 -> 3
+        data[1][4] = 1;   // 1 -> 4
+        data[2][4] = 1;   // 2 -> 4
+        data[3][1] = 1;   // 3 -> 1
+        data[4][3] = 1;   // 4 -> 3
+    }
+
+    int firstNeighbor(int x){
+        if(x>nodeNum-1||x<0){
+            return -1;
+        }
+
+        for (int  i = 0; i < nodeNum; i++){
+            if(data[x][i]!=0){
+                return i;
+            }
+        }
+
+        return -1;
+        
+    }
+
+    int nextNeighbor(int x,int y){
+        if(x>nodeNum-1||x<0||y>nodeNum-1||y<0){
+            return -1;
+        }
+        for (int  i = y+1; i < nodeNum; i++){
+            if(data[x][i]!=0){
+                return i;
+            }
+        }
+        return -1;   
+    }
+
+    //广度优先遍历BFS Traverse
+    void BFSTraverse(){
+        //初始化 visited
+        for(int i=0;i<nodeNum;i++){
+            visited[i] = false;
+        };
+        //遍历 为了防止这个图是非连通图，所以必须这么写
+        for(int i=0;i<nodeNum;i++){
+            if (!visited[i]) {
+                BFS(i);
+            }
+            
+        };
+    }
+
+    void BFS(int node){
+        queue<int> bfsQueue;
+        bfsQueue.push(node);
+        cout<<node<<" ";
+        visited[node] = true;
+        while(!bfsQueue.empty()){
+            int temp = bfsQueue.front();
+            bfsQueue.pop();
+            for (int i = firstNeighbor(temp); i != -1; i = nextNeighbor(temp,i)) {
+                if (!visited[i]){
+                    bfsQueue.push(i);
+                    cout<<i<<" ";
+                    visited[i] = true;
+                }
+                
+            }
+            
+        }
+    }
+    //深度优先搜索DFS Traverse
+    void DFSTraverse(){
+        //初始化 visited
+        for(int i=0;i<nodeNum;i++){
+            visited[i] = false;
+        };
+        //遍历 为了防止这个图是非连通图，所以必须这么写
+        for(int i=0;i<nodeNum;i++){
+            if (!visited[i]) {
+                DFS(i);
+            }
+            
+        };
+    }
+
+    void DFS(int node){
+        cout<<node<<" ";
+        visited[node]=true;
+        for (int i = firstNeighbor(node); i != -1; i = nextNeighbor(node,i)){
+            if (!visited[i]){
+                DFS(i);
+            }
+            
+        }
+        
+    }
+
+};
+
+
+class GraphTable{
+private:
+    const int nodeNum = 5;
+    vector<int> data[5];
+    bool visited[5];
+public:
+    GraphTable(){
+        data[0].push_back(1);   // 0 -> 1
+        data[0].push_back(3);   // 0 -> 3
+        data[1].push_back(4);   // 1 -> 4
+        data[2].push_back(4);   // 2 -> 4
+        data[3].push_back(1);   // 3 -> 1
+        data[4].push_back(3);   // 4 -> 3
+    }
+
+    int firstNeighbor(int x) {
+        if (x < 0 || x >= nodeNum || data[x].empty()) {
+            return -1;
+        }
+        return data[x][0];
+    }
+
+    int nextNeighbor(int x, int y) {
+        if (x < 0 || x >= nodeNum || y < 0 || y >= nodeNum) {
+            return -1;
+        }
+        for (int i = 0; i < data[x].size(); ++i) {
+            if (data[x][i] == y) {
+                if (i + 1 < data[x].size()) {
+                    return data[x][i + 1];
+                } else {
+                    return -1;
+                }
+            }
+        }
+        return -1;
+    }
+
+
+        //广度优先遍历BFS Traverse
+    void BFSTraverse(){
+        //初始化 visited
+        for(int i=0;i<nodeNum;i++){
+            visited[i] = false;
+        };
+        //遍历 为了防止这个图是非连通图，所以必须这么写
+        for(int i=0;i<nodeNum;i++){
+            if (!visited[i]) {
+                BFS(i);
+            }
+            
+        };
+    }
+
+    void BFS(int node){
+        queue<int> bfsQueue;
+        bfsQueue.push(node);
+        cout<<node<<" ";
+        visited[node] = true;
+        while(!bfsQueue.empty()){
+            int temp = bfsQueue.front();
+            bfsQueue.pop();
+            for (int i = firstNeighbor(temp); i != -1; i = nextNeighbor(temp,i)) {
+                if (!visited[i]){
+                    bfsQueue.push(i);
+                    cout<<i<<" ";
+                    visited[i] = true;
+                }
+                
+            }
+            
+        }
+    }
+    //深度优先搜索DFS Traverse
+    void DFSTraverse(){
+        //初始化 visited
+        for(int i=0;i<nodeNum;i++){
+            visited[i] = false;
+        };
+        //遍历 为了防止这个图是非连通图，所以必须这么写
+        for(int i=0;i<nodeNum;i++){
+            if (!visited[i]) {
+                DFS(i);
+            }
+            
+        };
+    }
+
+    void DFS(int node){
+        cout<<node<<" ";
+        visited[node]=true;
+        for (int i = firstNeighbor(node); i != -1; i = nextNeighbor(node,i)){
+            if (!visited[i]){
+                DFS(i);
+            }
+            
+        }
+        
+    }
+};
+
+int main(){
+
+     // 测试 GraphMatrix
+     GraphMatrix gm;
+     cout << "Testing GraphMatrix:" << endl;
+     for (int x = 0; x < 5; x++) {
+         cout << "Node " << x << " neighbors: ";
+         int current = gm.firstNeighbor(x);
+         if (current == -1) {
+             cout << "None" << endl;
+             continue;
+         }
+         cout << current;
+         while ((current = gm.nextNeighbor(x, current)) != -1) {
+             cout << ", " << current;
+         }
+         cout << endl;
+     }
+ 
+     // 测试 GraphMatrix 的 BFS 和 DFS
+     cout << "\nTesting GraphMatrix BFS and DFS:" << endl;
+     cout << "BFS starting from 0: ";
+     gm.BFSTraverse();
+     cout<<endl;
+     cout << "DFS starting from 0: ";
+     gm.DFSTraverse();
+     cout<<endl;
+ 
+     // 测试 GraphTable
+     GraphTable gt;
+     cout << "\nTesting GraphTable:" << endl;
+     for (int x = 0; x < 5; x++) {
+         cout << "Node " << x << " neighbors: ";
+         int current = gt.firstNeighbor(x);
+         if (current == -1) {
+             cout << "None" << endl;
+             continue;
+         }
+         cout << current;
+         while ((current = gt.nextNeighbor(x, current)) != -1) {
+             cout << ", " << current;
+         }
+         cout << endl;
+     }
+ 
+     // 测试 GraphTable 的 BFS 和 DFS
+     cout << "\nTesting GraphTable BFS and DFS:" << endl;
+     cout << "BFS starting from 0: ";
+     gt.BFSTraverse();
+     cout<<endl;
+     cout << "DFS starting from 0: ";
+     gt.DFSTraverse();
+     cout<<endl;
+ 
+    
+
+    return 0;
+}
+```
+
+基本思路是这样的，这里要注意，不管是邻接表还是邻接矩阵，只要实现了基础的firstNeighbor与nextNeighbor函数，其流程基本上是差不多的，这个可以多看看，注意理解！！！
+
+## 最小生成树
+
+prim算法与Kruskal算法
+```cpp
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+class GraphMatrix{
+private:
+    int nodeNum = 6;
+    int data[6][6];
+public:
+    GraphMatrix(){
+        for(int i=0;i<nodeNum;i++){
+            for(int j=0;j<nodeNum;j++){
+                data[i][j] = 0;
+            }
+        }
+        data[0][1] = 6;data[0][2] = 1;data[0][3] = 5;
+        data[1][0] = 6;data[1][2] = 5;data[1][4] = 3;
+        data[2][0] = 1;data[2][1] = 5;data[2][4] = 6;data[2][5] = 4;data[2][3] = 5;
+        data[3][0] = 5;data[3][2] = 5;data[3][5] = 2;
+        data[4][1] = 3;data[4][2] = 6;data[4][5] = 6;
+        data[5][4] = 6;data[5][2] = 4;data[5][3] = 2;
+    }
+
+    int firstNeighbor(int x){
+        if(x>nodeNum-1||x<0){
+            return -1;
+        }
+
+        for (int  i = 0; i < nodeNum; i++){
+            if(data[x][i]!=0){
+                return i;
+            }
+        }
+
+        return -1;
+        
+    }
+
+    int nextNeighbor(int x,int y){
+        if(x>nodeNum-1||x<0||y>nodeNum-1||y<0){
+            return -1;
+        }
+        for (int  i = y+1; i < nodeNum; i++){
+            if(data[x][i]!=0){
+                return i;
+            }
+        }
+        return -1;   
+    }
+
+    int getWeight(int x,int y){
+        if(x>nodeNum-1||x<0||y>nodeNum-1||y<0){
+            return -1;
+        }
+        return data[x][y];
+    }
+
+};
+
+
+void prim(GraphMatrix &graph) {
+    const int n = 6;
+    int parent[n];   // 存储MST中节点的父节点
+    int key[n];      // 存储各节点到MST的最小权重
+    bool mstSet[n];  // 记录节点是否在MST中
+
+
+    // 初始化
+    for(int i=0; i<n; i++) {
+        key[i] = 9999;
+        mstSet[i] = false;
+    }
+
+    key[0] = 0;      // 选择节点0作为起始点
+    parent[0] = -1;  // 起始点没有父节点
+
+    // 构建MST需要n-1次迭代 有n个点就得有n-1个边
+    for(int count=0; count < n-1; count++) {
+        // 找出当前未加入MST且key最小的节点
+        int u = -1;
+        int minKey = 9999;
+        for(int i=0; i<n; i++) {
+            if(!mstSet[i] && key[i] < minKey) {
+                minKey = key[i];
+                u = i;
+            }
+        }
+
+        if(u == -1) break;  // 图不连通，无法形成MST
+
+        mstSet[u] = true;  // 将节点u加入MST
+
+        // 更新u的邻接节点的key值和父节点
+        for(int v = graph.firstNeighbor(u);v!=-1;v = graph.nextNeighbor(u, v)){
+            int weight = graph.getWeight(u, v);
+            if(!mstSet[v] && weight < key[v]) {
+                parent[v] = u;
+                key[v] = weight;
+            }
+        }
+    }
+
+
+    // 输出MST
+    cout << "Prim's MST:" << endl;
+    int totalWeight = 0;
+    for(int i=1; i<n; i++) {
+        int w = graph.getWeight(parent[i], i);
+        cout << parent[i] << " - " << i << " \tWeight: " << w << endl;
+        totalWeight += w;
+    }
+    cout << "Total Weight: " << totalWeight << endl << endl;
+}
+
+
+// Kruskal算法所需的数据结构
+struct Edge {
+    int u, v, weight;
+    Edge(int u, int v, int w) : u(u), v(v), weight(w) {}
+    bool operator<(const Edge &other) const {
+        return weight < other.weight;
+    }
+};
+
+// 并查集实现
+class UnionFind {
+private:
+    vector<int> parent;
+public:
+    UnionFind(int size) {
+        parent.resize(size);
+        for(int i=0; i<size; i++) parent[i] = i;
+    }
+
+    int find(int x) {
+        if(parent[x] != x)
+            parent[x] = find(parent[x]);  // 路径压缩
+        return parent[x];
+    }
+
+    void unite(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        if(rootX != rootY)
+            parent[rootX] = rootY;
+    }
+};
+
+
+// Kruskal算法实现
+void kruskal(GraphMatrix &graph) {
+    vector<Edge> edges;
+    // 收集所有无向边（只保存u < v的情况避免重复）
+    for(int u=0; u<6; u++) {
+        int v = graph.firstNeighbor(u);
+        while(v != -1) {
+            if(u < v) {  // 避免重复添加边
+                edges.emplace_back(u, v, graph.getWeight(u, v));
+            }
+            v = graph.nextNeighbor(u, v);
+        }
+    }
+
+    sort(edges.begin(), edges.end());
+
+    UnionFind uf(6);
+    vector<Edge> mst;
+    int totalWeight = 0;
+
+    // 遍历所有边构建MST
+    for(Edge &e : edges) {
+        if(uf.find(e.u) != uf.find(e.v)) {
+            uf.unite(e.u, e.v);
+            mst.push_back(e);
+            totalWeight += e.weight;
+            if(mst.size() == 5) break;  // MST有n-1条边
+        }
+    }
+
+    // 输出结果
+    cout << "Kruskal's MST:" << endl;
+    for(Edge &e : mst) {
+        cout << e.u << " - " << e.v << " \tWeight: " << e.weight << endl;
+    }
+    cout << "Total Weight: " << totalWeight << endl;
+}
+
+
+int main(){
+    GraphMatrix graph;
+    prim(graph);
+    kruskal(graph);
+    return 0;
+}
+```
+
+## 最短路径
+
+dijkstra算法和floyd算法
+
+```cpp
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+class GraphMatrix{
+private:
+    int nodeNum = 5;
+    int data[5][5];
+public:
+    GraphMatrix(){
+        for(int i=0;i<nodeNum;i++){
+            for(int j=0;j<nodeNum;j++){
+                data[i][j] = 0;
+            }
+        }
+        data[0][1] = 10;data[0][4] = 5;
+        data[1][4] = 2;data[1][2] = 1;
+        data[2][3] = 4;
+        data[3][2] = 6;data[3][0] = 7;
+        data[4][1] = 3;data[4][2] = 9;data[4][3] = 2;
+    }
+
+    int firstNeighbor(int x){
+        if(x>nodeNum-1||x<0){
+            return -1;
+        }
+
+        for (int  i = 0; i < nodeNum; i++){
+            if(data[x][i]!=0){
+                return i;
+            }
+        }
+
+        return -1;
+        
+    }
+
+    int nextNeighbor(int x,int y){
+        if(x>nodeNum-1||x<0||y>nodeNum-1||y<0){
+            return -1;
+        }
+        for (int  i = y+1; i < nodeNum; i++){
+            if(data[x][i]!=0){
+                return i;
+            }
+        }
+        return -1;   
+    }
+
+    int getWeight(int x,int y){
+        if(x>nodeNum-1||x<0||y>nodeNum-1||y<0){
+            return -1;
+        }
+        return data[x][y];
+    }
+
+};
+
+
+void dijkstra(GraphMatrix &graph) {
+    const int nodeNum = 5;
+    const int INF = 999999;
+    int dist[nodeNum];
+    bool visited[nodeNum] = {false};
+
+    for (int i = 0; i < nodeNum; i++){
+        dist[i] = INF;
+    }
+    dist[0] = 0;
+
+    for (int count = 0; count < nodeNum; count++) {
+        int u = -1, minDist = INF;
+        for (int i = 0; i < nodeNum; i++) {
+            if (!visited[i] && dist[i] < minDist) {
+                minDist = dist[i];
+                u = i;
+            }
+        }
+        if (u == -1) break;
+
+        visited[u] = true;
+
+        for(int v = graph.firstNeighbor(u);v!=-1;v = graph.nextNeighbor(u, v)){
+            int weight = graph.getWeight(u, v);
+            if (!visited[v] && dist[u] != INF && dist[u] + weight < dist[v]) {
+                dist[v] = dist[u] + weight;
+            }
+        }
+
+    }
+
+    cout << "Dijkstra算法（起点0）的最短路径：" << endl;
+    for (int i = 0; i < nodeNum; i++) {
+        if (dist[i] != INF)
+            cout << "0->" << i << " 的最短距离: " << dist[i] << endl;
+        else
+            cout << "0->" << i << " 不可达" << endl;
+    }
+}
+
+void floyd(GraphMatrix &graph) {
+    const int nodeNum = 5;
+    const int INF = 999999;
+    int dist[nodeNum][nodeNum];
+
+    //设置一下，有边则距离设置为边的权重，反之，设置为无穷大
+    for (int i = 0; i < nodeNum; i++) {
+        for (int j = 0; j < nodeNum; j++) {
+            if (i == j) dist[i][j] = 0;
+            else {
+                int w = graph.getWeight(i, j);
+                dist[i][j] = (w != 0) ? w : INF;
+            }
+        }
+    }
+
+    for (int k = 0; k < nodeNum; k++){
+        for (int i = 0; i < nodeNum; i++){
+            for (int j = 0; j < nodeNum; j++){
+                if (dist[i][k]!=INF&&dist[k][j]!=INF&&dist[i][j]>dist[i][k]+dist[k][j]) {
+                    dist[i][j]=dist[i][k]+dist[k][j];
+                }
+                
+            } 
+        }
+    }
+
+
+    cout << "\nFloyd算法的所有顶点对最短路径：" << endl;
+    for (int i = 0; i < nodeNum; i++) {
+        for (int j = 0; j < nodeNum; j++) {
+            if (dist[i][j] == INF) cout << "INF\t";
+            else cout << dist[i][j] << "\t";
+        }
+        cout << endl;
+    }
+    
+}
+
+int main(){
+    GraphMatrix graph;
+    dijkstra(graph);
+    floyd(graph);
+    return 0;
+}
+```
+
+
+## 拓扑排序
+
+```cpp
+#include<iostream>
+#include<queue>
+#include<algorithm>
+#include<vector>
+using namespace std;
+
+class GraphMatrix{
+private:
+    int nodeNum = 5;
+    int data[5][5];
+public:
+    GraphMatrix(){
+        for(int i=0;i<nodeNum;i++){
+            for(int j=0;j<nodeNum;j++){
+                data[i][j] = 0;
+            }
+        }
+        data[0][1] = 1;data[0][3] = 1;
+        data[1][3] = 1;data[1][2] = 1;
+        data[2][4] = 1;
+        data[3][2] = 1;data[3][4] = 1;
+    }
+
+    int firstNeighbor(int x){
+        if(x>nodeNum-1||x<0){
+            return -1;
+        }
+
+        for (int  i = 0; i < nodeNum; i++){
+            if(data[x][i]!=0){
+                return i;
+            }
+        }
+
+        return -1;
+        
+    }
+
+    int nextNeighbor(int x,int y){
+        if(x>nodeNum-1||x<0||y>nodeNum-1||y<0){
+            return -1;
+        }
+        for (int  i = y+1; i < nodeNum; i++){
+            if(data[x][i]!=0){
+                return i;
+            }
+        }
+        return -1;   
+    }
+
+    int getWeight(int x,int y){
+        if(x>nodeNum-1||x<0||y>nodeNum-1||y<0){
+            return -1;
+        }
+        return data[x][y];
+    }
+
+    int indegree(int x){
+        if(x>nodeNum-1||x<0){
+            return -1;
+        }
+        int result = 0;
+        for(int i = 0; i < nodeNum; i++) {
+            if(data[i][x] != 0) { // 计算入度
+                result++;
+            }
+        }
+        return result;
+    }
+
+};
+
+
+vector<int> topologicalSort(GraphMatrix &graph) {
+    const int nodeNum = 5; // 节点数固定为5
+    vector<int> inDegree(nodeNum);
+    for (int i = 0; i < nodeNum; ++i) {
+        inDegree[i] = graph.indegree(i);
+    }
+
+    queue<int> q;
+    for (int i = 0; i < nodeNum; ++i) {
+        if (inDegree[i] == 0) {
+            q.push(i);
+        }
+    }
+
+    vector<int> result;
+    while (!q.empty()){
+        int u = q.front();
+        q.pop();
+        result.push_back(u);
+        for(int v = graph.firstNeighbor(u);v!=-1;v = graph.nextNeighbor(u, v)){
+            if (--inDegree[v] == 0) {
+                q.push(v);
+            }
+        }
+    }
+
+    if (result.size() != nodeNum) {
+        return {}; // 存在环
+    }
+    return result;
+}
+
+
+int main() {
+    GraphMatrix graph;
+    vector<int> sorted = topologicalSort(graph);
+
+    if (sorted.empty()) {
+        cout << "图中存在环，无法进行拓扑排序" << endl;
+    } else {
+        cout << "拓扑排序结果：";
+        for (int node : sorted) {
+            cout << node << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+## 关键路径(看书吧哥，这个好复杂)
+
+# 第七章 查找
+
+## 基本概念
+
+## 顺序查找和折半查找
+
+### 顺序查找
+
+1.一般顺序查找
+
+很简单，直接遍历
+
+2.有序线性表的顺序查找
+
+也是遍历，但是如果之前的都是小于findKey,突然值大于了findKey,那么就不必再查找了，就直接停止遍历(因为是有序的)
+
+- 1 3 5 7 9 11 13 15 17 19 21 23 25
+- findKey = 11 遍历的时候查找到11 成功返回index
+- findKey = 12 遍历的时候查找到11之前一直小于12,但是到下一个点13就突然大于12,那么就直接返回-1(错误处理的结果)就好，查找不到
+
+### 折半查找
+
+这个就不过多介绍了
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int data[10] = {2,5,7,11,13,17,19,23,29,31};
+    int findKey = 11;
+    int low=0,high=9,mid;
+    bool flag = false;
+    while (low<=high){
+        mid = (low + high)/2;
+        if(data[mid]==findKey){
+            cout<<"找到了! 位置为："<<mid<<endl;
+            flag = true;
+            break;
+        }
+        if(data[mid]>findKey){
+            high = mid - 1;
+        }
+        if(data[mid]<findKey){
+            low = mid + 1;
+        }
+    }
+
+    if(!flag){
+        cout<<"没找到"<<endl;
+    }
+    
+
+    return 0;
+}
+```
+
+
+分块查找：
+
+索引表折半，表内顺序
+
+![alt text](0_images/7_1_分块查找.png)

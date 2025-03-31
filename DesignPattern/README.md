@@ -1163,3 +1163,220 @@ int main(){
     return 0;
 }
 ```
+
+### 享元模式
+
+​运用共享技术来有效地支持大量细粒度对象的复用。它通过共享已经存在的对象来大幅度减少需要创建的对象数量、避免大量相似对象的开销，从而提高系统资源的利用率。
+
+内部状态。不会随着环境的改变而改变的可共享部分
+
+外部状态。随着环境的改变而改变的不可共享的部分。享元模式的实现要领就是区分应用中的这两种状态，并将外部状态外部化。
+
+引例：
+
+![alt text](0_images/14_享元模式引例.png)
+
+```cpp
+#include<iostream>
+#include <string>
+#include <unordered_map>
+#include <vector>
+using namespace std;
+
+// 享元对象：包含树木的固有属性（内部状态）
+class TreeType {
+private:
+    string name_;   // 内部状态
+    string color_;  // 内部状态
+    string texture_; // 内部状态
+public:
+    TreeType(const string& name, const string& color, const string& texture)
+        : name_(name), color_(color), texture_(texture) {}
+    
+    void draw(int x, int y, int age) const { // 外部状态作为参数
+        cout << "绘制 " << name_ << " 在 (" << x << ", " << y 
+                  << ")，颜色：" << color_ 
+                  << "，纹理：" << texture_
+                  << "，年龄：" << age << "年\n";
+    }
+};
+
+// 享元工厂
+class TreeFactory {
+private:
+    unordered_map<string,TreeType> treeTypes_;
+    // 生成唯一键
+    string makeKey(const string& name, 
+                const string& color, 
+                const string& texture) {
+        return name + "_" + color + "_" + texture;
+    }
+public:
+    const TreeType& getTreeType(const string& name, 
+                               const string& color, 
+                               const string& texture) {
+        string key = makeKey(name, color, texture);
+        // 如果不存在则创建新类型
+        if (treeTypes_.find(key) == treeTypes_.end()) {
+            cout << "创建新的树木类型: " << key << endl;
+            treeTypes_.emplace(key, TreeType(name, color, texture));
+        }
+        return treeTypes_.at(key);
+    }
+};
+
+// 包含外部状态的树木对象
+class Tree {
+private:
+    int x_;         // 外部状态
+    int y_;         // 外部状态
+    int age_;       // 外部状态
+    const TreeType& type_; // 指向享元的引用
+
+public:
+    Tree(int x, int y, int age, const TreeType& type)
+        : x_(x), y_(y), age_(age), type_(type) {}
+
+    void draw() const {
+        type_.draw(x_, y_, age_);
+    }
+};
+
+
+// 森林包含多个树木
+class Forest {
+private:
+    vector<Tree> trees_;
+    TreeFactory factory_;
+
+public:
+    void plantTree(int x, int y, int age,
+                   const string& name,
+                   const string& color,
+                   const string& texture) {
+        const TreeType& type = factory_.getTreeType(name, color, texture);
+        trees_.emplace_back(x, y, age, type);
+    }
+
+    void draw() const {
+        for (const auto& tree : trees_) {
+            tree.draw();
+        }
+    }
+};
+
+
+
+int main() {
+    Forest forest;
+    
+    // 种植不同类型的树
+    forest.plantTree(1, 2, 5, "松树", "深绿", "针叶纹理");
+    forest.plantTree(3, 4, 7, "橡树", "浅绿", "宽叶纹理");
+    forest.plantTree(5, 6, 3, "松树", "深绿", "针叶纹理"); // 复用已有类型
+    forest.plantTree(7, 8, 2, "白桦", "白色", "条纹纹理");
+    forest.plantTree(9, 0, 4, "橡树", "浅绿", "宽叶纹理"); // 复用已有类型
+
+    cout << "\n开始绘制森林：\n";
+    forest.draw();
+
+    return 0;
+}
+```
+
+## 行为型模式
+
+行为型模式用于描述程序在运行时复杂的流程控制，即描述多个类或对象之间怎样相互协作共同完成单个对象都无法完成的任务，涉及算法与对象之间职责的分配
+
+- 类行为型模式（继承实现）
+
+- 对象行为型模式（组合或聚合实现）（满足合成复用原则，灵活性高）
+
+### 模板方法模式
+
+![alt text](0_images/15_模板方法模引例.png)
+
+​ 定义一个操作中的算法骨架，而将算法的一些步骤延迟到子类中，使得子类可以不改变算法结构的情况下重定义该算法的某些特定步骤
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Beverage{
+public:
+    virtual void prepareBeverage() final {
+        boilWater();
+        brew();
+        pourInCup();
+        if (customerWantsCondiments()) { // 钩子方法
+            addCondiments();
+        }
+    }
+protected:
+    // 具体方法（已实现）
+    void boilWater() {
+        cout << "Boiling water" << endl;
+    }
+
+    void pourInCup() {
+        cout << "Pouring into cup" << endl;
+    }
+
+    // 抽象方法（需要子类实现）
+    virtual void brew() = 0;
+    virtual void addCondiments() = 0;
+
+    // 钩子方法（可选重写）
+    virtual bool customerWantsCondiments() {
+        return true; // 默认添加调料
+    }
+};
+
+// 具体子类：咖啡
+class Coffee:public Beverage{
+protected:
+    void brew() override {
+        std::cout << "Brewing coffee grounds" << std::endl;
+    }
+
+    void addCondiments() override {
+        std::cout << "Adding sugar and milk" << std::endl;
+    }
+
+    // 重写钩子方法
+    bool customerWantsCondiments() override {
+        char choice;
+        std::cout << "Would you like milk and sugar with your coffee? (y/n) ";
+        std::cin >> choice;
+        return choice == 'y' || choice == 'Y';
+    }
+};
+
+// 具体子类：茶
+class Tea : public Beverage {
+protected:
+    void brew() override {
+        std::cout << "Steeping the tea" << std::endl;
+    }
+
+    void addCondiments() override {
+        std::cout << "Adding lemon" << std::endl;
+    }
+
+    // 不重写钩子方法，保持默认添加调料
+};
+
+
+// 使用示例
+int main() {
+    std::cout << "Making coffee:" << std::endl;
+    Coffee coffee;
+    coffee.prepareBeverage();
+
+    std::cout << "\nMaking tea:" << std::endl;
+    Tea tea;
+    tea.prepareBeverage();
+
+    return 0;
+}
+```
