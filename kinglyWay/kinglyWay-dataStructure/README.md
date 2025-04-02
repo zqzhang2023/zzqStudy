@@ -411,9 +411,6 @@ public:
     }
 };
 
-
-
-
 int main(){
     Queue<int> q;
     int val;
@@ -457,7 +454,6 @@ int main(){
 ![alt text](0_images/3_6_队列在遍历之中的应用.png)
 
 ## 数组（了解）
-
 
 # 第六章 图
 

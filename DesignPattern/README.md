@@ -1380,3 +1380,502 @@ int main() {
     return 0;
 }
 ```
+
+
+### 策略模式
+
+​该模式定义了一系列算法，并将每个算法封装起来，使它们可以相互替换，且算法的变化不会影响到使用算法的用户，策略模式属于对象行为模式，通过对算法进行封装，把使用算法的责任和算法是实现分割开来，并委派给不同对象对这些算法进行管理
+
+结构:
+
+- 抽象策略类：通常由一个接口或抽象类来实现，此角色给出所有具体策略类所需的接口
+
+- 具体策略类：实现了抽象策略类所定义的接口，提供具体的算法实现或行为
+
+- 环境类：持有一个策略类的引用，最终给客户端调用
+
+策略模式引例
+
+![alt text](0_images/16_策略模式引例.png)
+
+
+```cpp
+#include<iostream>
+#include <memory>
+using namespace std;
+
+// 策略接口：支付方式
+class PaymentStrategy{
+public:
+    virtual void pay(double amount) const = 0;
+    virtual ~PaymentStrategy() = default;
+};
+
+// 具体策略：信用卡支付
+class CreditCardPayment:public PaymentStrategy{
+    void pay(double amount) const override{
+        cout << "使用信用卡支付：" << amount << "元" <<endl;;
+    }
+};
+
+// 具体策略：支付宝支付
+class AlipayPayment:public PaymentStrategy{
+public:
+    void pay(double amount) const override{
+        cout << "使用支付宝支付：" << amount << "元" <<endl;
+    }
+};
+
+// 具体策略：微信支付
+class WeChatPayment:public PaymentStrategy{
+public:
+    void pay(double amount) const override{
+        cout << "使用微信支付：" << amount << "元" <<endl;
+    }
+};
+
+// 上下文类：订单
+class Order{
+private:
+    unique_ptr<PaymentStrategy> thisPaymentStrategy;
+public:
+    void setPaymentStrategy(unique_ptr<PaymentStrategy> strategy){
+        thisPaymentStrategy = move(strategy);
+    }
+
+    void checkout(double amount){
+        if (thisPaymentStrategy) {
+            thisPaymentStrategy->pay(amount);
+        } else {
+            std::cout << "错误：未选择支付方式！\n";
+        }
+    }
+
+};
+
+
+int main(){
+
+    Order order;
+
+    // 使用信用卡支付
+    order.setPaymentStrategy(make_unique<CreditCardPayment>());
+    order.checkout(100.50);
+    
+    // 切换为支付宝支付
+    order.setPaymentStrategy(std::make_unique<AlipayPayment>());
+    order.checkout(200.0);
+    
+    // 切换为微信支付
+    order.setPaymentStrategy(std::make_unique<WeChatPayment>());
+    order.checkout(50.0);
+
+    return 0;
+}
+```
+
+### 命令模式
+
+将一个请求封装为一个对象，使发出请求的责任和执行请求的责任分隔开，这样两者之间通过命令对象进行沟通，这样方便将命令对象进行存储、传递、调用、增加和管理
+
+结构：
+
+- 抽象命令类角色：定义命令的接口，声明执行的方法
+
+- 具体命令角色：具体的命令，实现命令接口；通常会持有接受者，并调用接受者的功能来完成命令要执行的操作
+
+- 实现者/接受者角色：接受者，真正执行命令的对象，任何类都可成为一个接收者，只要它能够实现命令要求实现的相应的功能
+
+- 调用者/请求者角色：要求命令对象执行请求，通常会持有命令对象，可以持有很多命令对象
+
+引例：
+
+![alt text](0_images/17_命令模式引例.png)
+
+简单的：遥控器，集成很多的命令
+
+```cpp
+#include<iostream>
+using namespace std;
+
+// 接收者接口（家电基类）
+class Appliance {
+public:
+    virtual void on() = 0;
+    virtual void off() = 0;
+    virtual ~Appliance() = default;
+};
+
+// 具体接收者：电灯
+class Light:public Appliance{
+public:
+    void on() override{
+        cout<<"电灯打开了"<<endl;
+    }
+    void off() override{
+        cout<<"电灯关闭了"<<endl;
+    }
+};
+
+// 具体接收者：风扇
+class Fan:public Appliance{
+public:
+    void on() override{
+        cout<<"风扇打开了"<<endl;
+    }
+    void off() override{
+        cout<<"风扇关闭了"<<endl;
+    }
+};
+
+// 命令接口
+class Command{
+public:
+    virtual void execute() = 0; 
+    virtual void undo() = 0;
+    virtual ~Command() = default;
+};
+
+// 具体命令：打开命令
+class TurnOnCommand:public Command{
+private:
+    Appliance* appliance;
+public:
+    TurnOnCommand(Appliance* app) : appliance(app) {}
+    void execute() override { appliance->on(); }
+    void undo() override { appliance->off(); }
+};
+
+// 具体命令：关闭命令
+class TurnOffCommand : public Command {
+    Appliance* appliance;
+public:
+    TurnOffCommand(Appliance* app) : appliance(app) {}
+    void execute() override { appliance->off(); }
+    void undo() override { appliance->on(); }
+};
+
+// 调用者（遥控器按钮）
+class RemoteControl{
+private:
+    Command * command;
+    Command* lastCommand;
+public:
+    void setCommand(Command* cmd) {
+        command = cmd;
+    }
+
+    void pressButton() {
+        command->execute();
+        lastCommand = command;
+    }
+
+    void pressUndo() {
+        if(lastCommand) {
+            lastCommand->undo();
+            lastCommand = nullptr;
+        }
+    }
+
+};
+
+int main(){
+// 创建家电设备
+    Light livingRoomLight;
+    Fan bathroomFan;
+
+    // 创建命令
+    TurnOnCommand lightOn(&livingRoomLight);
+    TurnOffCommand fanOff(&bathroomFan);
+
+    // 设置遥控器
+    RemoteControl remote;
+    
+    // 测试电灯控制
+    remote.setCommand(&lightOn);
+    remote.pressButton();  // 开灯
+    remote.pressUndo();    // 关灯
+
+    // 测试风扇控制
+    remote.setCommand(&fanOff);
+    remote.pressButton();  // 关风扇
+    remote.pressUndo();    // 开风扇
+
+    return 0;
+}
+```
+
+### 责任链模式
+
+又名职责链模式，为了避免请求发送者与多个请求处理者耦合在一起，将所有请求的处理者通过前一对象记住其下一个对象的引用而连成一条链；当有请求发生时，可将请求沿着这条链传递，直到有对象处理它为止。
+
+
+![alt text](0_images/18_责任链模式引例.png)
+
+```cpp
+#include<iostream>
+using namespace std;
+
+// 请求类（采购请求）
+class PurchaseRequest{
+public:
+    int type;  // 请求类型
+    int id;     // 请求ID
+    double amount; // 金额
+    
+    PurchaseRequest(int t, int i, double a)
+        : type(t), id(i), amount(a) {}
+};
+
+//抽象处理者
+class Approver{
+protected:
+    Approver * successor; // 下一级处理者
+    string name;         // 处理者名称
+public:
+    Approver(string n) : name(n), successor(nullptr) {}
+    void setSuccessor(Approver* s) {
+        successor = s;
+    }  
+    virtual void processRequest(PurchaseRequest* request) = 0;
+};
+
+// 具体处理者：经理（可审批5000元以下）
+class Manager :public Approver{
+public:
+    Manager(string n) : Approver(n) {};
+
+    void processRequest(PurchaseRequest* request){
+        if(request->amount<5000){
+            cout << name << "经理审批采购单#"
+                 << request->id << "，金额："
+                 << request->amount << "元" << endl;
+        }else if (successor != nullptr) {
+            successor->processRequest(request);
+        }
+    }
+};
+
+// 具体处理者：总监（可审批10000元以下）
+class Director : public Approver {
+public:
+    Director(string n) : Approver(n) {}
+    
+    void processRequest(PurchaseRequest* request) override {
+        if (request->amount < 10000) {
+            cout << name << "总监审批采购单#"
+                 << request->id << "，金额："
+                 << request->amount << "元" << endl;
+        } else if (successor != nullptr) {
+            successor->processRequest(request);
+        }
+    }
+};
+
+
+// 具体处理者：CEO（可审批任意金额）
+class CEO : public Approver {
+public:
+    CEO(string n) : Approver(n) {}
+    
+    void processRequest(PurchaseRequest* request) override {
+        cout << name << "CEO审批采购单#"
+             << request->id << "，金额："
+             << request->amount << "元" << endl;
+    }
+};
+
+int main(){
+
+    // 创建处理者
+    Manager manager("张");
+    Director director("王");
+    CEO ceo("李");
+
+    // 设置责任链
+    manager.setSuccessor(&director);
+    director.setSuccessor(&ceo);
+
+    // 创建请求
+    PurchaseRequest req1(1, 1001, 4500);
+    PurchaseRequest req2(2, 1002, 8000);
+    PurchaseRequest req3(3, 1003, 150000);
+
+    // 从链首开始处理请求
+    manager.processRequest(&req1); // 经理处理
+    manager.processRequest(&req2); // 总监处理
+    manager.processRequest(&req3); // CEO处理
+
+    return 0;
+}
+```
+
+
+### 状态模式
+
+​对有状态的对象，把复杂的“判断逻辑”提取到不同的状态对象中，允许状态对象在其内部状态发生改变时改变其行为
+
+结构：
+
+- 环境角色：也称上下文，它定义了客户程序需要的接口，维护一个当前状态，并将与状态相关的操作委托给当前状态对像来处理
+
+- 抽象状态：定义了一个接口，用以封装环境对象中的特定状态所对应的行为
+
+- 具体状态：实现抽象状态所对应的行为
+
+
+![alt text](0_images/19_状态模式引例.png)
+
+```cpp
+#include <iostream>
+#include <memory>
+using namespace std;
+
+// 前向声明
+class ElevatorContext;
+
+// 抽象状态接口
+class ElevatorState {
+public:
+    virtual void openDoors(ElevatorContext* context) = 0;
+    virtual void closeDoors(ElevatorContext* context) = 0;
+    virtual void move(ElevatorContext* context) = 0;
+    virtual void stop(ElevatorContext* context) = 0;
+    virtual ~ElevatorState() = default;
+};
+
+// 提前声明具体状态类（关键修改点）
+class DoorsOpenState;
+class DoorsClosedState;
+class MovingState;
+
+// 上下文类
+class ElevatorContext {
+private:
+    unique_ptr<ElevatorState> currentState;
+
+public:
+    ElevatorContext(unique_ptr<ElevatorState> state);
+    
+    // 委托方法给当前状态
+    void requestOpenDoors();
+    void requestCloseDoors();
+    void requestMove();
+    void requestStop();
+
+    // 状态转移
+    void changeState(unique_ptr<ElevatorState> state);
+    void displayState(const string& stateName);
+};
+
+// 具体状态类实现
+class DoorsOpenState : public ElevatorState {
+public:
+    void openDoors(ElevatorContext* context) override;
+    void closeDoors(ElevatorContext* context) override;
+    void move(ElevatorContext* context) override;
+    void stop(ElevatorContext* context) override;
+};
+
+class DoorsClosedState : public ElevatorState {
+public:
+    void openDoors(ElevatorContext* context) override;
+    void closeDoors(ElevatorContext* context) override;
+    void move(ElevatorContext* context) override;
+    void stop(ElevatorContext* context) override;
+};
+
+class MovingState : public ElevatorState {
+public:
+    void openDoors(ElevatorContext* context) override;
+    void closeDoors(ElevatorContext* context) override;
+    void move(ElevatorContext* context) override;
+    void stop(ElevatorContext* context) override;
+};
+
+// 上下文类方法实现
+ElevatorContext::ElevatorContext(unique_ptr<ElevatorState> state)
+    : currentState(move(state)) {}
+
+void ElevatorContext::requestOpenDoors() { currentState->openDoors(this); }
+void ElevatorContext::requestCloseDoors() { currentState->closeDoors(this); }
+void ElevatorContext::requestMove() { currentState->move(this); }
+void ElevatorContext::requestStop() { currentState->stop(this); }
+
+void ElevatorContext::changeState(unique_ptr<ElevatorState> state) {
+    currentState = move(state);
+}
+
+void ElevatorContext::displayState(const string& stateName) {
+    cout << "Elevator is now in [" << stateName << "] state\n";
+}
+
+// 具体状态类方法实现
+void DoorsOpenState::openDoors(ElevatorContext* context) {
+    cout << "Doors are already open\n";
+}
+
+void DoorsOpenState::closeDoors(ElevatorContext* context) {
+    cout << "Closing doors...\n";
+    context->changeState(make_unique<DoorsClosedState>());
+    context->displayState("Doors Closed");
+}
+
+void DoorsOpenState::move(ElevatorContext* context) {
+    cout << "Cannot move while doors are open\n";
+}
+
+void DoorsOpenState::stop(ElevatorContext* context) {
+    cout << "Already stopped with open doors\n";
+}
+
+void DoorsClosedState::openDoors(ElevatorContext* context) {
+    cout << "Opening doors...\n";
+    context->changeState(make_unique<DoorsOpenState>());
+    context->displayState("Doors Open");
+}
+
+void DoorsClosedState::closeDoors(ElevatorContext* context) {
+    cout << "Doors are already closed\n";
+}
+
+void DoorsClosedState::move(ElevatorContext* context) {
+    cout << "Starting movement...\n";
+    context->changeState(make_unique<MovingState>());
+    context->displayState("Moving");
+}
+
+void DoorsClosedState::stop(ElevatorContext* context) {
+    cout << "Already stopped with closed doors\n";
+}
+
+void MovingState::openDoors(ElevatorContext* context) {
+    cout << "Cannot open doors while moving\n";
+}
+
+void MovingState::closeDoors(ElevatorContext* context) {
+    cout << "Doors are already closed\n";
+}
+
+void MovingState::move(ElevatorContext* context) {
+    cout << "Already moving\n";
+}
+
+void MovingState::stop(ElevatorContext* context) {
+    cout << "Stopping...\n";
+    context->changeState(make_unique<DoorsClosedState>());
+    context->displayState("Doors Closed");
+}
+
+int main() {
+    ElevatorContext elevator(make_unique<DoorsOpenState>());
+    
+    elevator.requestCloseDoors(); // 关门并进入门已关闭状态
+    elevator.requestMove();       // 开始移动
+    elevator.requestOpenDoors();  // 尝试开门（应失败）
+    elevator.requestStop();       // 停止并回到门已关闭状态
+    elevator.requestOpenDoors();  // 开门回到初始状态
+
+    return 0;
+}
+```
