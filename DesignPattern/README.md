@@ -1879,3 +1879,827 @@ int main() {
     return 0;
 }
 ```
+
+### 观察者模式
+
+​又称为发布-订阅模式，定义了一种一对多的依赖关系，让多个观察者对象同时检测某一主题对象，这个主题对象在状态变化时，会通知所有的观察者对象，使它们能够自动更新自己
+
+结构：
+
+- 抽象主题（抽象被观察者），抽象主题角色吧所有观察者对象保存在一个集合里，每个主题都可以有任意数量的观察者，抽象主题提供一个接口，可以增加和删除观察者对象
+
+- 具体主题（具体被观察者），该角色将有关状态存入具体观察者对象，在具体主题的内部状态发生改变时，给所有注册过的观察者发送通知。
+
+- 抽象观察者，是观察者的抽象类，它定义了一个更新接口，使得在得到主题更改通知时更新自己。
+
+- 具体观察者，实现抽象观察者定义的更新接口，以便在得到主题更改通知时更新自身的状态
+
+
+![alt text](0_images/20_观察者模式引例子.png)
+
+
+```cpp
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+// 前向声明
+class Subject;
+
+// 观察者接口
+class Observer{
+public:
+    virtual void update(Subject* subject) = 0;
+    virtual ~Observer() = default;
+};
+
+// 主题接口
+class Subject{
+private:
+    vector<Observer*> observers_;
+public:
+    virtual ~Subject() = default;  
+    virtual void attach(Observer* observer) {
+        observers_.push_back(observer);
+    }
+    virtual void detach(Observer* observer){
+        observers_.erase(remove(observers_.begin(),observers_.end(),observer), observers_.end());
+    }
+    virtual void notifyObservers() {
+        for(auto observer: observers_){
+            observer->update(this);
+        }
+    }
+};
+
+// 具体主题：气象站
+class WeatherStation : public Subject {
+private:
+    float temperature_;
+    float humidity_;
+    float pressure_;
+public:
+    void setMeasurements(float temperature, float humidity, float pressure) {
+        temperature_ = temperature;
+        humidity_ = humidity;
+        pressure_ = pressure;
+        notifyObservers();
+    }
+
+    float getTemperature() const { return temperature_; }
+    float getHumidity() const { return humidity_; }
+    float getPressure() const { return pressure_; }
+};
+
+
+// 具体观察者：当前天气状况显示 显示当前天气数据
+class CurrentConditionsDisplay : public Observer {
+private:
+    WeatherStation* weatherStation_;
+    float temperature_;
+    float humidity_;
+public:
+    CurrentConditionsDisplay(WeatherStation* weatherStation)
+            : weatherStation_(weatherStation) {
+            weatherStation_->attach(this);
+    }
+    void update(Subject* subject) override {
+        if (auto ws = dynamic_cast<WeatherStation*>(subject)) {
+            temperature_ = ws->getTemperature();
+            humidity_ = ws->getHumidity();
+            display();
+        }
+    }
+    void display() const {
+        cout << "Current conditions: "
+                  << temperature_ << "°C and "
+                  << humidity_ << "humidity\n";
+    }
+
+};
+
+// 具体观察者：天气预报显示 根据气压变化显示天气预报
+class ForecastDisplay : public Observer {
+public:
+    explicit ForecastDisplay(WeatherStation* weatherStation)
+        : weatherStation_(weatherStation) {
+        weatherStation_->attach(this);
+    }
+
+    void update(Subject* subject) override {
+        if (auto ws = dynamic_cast<WeatherStation*>(subject)) {
+            lastPressure_ = currentPressure_;
+            currentPressure_ = ws->getPressure();
+            display();
+        }
+    }
+
+    void display() const {
+        cout << "Forecast: ";
+        if (currentPressure_ > lastPressure_) {
+            cout << "Improving weather!\n";
+        } else if (currentPressure_ == lastPressure_) {
+            cout << "More of the same\n";
+        } else {
+            cout << "Watch out for cooler, rainy weather\n";
+        }
+    }
+
+private:
+    WeatherStation* weatherStation_;
+    float currentPressure_ = 1013.0f;
+    float lastPressure_ = 1013.0f;
+};
+
+
+int main() {
+    WeatherStation weatherStation;
+    
+    CurrentConditionsDisplay currentDisplay(&weatherStation);
+    ForecastDisplay forecastDisplay(&weatherStation);
+
+    // 模拟天气数据更新
+    weatherStation.setMeasurements(25.0f, 65.0f, 1015.0f);
+    weatherStation.setMeasurements(22.5f, 70.0f, 1012.0f);
+    weatherStation.setMeasurements(20.0f, 90.0f, 1008.0f);
+
+    return 0;
+}
+
+
+//简单版本
+#include <iostream>
+#include <vector>
+
+// 观察者接口
+class Observer {
+public:
+    virtual void update(float temperature) = 0;
+    virtual ~Observer() = default();
+};
+
+// 主题（被观察者）
+class TemperatureSensor {
+    std::vector<Observer*> observers_;
+    float temperature_;
+
+public:
+    void attach(Observer* observer) {
+        observers_.push_back(observer);
+    }
+
+    void setTemperature(float newTemp) {
+        temperature_ = newTemp;
+        notifyObservers();
+    }
+
+private:
+    void notifyObservers() {
+        for (auto observer : observers_) {
+            observer->update(temperature_);
+        }
+    }
+};
+
+// 具体观察者
+class Display : public Observer {
+public:
+    void update(float temperature) override {
+        std::cout << "温度更新: " << temperature << "°C\n";
+    }
+};
+
+int main() {
+    TemperatureSensor sensor;
+    Display display;
+
+    sensor.attach(&display);
+
+    // 模拟温度变化
+    sensor.setTemperature(25.5);
+    sensor.setTemperature(23.0);
+    sensor.setTemperature(20.5);
+
+    return 0;
+}
+```
+
+### 中介者模式
+
+又叫调停模式。定义一个中介角色来封装一系列对象之间的交互，使原有对象之间的耦合松散，且可以独立的改变他们之间的交互
+
+结构：
+
+- 抽象中介者：中介者的借口，提供了同事对象注册与转发同事对象信息的抽象方法
+
+- 具体中介：实现中介者借口，定义一个List集合来管理同事对象，协调各个同事角色之间的交互关系，因此它依赖于同事角色
+
+- 抽象同事类：定义同事类的接口，保存中介者对象，提供同事对象交互的抽象方法，实现所有相互影响的同事类的公共功能
+
+- 具体同事类：是抽象同事类的实现者，当需要与其他同事对象交互时，由中介者对象负责后续的交互
+
+```cpp
+#include<iostream>
+#include<string>
+#include <vector>
+using namespace std;
+
+// 前置声明
+class Colleague;
+
+// 抽象中介者
+class Mediator {
+public:
+    virtual void sendMessage(const string& message,const Colleague* sender) = 0;
+    virtual void addColleague(Colleague* colleague) = 0;
+    virtual ~Mediator() = default;
+};
+
+// 抽象同事类
+class Colleague{
+protected:
+    Mediator* mediator_;
+    string name_;
+public:
+    Colleague(Mediator* mediator, const string& name)
+        : mediator_(mediator), name_(name) {}
+
+    virtual void send(const string& message) = 0;
+    virtual void receive(const string& message) = 0;
+    virtual ~Colleague() = default;
+    string getName() const { return name_; }
+};
+
+// 具体中介者（聊天室）
+class ChatRoomMediator:public Mediator{
+private:
+    vector<Colleague*> colleagues_;
+public:
+    void addColleague(Colleague* colleague) override {
+        colleagues_.push_back(colleague);
+    }
+
+    void sendMessage(const string& message, const Colleague* sender) override {
+        for (auto colleague : colleagues_) {
+            // 不将消息发送给发送者自己
+            if (colleague != sender) {
+                colleague->receive(message);
+            }
+        }
+    }
+};
+
+// 具体同事类（用户）
+class User: public Colleague{
+public:
+    User(Mediator* mediator, const string& name)
+    : Colleague(mediator, name) {
+        mediator_->addColleague(this);
+    }
+
+    void send(const string& message) override {
+        cout << name_ << " 发送消息: " << message << endl;
+        mediator_->sendMessage(message, this);
+    }
+
+    void receive(const string& message) override {
+    cout << name_ << " 收到消息: " << message << endl;
+    }
+};
+
+// 使用示例
+int main() {
+    ChatRoomMediator chatRoom;
+
+    User alice(&chatRoom, "Alice");
+    User bob(&chatRoom, "Bob");
+    User charlie(&chatRoom, "Charlie");
+
+    alice.send("大家好！");
+    cout << endl;
+    bob.send("今天天气不错！");
+    cout << endl;
+    charlie.send("有人想去喝咖啡吗？");
+
+    return 0;
+}
+```
+
+### 迭代器模式
+
+提供一个对象来顺序访问聚合对象中的一系列数据，而不暴露聚合对象的内部表示
+
+结构:
+
+- 抽象聚合对象：定义存储、添加、删除聚合元素以及创建迭代器对象的接口
+
+- 具体聚合对象：实现抽象聚合类，返回一个具有迭代器的实例
+
+- 抽象迭代器对象：定义访问和遍历聚合元素的接口，通常包含hasNext（）、next（）等方法
+
+- 具体迭代器对象：实现抽象迭代器接口所定义的方法，完成对聚合对象的遍历，记录遍历当前位置
+
+将遍历的功能分开，专门使用一个类来管理
+
+![alt text](0_images/21_迭代器模式引例.png)
+
+```cpp
+#include<iostream>
+#include<string>
+using namespace std;
+
+// 前向声明
+class StringCollection;
+
+// 迭代器接口
+class Iterator{
+public:
+    virtual string next() = 0;
+    virtual bool hasNext() const = 0;
+    virtual ~Iterator() = default;
+};
+
+// 集合接口
+class Collection {
+public:
+    virtual ~Collection() = default;
+    virtual Iterator* createIterator() const = 0;
+};
+
+
+class StringIterator : public Iterator {
+private:
+    const StringCollection& collection;
+    size_t currentIndex;
+public:
+    StringIterator(const StringCollection& coll);
+    string next() override;
+    bool hasNext() const override;
+};
+
+// 具体集合类
+class StringCollection : public Collection {
+private:
+    string items[5];
+    size_t count = 0;
+
+public:
+    void add(const string& item) {
+        if (count < 5) {
+            items[count++] = item;
+        }
+    }
+
+    size_t size() const { return count; }
+    string get(size_t index) const { return items[index]; }
+
+    Iterator* createIterator() const override {
+        return new StringIterator(*this);
+    }
+};
+
+// 具体迭代器实现
+StringIterator::StringIterator(const StringCollection& coll)
+    : collection(coll), currentIndex(0) {}
+
+string StringIterator::next() {
+    return collection.get(currentIndex++);
+}
+
+bool StringIterator::hasNext() const {
+    return currentIndex < collection.size();
+}
+
+int main(){
+
+    StringCollection collection;
+    collection.add("First");
+    collection.add("Second");
+    collection.add("Third");
+
+    Iterator* it = collection.createIterator();
+    
+    while (it->hasNext()) {
+        cout << it->next() << endl;
+    }
+
+    delete it;
+    
+    return 0;
+}
+```
+
+### 访问者模式
+
+​封装一些作用于某些数据结构中的各元素的操作，它可以在不改变这个数据结构的前提下定义作用于这些元素的新的操作
+
+结构：
+
+- 抽象访问者：定义了对每一个元素访问的行为，它的参数就是可以访问的元素，它的方法个数理论上来讲与元素类个数是一样的，从这点不难看出，访问者模式要求元素的个数不能改变
+
+- 具体访问者：给出对每一个元素类访问时所产生的具体行为
+抽象元素：定义了一个接受访问者的方法，每一个元素都要可以被访问者访问
+
+- 具体元素：提供接受访问方法的具体实现，而这个具体的实现，通常情况下是使用范文哲提供的访问该元素类的方法
+
+- 对象结构角色：定义当中所提到的对象结构，对象结构是一个抽象表述，具体点可以理解为一个具有容器性质或者复合对象特征的类，它会含有一组元素，并且可以迭代这些元素，供访问者访问
+
+![alt text](0_images/22_访问者模式引例.png)
+
+```cpp
+#include<iostream>
+#include<vector>
+using namespace std;
+
+// 前置声明
+class ConcreteElementA;
+class ConcreteElementB;
+
+// 抽象访问者
+class Visitor {
+public:
+    virtual void visit(ConcreteElementA* element) = 0;
+    virtual void visit(ConcreteElementB* element) = 0;
+    virtual ~Visitor() {}
+};
+
+// 抽象元素
+class Element {
+public:
+    virtual void accept(Visitor* visitor) = 0;
+    virtual ~Element() {}
+};
+
+// 具体元素A
+class ConcreteElementA : public Element {
+public:
+    void accept(Visitor* visitor) override {
+        visitor->visit(this);
+    }
+    string operationA() {
+        return "具体元素A的操作";
+    }
+};
+
+// 具体元素B
+class ConcreteElementB : public Element {
+public:
+    void accept(Visitor* visitor) override {
+        visitor->visit(this);
+    }
+    string operationB() {
+        return "具体元素B的操作";
+    }
+};
+
+// 具体访问者
+class ConcreteVisitor : public Visitor {
+public:
+    void visit(ConcreteElementA* element) override {
+        cout << "访问者正在访问 " << element->operationA() << endl;
+    }
+    
+    void visit(ConcreteElementB* element) override {
+        cout << "访问者正在访问 " << element->operationB() << endl;
+    }
+};
+
+
+// 对象结构（管理元素集合）
+class ObjectStructure {
+private:
+    vector<Element*> elements;
+    
+public:
+    void add(Element* element) {
+        elements.push_back(element);
+    }
+    
+    void accept(Visitor* visitor) {
+        for (auto elem : elements) {
+            elem->accept(visitor);
+        }
+    }
+};
+int main(){
+
+    ObjectStructure structure;
+    structure.add(new ConcreteElementA());
+    structure.add(new ConcreteElementB());
+    
+    ConcreteVisitor visitor;
+    structure.accept(&visitor);
+
+    return 0;
+}
+```
+
+### 备忘录模式
+
+又叫快照模式，在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，以便以后当需要时能将该对象恢复到原先保存的状态
+
+结构：
+
+- 发起人角色：记录当前时刻的内部状态信息，提供创建备忘录和回复备忘录数据的功能，实现其他业务功能，它可以访问备忘录里的所有信息。
+
+- 备忘录角色：负责存储发起人的内部状态，在需要的时候提供这些内部状态给发起人
+
+- 管理者角色：对备忘录进行管理，提供保存与获取备忘录的功能，但其不能对备忘录的内容进行访问和修改
+
+![alt text](0_images/23_备忘录模式引例.png)
+
+
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+// 白盒实现：Memento 内部状态对 Caretaker 可见
+class TextMemento{
+private:
+    string text_;
+public:
+    TextMemento(string text) : text_(move(text)) {}
+    // 暴露内部状态的公共方法
+    string GetText() const { return text_; }
+    void SetText(const string& text) { text_ = text; }
+};
+
+// Originator（原发器）
+class TextEditor {
+private:
+    string content_;
+public:
+    void Write(const string& text) { content_ += text; }
+    TextMemento CreateMemento() const {
+        return TextMemento(content_);
+    }
+    void RestoreMemento(const TextMemento& memento) {
+        content_ = memento.GetText();
+    }
+    void Show() const {
+        cout << "Current content: " << content_ << "\n";
+    }
+};
+
+// Caretaker（管理者）
+class History {
+private:
+    vector<TextMemento> history_;
+public:
+    void Save(const TextMemento& memento) {
+        history_.push_back(memento);
+    }
+    TextMemento Undo() {
+        if (!history_.empty()) {
+            return history_.back();
+        }
+        return TextMemento("");
+    }
+};
+
+int main(){
+
+    TextEditor editor;
+    History history;
+    
+    editor.Write("Hello");
+    history.Save(editor.CreateMemento());
+    editor.Show();
+    
+    editor.Write(" World");
+    editor.Show();
+    
+    editor.RestoreMemento(history.Undo());
+    editor.Show();
+
+
+    return 0;
+}
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+// 抽象备忘录接口
+class IMemento {
+public:
+    virtual ~IMemento() = default;
+};
+
+// Originator（原发器）
+class TextEditor {
+private:
+    std::string content_;
+public:
+    // 内部 Memento 实现
+    class TextMemento : public IMemento {
+    public:
+        TextMemento(std::string text) : text_(std::move(text)) {}
+        // 只有 TextEditor 可以访问私有成员
+        friend class TextEditor;
+    private:
+        std::string text_;
+    };
+
+    void Write(const std::string& text) { content_ += text; }
+
+    IMemento* CreateMemento() const {
+        return new TextMemento(content_);
+    }
+
+    void RestoreMemento(const IMemento* memento) {
+        auto concrete = dynamic_cast<const TextMemento*>(memento);
+        if (concrete) {
+            content_ = concrete->text_;
+        }
+    }
+
+    void Show() const {
+        std::cout << "Current content: " << content_ << "\n";
+    }
+
+};
+
+
+// Caretaker（管理者）
+class History {
+private:
+    std::vector<IMemento*> history_;
+public:
+    void Save(IMemento* memento) {
+        history_.emplace_back(memento);
+    }
+    
+    IMemento* Undo() {
+        if (!history_.empty()) {
+            return history_.back();
+        }
+        return nullptr;
+    }
+};
+
+// 使用示例
+int main() {
+    TextEditor editor;
+    History history;
+    
+    editor.Write("Hello");
+    history.Save(editor.CreateMemento());
+    editor.Show();
+    
+    editor.Write(" World");
+    editor.Show();
+    
+    editor.RestoreMemento(history.Undo());
+    editor.Show();
+}
+```
+
+
+白盒实现：
+
+- Memento 类保持公共接口
+
+- Caretaker 可以直接访问 Memento 的内部状态
+
+- 实现简单但破坏了封装性
+
+黑盒实现：
+
+- 使用接口类 IMemento 隐藏实现细节
+
+- 具体 Memento 作为 Originator 的内部类
+
+- 通过友元关系保持封装性
+
+- Caretaker 只能处理抽象接口
+
+- 更符合面向对象设计原则
+
+### 解释器模式
+
+​给定一个语言，定义它的文法表示，并定义一个解释器，这个解释器使用该标识来解释语言中的句子。
+
+结构：
+
+- 抽象表达式角色： 定义解释器的接口，约定解释器的解释操作，主要包含解释方法interpret
+
+- 终结符表达式角色：是抽象表达式的子类，用来实现文法中与终结符相关的操作，文法中的每一个终结符都有一个具体终结表达式与之对应
+  
+- 非终结符表达式角色：也是抽象表达式的子类。是来实现文法中与非终结符相关的操作，文法中发每条规则都对应于一个非终结符表达式
+
+- 环境角色：通常包含各个解释器需要的数据或者是公共的功能，一般用来传递被所有解释器共享的数据，后面的解释器可以从这里获取这些值
+
+- 客户端：主要任务是将需要分析的句子或表达式转换成使用解释器对象描述的抽象语法树，然后调用解释器的解释方法，当然也可以通过环境角色间接访问解释器的解释方法
+
+```cpp
+#include <iostream>
+#include <memory>
+#include <unordered_map>
+using namespace std;
+
+class Context {
+private:
+    unordered_map<string, int> variables;
+
+public:
+    void setVariable(const string& var, int value) {
+        variables[var] = value;
+    }
+
+    int getVariable(const string& var) const {
+        return variables.at(var); // 使用at()进行安全访问
+    }
+};
+
+
+// 抽象表达式接口
+class Expression {
+public:
+    virtual ~Expression() = default;
+    virtual int interpret(const Context& context) = 0;
+};
+
+
+// 终结符表达式：变量
+class VariableExpression : public Expression {
+private:
+    string varName;
+
+public:
+    explicit VariableExpression(string var) : varName(move(var)) {}
+
+    int interpret(const Context& context) override {
+        return context.getVariable(varName);
+    }
+};
+
+// 终结符表达式：数字常量
+class NumberExpression : public Expression {
+private:
+    int number;
+
+public:
+    explicit NumberExpression(int num) : number(num) {}
+
+    int interpret(const Context& context) override {
+        return number;
+    }
+};
+
+// 非终结符表达式：加法操作
+class AddExpression : public Expression {
+private:
+    unique_ptr<Expression> left;
+    unique_ptr<Expression> right;
+
+public:
+    AddExpression(unique_ptr<Expression> l, unique_ptr<Expression> r)
+        : left(move(l)), right(move(r)) {}
+
+    int interpret(const Context& context) override {
+        return left->interpret(context) + right->interpret(context);
+    }
+};
+
+// 非终结符表达式：减法操作
+class SubtractExpression : public Expression {
+private:
+    unique_ptr<Expression> left;
+    unique_ptr<Expression> right;
+
+public:
+    SubtractExpression(unique_ptr<Expression> l, unique_ptr<Expression> r)
+        : left(move(l)), right(move(r)) {}
+
+    int interpret(const Context& context) override {
+        return left->interpret(context) - right->interpret(context);
+    }
+};
+
+int main() {
+    Context context;
+    context.setVariable("x", 10);
+    context.setVariable("y", 5);
+
+    // 构建表达式树：(x + 20) - (y + 5)
+    auto expr = make_unique<SubtractExpression>(
+        make_unique<AddExpression>(
+            make_unique<VariableExpression>("x"),
+            make_unique<NumberExpression>(20)
+        ),
+        make_unique<AddExpression>(
+            make_unique<VariableExpression>("y"),
+            make_unique<NumberExpression>(5)
+        )
+    );
+
+    int result = expr->interpret(context);
+    cout << "计算结果: " << result << endl; // 输出：20 = (10+20)-(5+5)
+
+    return 0;
+}
+```
