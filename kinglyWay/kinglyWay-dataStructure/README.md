@@ -1541,3 +1541,376 @@ int main() {
     return 0;
 }
 ```
+
+
+# 第八章 查找
+## 8.2 插入排序
+### 直接插入排序
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int data_1[11] = {36,27,20,60,55,7,70,36,44,67,16};
+
+    for(int i=1;i<11;i++){
+        for(int j=i;j>0;j--){
+            if(data_1[j]<data_1[j-1]){
+                int temp = data_1[j-1];
+                data_1[j-1] = data_1[j];
+                data_1[j] = temp;
+            }
+        }
+    }
+
+    for(int i=0;i<11;i++){
+        cout<<data_1[i]<<" ";
+    }
+    cout<<endl;
+
+
+    int data_2[11] = {36,27,20,60,55,7,70,36,44,67,16};
+    for(int i=1;i<11;i++){
+        int key = data_2[i];
+        int j = i;
+        while(j > 0&& key > data_2[j-1]){
+            data_2[j] = data_2[j-1];
+            j--;
+        }
+
+        data_2[j] = key;
+    }
+
+    for(int i=0;i<11;i++){
+        cout<<data_2[i]<<" ";
+    }
+    cout<<endl;
+
+
+    return 0;
+}
+```
+
+
+### 折半插入排序
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int data[11] = {36,27,20,60,55,7,70,36,44,67,16};
+
+    for(int i=1;i<11;i++){
+        int key = data[i];
+        int low = 0,high = i-1;
+        //通过折半查找找到插入位置
+        while(low <= high){
+            int mid = (low + high)/2;
+            if(key > data[mid]){
+                high = mid - 1;
+            }else{
+                low = mid + 1;
+            }
+        }
+
+        for(int j=i;j>high+1;j--){
+            data[j] = data[j-1];
+        }
+        data[high + 1] = key;
+    }
+
+
+    for(int i=0;i<11;i++){
+        cout<<data[i]<<" ";
+    }
+    cout<<endl;
+
+
+    return 0;
+}
+```
+
+### 希儿排序
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n = 11;
+    int data[n] = {36,27,20,60,55,7,70,36,44,67,16};
+    // 初始间隔为n/2，每次减半直到1
+    for (int gap = n/2; gap > 0; gap /= 2) {
+        //每一组内部还是使用插入排序（这里直接使用的是直接插入排序，折半的话要处理下标，很麻烦）
+        for(int i = gap;i<n;i++){
+            int tmp = data[i];
+            int j = i;
+            while(j>0&&j>=gap&&data[j-gap]>tmp){
+                data[j] = data[j-gap];
+                j = j - gap; 
+            }
+            data[j] = tmp;
+        }
+    }
+
+
+    for(int i=0;i<11;i++){
+        cout<<data[i]<<" ";
+    }
+    cout<<endl;
+}
+```
+
+## 8.3 交换排序
+### 冒泡排序
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n = 11;
+    int data[n] = {36,27,20,60,55,7,70,36,44,67,16};
+   
+    for(int i=0;i<n-1;i++){//确定第i个位置的数据
+        bool flag = false; //标志是否发生交换，如果没有发生交换就代表着已经有序了
+        for(int j=n-1;j>i;j--){ //从最后面，一直往前面冒泡
+            if(data[j]<data[j-1]){
+                int temp = data[j-1];
+                data[j-1] = data[j];
+                data[j] = temp;
+                flag = true;
+            }
+        }
+
+        if(!flag){
+            break;
+        }
+    }
+
+    for(int i=0;i<11;i++){
+        cout<<data[i]<<" ";
+    }
+    cout<<endl;
+
+    return 0;
+}
+
+```
+
+### 快速排序
+```cpp
+#include<iostream>
+using namespace std;
+
+int partition(int data[],int low,int high){
+    int pivot = data[low];
+    while(low<high){
+        //注意这里一定要先操作high 因为 low位置是空的插槽
+        while(low<high&&data[high]>=pivot){
+            high--;
+        }
+        data[low] = data[high]; //high位置空出来了插槽
+        while(low<high&&data[low]<=pivot){
+            low++;
+        }
+        data[high] = data[low]; //low位置空出来了插槽
+    }
+    //此时low=high了，就是要分割的位置
+    data[low] = pivot;
+    return low;
+}
+
+void quickSort(int data[],int low,int high){
+    if(low<high){
+        int pivotpos = partition(data,low,high);
+        quickSort(data,low,pivotpos-1);
+        quickSort(data,pivotpos+1,high);
+    }
+}
+
+int main(){
+    int n = 11;
+    int data[n] = {36,27,20,60,55,7,70,36,44,67,16};
+    quickSort(data,0,n-1);
+
+    for(int i=0;i<n;i++){
+        cout<<data[i]<<" ";
+    }
+    cout<<endl;
+
+    return 0;
+}
+```
+
+## 8.4 选择排序
+### 简单选择排序
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n = 11;
+    int data[n] = {36,27,20,60,55,7,70,36,44,67,16};
+
+    for(int i=0;i<n-1;i++){
+        int minIndex = i;
+        for(int j=i+1;j<n;j++){
+            if(data[minIndex]>data[j]){
+                minIndex = j;
+            }
+        }
+        if(minIndex!=i){
+            int temp = data[i];
+            data[i] = data[minIndex];
+            data[minIndex] = temp;
+        }
+    }
+
+    for(int i=0;i<n;i++){
+        cout<<data[i]<<" ";
+    }
+    cout<<endl;
+
+
+    return 0;
+}
+```
+
+### 快排
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int partition(int data[],int low,int high){
+    int pivot = data[low];
+    while(low<high){
+        //注意这里一定要先操作high 因为 low位置是空的插槽
+        while(low<high&&data[high]>=pivot){
+            high--;
+        }
+        data[low] = data[high]; //high位置空出来了插槽
+        while(low<high&&data[low]<=pivot){
+            low++;
+        }
+        data[high] = data[low]; //low位置空出来了插槽
+    }
+    //此时low=high了，就是要分割的位置
+    data[low] = pivot;
+    return low;
+}
+
+void quickSort(int data[],int low,int high){
+    if(low<high){
+        int pivotpos = partition(data,low,high);
+        quickSort(data,low,pivotpos-1);
+        quickSort(data,pivotpos+1,high);
+    }
+}
+
+int main(){
+    int n = 11;
+    int data[n] = {36,27,20,60,55,7,70,36,44,67,16};
+    quickSort(data,0,n-1);
+
+    for(int i=0;i<n;i++){
+        cout<<data[i]<<" ";
+    }
+    cout<<endl;
+
+    return 0;
+}
+```
+
+## 8.5 归并与基数
+### 归并排序
+```cpp
+#include<iostream>
+using namespace std;
+
+void merge(int data[],int left,int right,int mid){
+    int n1 = mid - left + 1;  //将中间元素归于左边了
+    int n2 = right - mid;
+
+    int leftArr[n1] = {0};
+    int rightArr[n2] = {0};
+
+    for(int i=0;i<n1;i++){
+        leftArr[i] = data[i+left];
+    }
+
+    for(int j=0;j<n2;j++){
+        rightArr[j] = data[j+mid+1];
+    }
+
+    //归并
+    int i = 0,j=0,k=left;
+    while(i<n1&&j<n2){
+        if(leftArr[i]<=rightArr[j]){
+            data[k] = leftArr[i];
+            i++;
+        }else{
+            data[k] = rightArr[j];
+            j++;
+        }
+        k++;
+    }
+    //把较长的那个未检测完的那个复制一下
+    while(i<n1){
+        data[k++] = leftArr[i++];
+    }
+    while(j<n2){
+        data[k++] = rightArr[j++];
+    }
+
+}
+
+void mergeSortRecursive(int data[],int left,int right){
+    if(left<right){
+        int mid = (left + right) / 2;
+        mergeSortRecursive(data,left,mid);
+        mergeSortRecursive(data,mid+1,right);
+        merge(data,left,right,mid);
+    }
+}
+
+// 非递归实现 //自下而上
+void mergeSortIterative(int data[], int n) {
+    for (int size = 1; size < n; size *= 2) {
+        //注意这里为啥要left+ 2 * size，因为一次要合并俩数组，左边一个size，右边一个size
+        for(int left=0;left<n;left+=2*size){    
+            int mid = min(left+size-1,n-1);
+            int right = min(left+2*size-1,n-1);
+            if(mid<right){
+                merge(data,left,right,mid);
+            }
+        }
+    }
+}
+
+int main(){
+    int n = 11;
+    int data_1[n] = {36,27,20,60,55,7,70,36,44,67,16};
+
+    mergeSortRecursive(data_1, 0, n - 1);
+    cout << "递归结果: ";
+    for(int i=0;i<n;i++){
+        cout<<data_1[i]<<" ";
+    }
+    cout<<endl;
+
+    int data_2[n] = {36,27,20,60,55,7,70,36,44,67,16};
+    mergeSortIterative(data_2, n);
+    cout << "递归结果: ";
+    for(int i=0;i<n;i++){
+        cout<<data_2[i]<<" ";
+    }
+    cout<<endl;
+
+    return 0;
+}
+```
