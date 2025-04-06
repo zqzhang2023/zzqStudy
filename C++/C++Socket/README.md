@@ -314,7 +314,69 @@ close();
 
 ![alt text](0_images/6_UDP通信.png)
 
-这里就不过多介绍了，基本流程可以仿照上一节之中的TCP
+~~这里就不过多介绍了，基本流程可以仿照上一节之中的TCP~~
+
+这里找的资料好像主要介绍的是TCP的通信，UDP的通信好像没做介绍
+
+但是其实都是差不多的，只不过发送和接收的函数不一样，因为毕竟是五连接的通信
+
+```cpp
+ssize_t sendto(int sockfd, const void *buf, size_t len, int flags,
+               const struct sockaddr *dest_addr, socklen_t addrlen);
+
+参数：
+    sockfd: 套接字描述符。
+    buf: 待发送数据的缓冲区。
+    len: 数据长度。
+    flags: 控制标志（通常为0）。
+    dest_addr: 目标地址结构体指针（如IPv4用sockaddr_in）。
+    addrlen: 目标地址结构体的长度。
+返回值：
+    大于0：实际发送的字节数，和参数len是相等的
+    -1：发送数据失败了
+```
+
+```cpp
+ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags,
+                 struct sockaddr *src_addr, socklen_t *addrlen);
+参数：
+    sockfd: 套接字描述符。
+    buf: 接收数据的缓冲区。
+    len: 缓冲区最大长度。
+    flags: 控制标志（通常为0）。
+    src_addr: 来源地址结构体指针（用于保存发送方地址）。
+    addrlen: 输入时为地址结构体的最大长度，输出时为实际长度。
+返回值：
+    大于0：实际发送的字节数，和参数len是相等的
+    -1：发送数据失败了
+注意：这里的最后两个参数可以为NULL表示：函数正常接收数据，但不保存发送方的地址信息。适用于不需要知道数据来源的场景（如单向通信）。
+
+一般情况下：服务端会先调用recvfrom函数，获取客户端的src_addr以及addrlen，然后处理之后再调用sendto函数给客户端发送信息(sendto必须提供src_addr与addrlen参数)
+```
+
+
+### 服务端
+```cpp
+//1.创建用于监听的套接字, 这个套接字是一个文件描述符
+int lfd = socket();
+//2.将得到的监听的文件描述符和本地的IP 端口进行绑定
+bind();
+//3.接收发送数据
+recvfrom / sendto
+//4.断开连接, 关闭套接字
+close();
+```
+
+
+### 客户端
+```cpp
+//1.创建用于监听的套接字, 这个套接字是一个文件描述符
+int lfd = socket();
+//2.接收发送数据
+recvfrom / sendto
+//3.断开连接, 关闭套接字
+close();
+```
 
 
 
