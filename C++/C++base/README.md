@@ -1,5 +1,5 @@
 # C++基础
-**资料**：https://blog.csdn.net/weixin_44368437/article/details/117563488?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522466261201cfe4a82a7b214b64bde950e%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=466261201cfe4a82a7b214b64bde950e&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-117563488-null-null.142^v102^pc_search_result_base4&utm_term=C%2B%2B&spm=1018.2226.3001.4187
+**资料**：https://blog.csdn.net/weixin_44368437/article/details/117563488
 
 
 ## C++与 C 的区别（来自CSDN）
