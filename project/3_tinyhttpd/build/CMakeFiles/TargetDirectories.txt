@@ -1,0 +1,3 @@
+/home/ubuntu2204/ZZQ/zzqStudy/project/3_tinyhttpd/build/CMakeFiles/httpd.dir
+/home/ubuntu2204/ZZQ/zzqStudy/project/3_tinyhttpd/build/CMakeFiles/edit_cache.dir
+/home/ubuntu2204/ZZQ/zzqStudy/project/3_tinyhttpd/build/CMakeFiles/rebuild_cache.dir

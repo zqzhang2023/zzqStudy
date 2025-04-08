@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/httpd.dir/httpd.c.o -o httpd  -lpthread 

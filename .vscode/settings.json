@@ -60,6 +60,7 @@
         "condition_variable": "cpp",
         "mutex": "cpp",
         "cinttypes": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "types.h": "c"
     }
 }
