@@ -1,0 +1,4 @@
+/home/ubuntu2204/ZZQ/zzqStudy/project/4_chatRoom/build/CMakeFiles/server.dir
+/home/ubuntu2204/ZZQ/zzqStudy/project/4_chatRoom/build/CMakeFiles/client.dir
+/home/ubuntu2204/ZZQ/zzqStudy/project/4_chatRoom/build/CMakeFiles/edit_cache.dir
+/home/ubuntu2204/ZZQ/zzqStudy/project/4_chatRoom/build/CMakeFiles/rebuild_cache.dir
