@@ -1,0 +1,3 @@
+/home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/build/CMakeFiles/main.dir
+/home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/build/CMakeFiles/edit_cache.dir
+/home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/build/CMakeFiles/rebuild_cache.dir
