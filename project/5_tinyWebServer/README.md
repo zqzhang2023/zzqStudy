@@ -24,6 +24,13 @@
 
 这个项目在github上面有很多的版本
 
+先说一下我自己的（嘿嘿嘿）：
+
+cmake版本：https://github.com/zqzhang2023/zzqStudy/tree/main/project/5_tinyWebServer
+
+makefile版本：https://github.com/zqzhang2023/zzqStudy/tree/main/project/5_TinyWebServer_makefile
+
+
 初始的应该是这个：https://github.com/qinguoyi/TinyWebServer
 
 但是这个确实有些久远，有些语法可能目前不太常使用了， 在这个最初的版本后面有贴C++ 11 实现的版本
@@ -183,7 +190,7 @@ code文件夹目录：
 
 我确实水平有限，没有按上面的思路实现，我的实现方法是：过两遍
 
-- 先看一遍代码，为原先的代码添加注释，一行一行的添加，没一行都要理解
+- 先看一遍代码，为原先的代码添加注释，一行一行的添加，每一行都要理解
   
 - 自己写一遍，写的时候只看头文件(第一遍加注释的时候已经在头文件上加上各个函数的功能了)，自己写cpp文件实现头文件，遇到不会的再看原作者的实现
   - 如何验证自己写的是对的？
@@ -2966,7 +2973,7 @@ bool HttpConn::process() {
 
 我平时比较喜欢用cmake，感觉这个比较方便一些，因此就整了两个版本，一个是cmake版本一个是makefile版本（原来的是makefile版本）
 
-cmake 版本运行：
+cmake 版本运行：https://github.com/zqzhang2023/zzqStudy/tree/main/project/5_tinyWebServer
 
 （刚开始记得先把build里面东西给删除掉）
 
@@ -2982,8 +2989,29 @@ sudo ./main
 
 http://127.0.0.1:1316/
 
-makefile版本：
+makefile版本：https://github.com/zqzhang2023/zzqStudy/tree/main/project/5_TinyWebServer_makefile
 
 make
 
 sudo ../bin/server
+
+
+# 参考：
+
+https://blog.csdn.net/weixin_51322383/article/details/130464403
+
+https://blog.csdn.net/qq_44184756/article/details/130140778
+
+# 友情链接
+
+我自己的学习用的github仓库：
+
+https://github.com/zqzhang2023/zzqStudy
+
+我的个人博客：
+
+https://blog.zqzhang2025.com/
+
+# 结束
+
+里面有很多都是我自己的理解，作为初学者，文章里面肯定会有一些错误。大家看的时候记得加上自己的理解去看，如果发现我那里理解有问题，非常欢迎大家能够指出来，咱们共同进步。非常感谢大家。
