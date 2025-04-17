@@ -226,9 +226,10 @@ bool HttpRequest::UserVerify(const string &name, const string &pwd, bool isLogin
     // 查询用户及密码
     snprintf(order, 256, "SELECT username, password FROM user WHERE username='%s' LIMIT 1", name.c_str());
     LOG_DEBUG("%s", order);
-
+    cout<<"sadasdsadsadsa"<<endl;
     // 执行查询
     if(mysql_query(sql,order)){
+        fprintf(stderr, "MySQL Query Error: %s\n", mysql_error(sql));
         mysql_free_result(res);
         return false; 
     }

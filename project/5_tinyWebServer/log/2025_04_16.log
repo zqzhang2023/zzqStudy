@@ -1,0 +1,609 @@
+2025-04-16 14:10:22.364559 [info] : ========== Server init ==========
+2025-04-16 14:10:22.364569 [info] : Listen Mode: LT, OpenConn Mode: LT
+2025-04-16 14:10:22.364573 [info] : LogSys level: 1
+2025-04-16 14:10:22.364577 [info] : srcDir: (null)
+2025-04-16 14:10:22.364631 [info] : SqlConnPool num: 12, ThreadPool num: 8
+2025-04-16 14:10:27.427632 [info] : Client[18](127.0.0.1:9938) in, userCount:1
+2025-04-16 14:10:27.427713 [info] : Client[18] in!
+2025-04-16 14:10:27.581870 [info] : Client[19](127.0.0.1:12498) in, userCount:2
+2025-04-16 14:10:27.581931 [info] : Client[19] in!
+2025-04-16 14:10:27.581973 [info] : Client[20](127.0.0.1:16082) in, userCount:3
+2025-04-16 14:10:27.581981 [info] : Client[20] in!
+2025-04-16 14:10:27.581988 [info] : Client[21](127.0.0.1:19666) in, userCount:4
+2025-04-16 14:10:27.581995 [info] : Client[21] in!
+2025-04-16 14:10:27.582002 [info] : Client[22](127.0.0.1:20178) in, userCount:5
+2025-04-16 14:10:27.582009 [info] : Client[22] in!
+2025-04-16 14:10:27.582017 [info] : Client[23](127.0.0.1:21714) in, userCount:6
+2025-04-16 14:10:27.582024 [info] : Client[23] in!
+2025-04-16 14:11:02.491749 [info] : Verify name:213213 pwd:213123
+2025-04-16 14:11:15.969585 [info] : Verify name:1111 pwd:1111
+2025-04-16 14:11:26.704975 [info] : Verify name:111 pwd:111
+2025-04-16 14:11:28.970291 [info] : Client[23] quit!
+2025-04-16 14:11:28.970400 [info] : Client[23](127.0.0.1:21714) quit, UserCount:5
+2025-04-16 14:11:28.973180 [info] : Client[19] quit!
+2025-04-16 14:11:28.973250 [info] : Client[19](127.0.0.1:12498) quit, UserCount:4
+2025-04-16 14:11:28.973284 [info] : Client[20] quit!
+2025-04-16 14:11:28.973311 [info] : Client[20](127.0.0.1:16082) quit, UserCount:3
+2025-04-16 14:11:28.973335 [info] : Client[21] quit!
+2025-04-16 14:11:28.973356 [info] : Client[21](127.0.0.1:19666) quit, UserCount:2
+2025-04-16 14:11:28.973376 [info] : Client[22] quit!
+2025-04-16 14:11:28.973401 [info] : Client[22](127.0.0.1:20178) quit, UserCount:1
+2025-04-16 14:11:28.973480 [info] : Client[18] quit!
+2025-04-16 14:11:28.973573 [info] : Client[18](127.0.0.1:9938) quit, UserCount:0
+2025-04-16 14:12:26.789756 [info] : Client[18] quit!
+2025-04-16 14:12:26.789886 [info] : Client[22] quit!
+2025-04-16 14:12:26.789949 [info] : Client[19] quit!
+2025-04-16 14:12:26.789961 [info] : Client[21] quit!
+2025-04-16 14:12:26.789973 [info] : Client[20] quit!
+2025-04-16 14:12:26.789984 [info] : Client[23] quit!
+2025-04-16 14:13:11.984573 [info] : Client[18](127.0.0.1:32474) in, userCount:1
+2025-04-16 14:13:11.984627 [info] : Client[18] in!
+2025-04-16 14:13:12.227525 [info] : Client[19](127.0.0.1:34010) in, userCount:2
+2025-04-16 14:13:12.227737 [info] : Client[19] in!
+2025-04-16 14:13:12.227764 [info] : Client[20](127.0.0.1:34522) in, userCount:3
+2025-04-16 14:13:12.227778 [info] : Client[20] in!
+2025-04-16 14:13:12.227792 [info] : Client[21](127.0.0.1:36058) in, userCount:4
+2025-04-16 14:13:12.227803 [info] : Client[21] in!
+2025-04-16 14:13:12.227811 [info] : Client[22](127.0.0.1:40154) in, userCount:5
+2025-04-16 14:13:12.227823 [info] : Client[22] in!
+2025-04-16 14:13:12.227831 [info] : Client[23](127.0.0.1:41178) in, userCount:6
+2025-04-16 14:13:12.227838 [info] : Client[23] in!
+2025-04-16 14:13:12.371752 [info] : Client[23] quit!
+2025-04-16 14:13:12.371823 [info] : Client[23](127.0.0.1:41178) quit, UserCount:5
+2025-04-16 14:13:14.221301 [info] : Client[23](127.0.0.1:45274) in, userCount:6
+2025-04-16 14:13:14.221428 [info] : Client[23] in!
+2025-04-16 14:13:16.808207 [info] : Verify name:111 pwd:111
+2025-04-16 14:13:37.468747 [info] : Verify name:111 pwd:111
+2025-04-16 14:14:19.072621 [info] : Client[21] quit!
+2025-04-16 14:14:19.072719 [info] : Client[21](127.0.0.1:36058) quit, UserCount:5
+2025-04-16 14:14:19.072732 [info] : Client[22] quit!
+2025-04-16 14:14:19.072755 [info] : Client[22](127.0.0.1:40154) quit, UserCount:4
+2025-04-16 14:14:19.072764 [info] : Client[19] quit!
+2025-04-16 14:14:19.072787 [info] : Client[19](127.0.0.1:34010) quit, UserCount:3
+2025-04-16 14:14:19.072792 [info] : Client[18] quit!
+2025-04-16 14:14:19.072809 [info] : Client[18](127.0.0.1:32474) quit, UserCount:2
+2025-04-16 14:14:19.082826 [info] : Client[23] quit!
+2025-04-16 14:14:19.082953 [info] : Client[23](127.0.0.1:45274) quit, UserCount:1
+2025-04-16 14:14:19.082971 [info] : Client[20] quit!
+2025-04-16 14:14:19.083003 [info] : Client[20](127.0.0.1:34522) quit, UserCount:0
+2025-04-16 14:14:24.110144 [info] : Client[18](127.0.0.1:9925) in, userCount:1
+2025-04-16 14:14:24.110462 [info] : Client[18] in!
+2025-04-16 14:14:24.336978 [info] : Client[19](127.0.0.1:11461) in, userCount:2
+2025-04-16 14:14:24.337039 [info] : Client[19] in!
+2025-04-16 14:14:24.337050 [info] : Client[20](127.0.0.1:12485) in, userCount:3
+2025-04-16 14:14:24.337059 [info] : Client[20] in!
+2025-04-16 14:14:24.337067 [info] : Client[21](127.0.0.1:15045) in, userCount:4
+2025-04-16 14:14:24.337074 [info] : Client[21] in!
+2025-04-16 14:14:24.337082 [info] : Client[22](127.0.0.1:17093) in, userCount:5
+2025-04-16 14:14:24.337089 [info] : Client[22] in!
+2025-04-16 14:14:24.337097 [info] : Client[23](127.0.0.1:20165) in, userCount:6
+2025-04-16 14:14:24.337105 [info] : Client[23] in!
+2025-04-16 14:14:24.442887 [info] : Client[23] quit!
+2025-04-16 14:14:24.445024 [info] : Client[23](127.0.0.1:20165) quit, UserCount:5
+2025-04-16 14:14:26.276080 [info] : Client[23](127.0.0.1:24261) in, userCount:6
+2025-04-16 14:14:26.276134 [info] : Client[23] in!
+2025-04-16 14:14:29.015344 [info] : Verify name:111 pwd:111
+2025-04-16 14:14:33.059653 [info] : Verify name:111 pwd:111
+2025-04-16 14:15:13.098893 [info] : Client[19] quit!
+2025-04-16 14:15:13.099678 [info] : Client[19](127.0.0.1:11461) quit, UserCount:5
+2025-04-16 14:15:13.147730 [info] : Client[19](127.0.0.1:31417) in, userCount:6
+2025-04-16 14:15:13.147783 [info] : Client[19] in!
+2025-04-16 14:15:16.027681 [info] : Verify name:111 pwd:111
+2025-04-16 14:16:08.119772 [info] : ========== Server init ==========
+2025-04-16 14:16:08.119790 [info] : Listen Mode: LT, OpenConn Mode: LT
+2025-04-16 14:16:08.119795 [info] : LogSys level: 0
+2025-04-16 14:16:08.119840 [info] : srcDir: (null)
+2025-04-16 14:16:08.119846 [info] : SqlConnPool num: 12, ThreadPool num: 8
+2025-04-16 14:16:12.461460 [info] : Verify name:111 pwd:111
+2025-04-16 14:17:12.563603 [info] : Client[23] quit!
+2025-04-16 14:18:17.229761 [info] : ========== Server init ==========
+2025-04-16 14:18:17.229774 [info] : Listen Mode: LT, OpenConn Mode: LT
+2025-04-16 14:18:17.229779 [info] : LogSys level: 0
+2025-04-16 14:18:17.229835 [info] : srcDir: (null)
+2025-04-16 14:18:17.229840 [info] : SqlConnPool num: 12, ThreadPool num: 8
+2025-04-16 14:18:17.239225 [info] : Server port:1316
+2025-04-16 14:18:17.239264 [info] : ========== Server start ==========
+2025-04-16 14:18:20.681852 [info] : Client[18](127.0.0.1:14023) in, userCount:1
+2025-04-16 14:18:20.681949 [info] : Client[18] in!
+2025-04-16 14:18:20.766107 [info] : Client[19](127.0.0.1:14535) in, userCount:2
+2025-04-16 14:18:20.766186 [info] : Client[19] in!
+2025-04-16 14:18:20.768818 [debug]: [GET], [/index.html], [1.1]
+2025-04-16 14:18:20.770753 [debug]: /index.html
+2025-04-16 14:18:20.770854 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//index.html
+2025-04-16 14:18:20.770912 [debug]: filesize:3057, 2  to 3179
+2025-04-16 14:18:20.814984 [info] : Client[20](127.0.0.1:18119) in, userCount:3
+2025-04-16 14:18:20.815023 [info] : Client[20] in!
+2025-04-16 14:18:20.815147 [info] : Client[21](127.0.0.1:18631) in, userCount:4
+2025-04-16 14:18:20.815164 [info] : Client[21] in!
+2025-04-16 14:18:20.815627 [debug]: [GET], [/css/bootstrap.min.css], [1.1]
+2025-04-16 14:18:20.816992 [debug]: /css/bootstrap.min.css
+2025-04-16 14:18:20.817025 [debug]: [GET], [/css/animate.css], [1.1]
+2025-04-16 14:18:20.817033 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/bootstrap.min.css
+2025-04-16 14:18:20.817096 [debug]: /css/animate.css
+2025-04-16 14:18:20.817111 [debug]: filesize:121260, 2  to 121384
+2025-04-16 14:18:20.817145 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/animate.css
+2025-04-16 14:18:20.817174 [debug]: filesize:72922, 2  to 73045
+2025-04-16 14:18:20.817303 [debug]: [GET], [/css/magnific-popup.css], [1.1]
+2025-04-16 14:18:20.817311 [debug]: /css/magnific-popup.css
+2025-04-16 14:18:20.817329 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/magnific-popup.css
+2025-04-16 14:18:20.817340 [debug]: filesize:6951, 2  to 7073
+2025-04-16 14:18:20.818342 [info] : Client[22](127.0.0.1:21191) in, userCount:5
+2025-04-16 14:18:20.818395 [info] : Client[22] in!
+2025-04-16 14:18:20.819184 [debug]: [GET], [/css/font-awesome.min.css], [1.1]
+2025-04-16 14:18:20.819198 [debug]: /css/font-awesome.min.css
+2025-04-16 14:18:20.819256 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/font-awesome.min.css
+2025-04-16 14:18:20.819280 [debug]: filesize:27392, 2  to 27515
+2025-04-16 14:18:20.819622 [debug]: [GET], [/css/style.css], [1.1]
+2025-04-16 14:18:20.819650 [debug]: /css/style.css
+2025-04-16 14:18:20.820255 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/style.css
+2025-04-16 14:18:20.820355 [debug]: filesize:9807, 2  to 9929
+2025-04-16 14:18:20.822505 [debug]: [GET], [/images/profile-image.jpg], [1.1]
+2025-04-16 14:18:20.822597 [debug]: /images/profile-image.jpg
+2025-04-16 14:18:20.822653 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//images/profile-image.jpg
+2025-04-16 14:18:20.822671 [debug]: filesize:47176, 2  to 47300
+2025-04-16 14:18:20.830074 [debug]: [GET], [/js/jquery.js], [1.1]
+2025-04-16 14:18:20.830141 [debug]: /js/jquery.js
+2025-04-16 14:18:20.830200 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.js
+2025-04-16 14:18:20.830236 [debug]: filesize:85658, 2  to 85788
+2025-04-16 14:18:20.832746 [info] : Client[23](127.0.0.1:22215) in, userCount:6
+2025-04-16 14:18:20.832772 [info] : Client[23] in!
+2025-04-16 14:18:20.833986 [debug]: [GET], [/js/bootstrap.min.js], [1.1]
+2025-04-16 14:18:20.834005 [debug]: /js/bootstrap.min.js
+2025-04-16 14:18:20.834054 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/bootstrap.min.js
+2025-04-16 14:18:20.834079 [debug]: filesize:36868, 2  to 36998
+2025-04-16 14:18:20.835237 [debug]: [GET], [/js/jquery.magnific-popup.min.js], [1.1]
+2025-04-16 14:18:20.836689 [debug]: [GET], [/js/wow.min.js], [1.1]
+2025-04-16 14:18:20.833993 [debug]: [GET], [/js/smoothscroll.js], [1.1]
+2025-04-16 14:18:20.838458 [debug]: [GET], [/js/magnific-popup-options.js], [1.1]
+2025-04-16 14:18:20.838473 [debug]: [GET], [/js/custom.js], [1.1]
+2025-04-16 14:18:20.838493 [debug]: /js/custom.js
+2025-04-16 14:18:20.838518 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/custom.js
+2025-04-16 14:18:20.838533 [debug]: filesize:1047, 2  to 1176
+2025-04-16 14:18:20.838539 [debug]: /js/smoothscroll.js
+2025-04-16 14:18:20.838547 [debug]: /js/jquery.magnific-popup.min.js
+2025-04-16 14:18:20.838602 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.magnific-popup.min.js
+2025-04-16 14:18:20.838604 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/smoothscroll.js
+2025-04-16 14:18:20.838747 [debug]: filesize:4474, 2  to 4603
+2025-04-16 14:18:20.838764 [debug]: /js/magnific-popup-options.js
+2025-04-16 14:18:20.838800 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/magnific-popup-options.js
+2025-04-16 14:18:20.838821 [debug]: filesize:1069, 2  to 1198
+2025-04-16 14:18:20.838894 [debug]: /js/wow.min.js
+2025-04-16 14:18:20.838950 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/wow.min.js
+2025-04-16 14:18:20.838961 [debug]: filesize:7082, 2  to 7211
+2025-04-16 14:18:20.838972 [debug]: filesize:20932, 2  to 21062
+2025-04-16 14:18:22.912748 [debug]: [GET], [/login.html], [1.1]
+2025-04-16 14:18:22.912946 [debug]: /login.html
+2025-04-16 14:18:22.912996 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//login.html
+2025-04-16 14:18:22.913014 [debug]: filesize:3295, 2  to 3417
+2025-04-16 14:18:22.941344 [debug]: [GET], [/css/animate.css], [1.1]
+2025-04-16 14:18:22.941384 [debug]: [GET], [/css/magnific-popup.css], [1.1]
+2025-04-16 14:18:22.941409 [debug]: /css/animate.css
+2025-04-16 14:18:22.941450 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/animate.css
+2025-04-16 14:18:22.941467 [debug]: filesize:72922, 2  to 73045
+2025-04-16 14:18:22.942692 [debug]: [GET], [/css/font-awesome.min.css], [1.1]
+2025-04-16 14:18:22.942698 [debug]: /css/font-awesome.min.css
+2025-04-16 14:18:22.942719 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/font-awesome.min.css
+2025-04-16 14:18:22.942731 [debug]: filesize:27392, 2  to 27515
+2025-04-16 14:18:22.942839 [debug]: [GET], [/css/bootstrap.min.css], [1.1]
+2025-04-16 14:18:22.942933 [debug]: /css/bootstrap.min.css
+2025-04-16 14:18:22.943052 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/bootstrap.min.css
+2025-04-16 14:18:22.943226 [debug]: filesize:121260, 2  to 121384
+2025-04-16 14:18:22.943305 [debug]: /css/magnific-popup.css
+2025-04-16 14:18:22.943407 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/magnific-popup.css
+2025-04-16 14:18:22.943579 [debug]: filesize:6951, 2  to 7073
+2025-04-16 14:18:22.944725 [debug]: [GET], [/js/bootstrap.min.js], [1.1]
+2025-04-16 14:18:22.944740 [debug]: /js/bootstrap.min.js
+2025-04-16 14:18:22.944778 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/bootstrap.min.js
+2025-04-16 14:18:22.944792 [debug]: filesize:36868, 2  to 36998
+2025-04-16 14:18:22.945437 [debug]: [GET], [/js/jquery.magnific-popup.min.js], [1.1]
+2025-04-16 14:18:22.945447 [debug]: /js/jquery.magnific-popup.min.js
+2025-04-16 14:18:22.945487 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.magnific-popup.min.js
+2025-04-16 14:18:22.945500 [debug]: filesize:20932, 2  to 21062
+2025-04-16 14:18:22.947598 [debug]: [GET], [/js/smoothscroll.js], [1.1]
+2025-04-16 14:18:22.948029 [debug]: [GET], [/js/jquery.js], [1.1]
+2025-04-16 14:18:22.948169 [debug]: /js/smoothscroll.js
+2025-04-16 14:18:22.948200 [debug]: /js/jquery.js
+2025-04-16 14:18:22.948227 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/smoothscroll.js
+2025-04-16 14:18:22.948241 [debug]: filesize:4474, 2  to 4603
+2025-04-16 14:18:22.948247 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.js
+2025-04-16 14:18:22.948265 [debug]: filesize:85658, 2  to 85788
+2025-04-16 14:18:22.949258 [debug]: [GET], [/css/style.css], [1.1]
+2025-04-16 14:18:22.949289 [debug]: /css/style.css
+2025-04-16 14:18:22.949319 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/style.css
+2025-04-16 14:18:22.949332 [debug]: filesize:9807, 2  to 9929
+2025-04-16 14:18:22.950808 [debug]: [GET], [/js/magnific-popup-options.js], [1.1]
+2025-04-16 14:18:22.952194 [debug]: [GET], [/js/wow.min.js], [1.1]
+2025-04-16 14:18:22.952300 [debug]: /js/magnific-popup-options.js
+2025-04-16 14:18:22.952324 [debug]: /js/wow.min.js
+2025-04-16 14:18:22.952432 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/magnific-popup-options.js
+2025-04-16 14:18:22.952444 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/wow.min.js
+2025-04-16 14:18:22.952513 [debug]: filesize:7082, 2  to 7211
+2025-04-16 14:18:22.952516 [debug]: filesize:1069, 2  to 1198
+2025-04-16 14:18:22.953082 [debug]: [GET], [/js/custom.js], [1.1]
+2025-04-16 14:18:22.953234 [debug]: /js/custom.js
+2025-04-16 14:18:22.953354 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/custom.js
+2025-04-16 14:18:22.953496 [debug]: filesize:1047, 2  to 1176
+2025-04-16 14:18:25.608564 [debug]: username = 111
+2025-04-16 14:18:25.608596 [debug]: Tag:1
+2025-04-16 14:18:25.608602 [info] : Verify name:111 pwd:111
+2025-04-16 14:18:25.608629 [debug]: SELECT username, password FROM user WHERE username='111' LIMIT 1
+2025-04-16 14:18:25.609149 [debug]: MYSQL ROW: 111 111
+2025-04-16 14:18:25.609285 [debug]: UserVerify success!!
+2025-04-16 14:18:25.609299 [debug]: Body:username=111&password=111, len:25
+2025-04-16 14:18:25.609304 [debug]: [POST], [/welcome.html], [1.1]
+2025-04-16 14:18:25.609308 [debug]: /welcome.html
+2025-04-16 14:18:25.609349 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//welcome.html
+2025-04-16 14:18:25.609376 [debug]: filesize:3159, 2  to 3281
+2025-04-16 14:18:25.633261 [debug]: [GET], [/css/bootstrap.min.css], [1.1]
+2025-04-16 14:18:25.633390 [debug]: /css/bootstrap.min.css
+2025-04-16 14:18:25.633430 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/bootstrap.min.css
+2025-04-16 14:18:25.633448 [debug]: filesize:121260, 2  to 121384
+2025-04-16 14:18:25.634713 [debug]: [GET], [/css/magnific-popup.css], [1.1]
+2025-04-16 14:18:25.634727 [debug]: /css/magnific-popup.css
+2025-04-16 14:18:25.634751 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/magnific-popup.css
+2025-04-16 14:18:25.634762 [debug]: filesize:6951, 2  to 7073
+2025-04-16 14:18:25.633273 [debug]: [GET], [/css/animate.css], [1.1]
+2025-04-16 14:18:25.634860 [debug]: /css/animate.css
+2025-04-16 14:18:25.634903 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/animate.css
+2025-04-16 14:18:25.634948 [debug]: filesize:72922, 2  to 73045
+2025-04-16 14:18:25.636769 [debug]: [GET], [/css/font-awesome.min.css], [1.1]
+2025-04-16 14:18:25.636818 [debug]: /css/font-awesome.min.css
+2025-04-16 14:18:25.636833 [debug]: [GET], [/js/jquery.js], [1.1]
+2025-04-16 14:18:25.636857 [debug]: /js/jquery.js
+2025-04-16 14:18:25.636882 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/font-awesome.min.css
+2025-04-16 14:18:25.636902 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.js
+2025-04-16 14:18:25.636943 [debug]: filesize:85658, 2  to 85788
+2025-04-16 14:18:25.636904 [debug]: filesize:27392, 2  to 27515
+2025-04-16 14:18:25.638072 [debug]: [GET], [/js/bootstrap.min.js], [1.1]
+2025-04-16 14:18:25.638191 [debug]: /js/bootstrap.min.js
+2025-04-16 14:18:25.640147 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/bootstrap.min.js
+2025-04-16 14:18:25.640264 [debug]: filesize:36868, 2  to 36998
+2025-04-16 14:18:25.641302 [debug]: [GET], [/css/style.css], [1.1]
+2025-04-16 14:18:25.641324 [debug]: /css/style.css
+2025-04-16 14:18:25.641364 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/style.css
+2025-04-16 14:18:25.641529 [debug]: filesize:9807, 2  to 9929
+2025-04-16 14:18:25.643252 [debug]: [GET], [/js/jquery.magnific-popup.min.js], [1.1]
+2025-04-16 14:18:25.641532 [debug]: [GET], [/js/smoothscroll.js], [1.1]
+2025-04-16 14:18:25.644863 [debug]: [GET], [/js/magnific-popup-options.js], [1.1]
+2025-04-16 14:18:25.651318 [debug]: /js/smoothscroll.js
+2025-04-16 14:18:25.651372 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/smoothscroll.js
+2025-04-16 14:18:25.651393 [debug]: filesize:4474, 2  to 4603
+2025-04-16 14:18:25.651410 [debug]: /js/jquery.magnific-popup.min.js
+2025-04-16 14:18:25.651449 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.magnific-popup.min.js
+2025-04-16 14:18:25.651465 [debug]: filesize:20932, 2  to 21062
+2025-04-16 14:18:25.651477 [debug]: [GET], [/js/wow.min.js], [1.1]
+2025-04-16 14:18:25.651484 [debug]: /js/wow.min.js
+2025-04-16 14:18:25.651512 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/wow.min.js
+2025-04-16 14:18:25.651529 [debug]: filesize:7082, 2  to 7211
+2025-04-16 14:18:25.651602 [debug]: /js/magnific-popup-options.js
+2025-04-16 14:18:25.651661 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/magnific-popup-options.js
+2025-04-16 14:18:25.651674 [debug]: filesize:1069, 2  to 1198
+2025-04-16 14:18:25.651684 [debug]: [GET], [/js/custom.js], [1.1]
+2025-04-16 14:18:25.652075 [debug]: /js/custom.js
+2025-04-16 14:18:25.652115 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/custom.js
+2025-04-16 14:18:25.652133 [debug]: filesize:1047, 2  to 1176
+2025-04-16 14:18:25.652017 [debug]: [GET], [/images/profile-image.jpg], [1.1]
+2025-04-16 14:18:25.652154 [debug]: /images/profile-image.jpg
+2025-04-16 14:18:25.652182 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//images/profile-image.jpg
+2025-04-16 14:18:25.652199 [debug]: filesize:47176, 2  to 47300
+2025-04-16 14:19:25.699603 [info] : Client[22] quit!
+2025-04-16 14:19:25.700212 [info] : Client[22](127.0.0.1:21191) quit, UserCount:5
+2025-04-16 14:19:25.700353 [info] : Client[20] quit!
+2025-04-16 14:19:50.380308 [info] : ========== Server init ==========
+2025-04-16 14:19:50.380321 [info] : Listen Mode: LT, OpenConn Mode: LT
+2025-04-16 14:19:50.380326 [info] : LogSys level: 0
+2025-04-16 14:19:50.380379 [info] : srcDir: (null)
+2025-04-16 14:19:50.380402 [info] : SqlConnPool num: 12, ThreadPool num: 8
+2025-04-16 14:19:50.394128 [info] : Server port:1316
+2025-04-16 14:19:50.394453 [info] : ========== Server start ==========
+2025-04-16 14:19:53.452243 [info] : Client[18](127.0.0.1:62110) in, userCount:1
+2025-04-16 14:19:53.452526 [info] : Client[18] in!
+2025-04-16 14:19:53.524236 [info] : Client[19](127.0.0.1:64158) in, userCount:2
+2025-04-16 14:19:53.524292 [info] : Client[19] in!
+2025-04-16 14:19:53.525600 [debug]: [GET], [/index.html], [1.1]
+2025-04-16 14:19:53.525658 [debug]: /index.html
+2025-04-16 14:19:53.525706 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//index.html
+2025-04-16 14:19:53.525729 [debug]: filesize:3057, 2  to 3179
+2025-04-16 14:19:53.566722 [info] : Client[20](127.0.0.1:159) in, userCount:3
+2025-04-16 14:19:53.566768 [info] : Client[20] in!
+2025-04-16 14:19:53.567350 [info] : Client[21](127.0.0.1:4255) in, userCount:4
+2025-04-16 14:19:53.567380 [info] : Client[21] in!
+2025-04-16 14:19:53.567662 [info] : Client[22](127.0.0.1:6303) in, userCount:5
+2025-04-16 14:19:53.567685 [info] : Client[22] in!
+2025-04-16 14:19:53.568006 [info] : Client[23](127.0.0.1:7327) in, userCount:6
+2025-04-16 14:19:53.568031 [info] : Client[23] in!
+2025-04-16 14:19:53.568328 [debug]: [GET], [/css/bootstrap.min.css], [1.1]
+2025-04-16 14:19:53.568440 [debug]: /css/bootstrap.min.css
+2025-04-16 14:19:53.568489 [debug]: [GET], [/css/animate.css], [1.1]
+2025-04-16 14:19:53.568491 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/bootstrap.min.css
+2025-04-16 14:19:53.568523 [debug]: /css/animate.css
+2025-04-16 14:19:53.568568 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/animate.css
+2025-04-16 14:19:53.568582 [debug]: filesize:121260, 2  to 121384
+2025-04-16 14:19:53.568590 [debug]: filesize:72922, 2  to 73045
+2025-04-16 14:19:53.569828 [debug]: [GET], [/css/style.css], [1.1]
+2025-04-16 14:19:53.569844 [debug]: /css/style.css
+2025-04-16 14:19:53.569853 [debug]: [GET], [/css/font-awesome.min.css], [1.1]
+2025-04-16 14:19:53.569860 [debug]: /css/font-awesome.min.css
+2025-04-16 14:19:53.569883 [debug]: [GET], [/css/magnific-popup.css], [1.1]
+2025-04-16 14:19:53.569860 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/style.css
+2025-04-16 14:19:53.569883 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/font-awesome.min.css
+2025-04-16 14:19:53.569937 [debug]: /css/magnific-popup.css
+2025-04-16 14:19:53.569973 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/magnific-popup.css
+2025-04-16 14:19:53.569987 [debug]: filesize:6951, 2  to 7073
+2025-04-16 14:19:53.570074 [debug]: filesize:9807, 2  to 9929
+2025-04-16 14:19:53.570086 [debug]: filesize:27392, 2  to 27515
+2025-04-16 14:19:53.571386 [debug]: [GET], [/js/jquery.js], [1.1]
+2025-04-16 14:19:53.571408 [debug]: /js/jquery.js
+2025-04-16 14:19:53.571426 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.js
+2025-04-16 14:19:53.571435 [debug]: [GET], [/js/bootstrap.min.js], [1.1]
+2025-04-16 14:19:53.571448 [debug]: /js/bootstrap.min.js
+2025-04-16 14:19:53.571440 [debug]: filesize:85658, 2  to 85788
+2025-04-16 14:19:53.571492 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/bootstrap.min.js
+2025-04-16 14:19:53.571566 [debug]: filesize:36868, 2  to 36998
+2025-04-16 14:19:53.571753 [debug]: [GET], [/js/smoothscroll.js], [1.1]
+2025-04-16 14:19:53.571772 [debug]: /js/smoothscroll.js
+2025-04-16 14:19:53.571830 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/smoothscroll.js
+2025-04-16 14:19:53.571854 [debug]: filesize:4474, 2  to 4603
+2025-04-16 14:19:53.572717 [debug]: [GET], [/js/magnific-popup-options.js], [1.1]
+2025-04-16 14:19:53.572733 [debug]: /js/magnific-popup-options.js
+2025-04-16 14:19:53.572767 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/magnific-popup-options.js
+2025-04-16 14:19:53.572777 [debug]: [GET], [/js/jquery.magnific-popup.min.js], [1.1]
+2025-04-16 14:19:53.572795 [debug]: /js/jquery.magnific-popup.min.js
+2025-04-16 14:19:53.572822 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.magnific-popup.min.js
+2025-04-16 14:19:53.572838 [debug]: filesize:20932, 2  to 21062
+2025-04-16 14:19:53.572777 [debug]: filesize:1069, 2  to 1198
+2025-04-16 14:19:53.573232 [debug]: [GET], [/js/wow.min.js], [1.1]
+2025-04-16 14:19:53.573249 [debug]: /js/wow.min.js
+2025-04-16 14:19:53.573281 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/wow.min.js
+2025-04-16 14:19:53.573294 [debug]: filesize:7082, 2  to 7211
+2025-04-16 14:19:53.574907 [debug]: [GET], [/js/custom.js], [1.1]
+2025-04-16 14:19:53.574959 [debug]: /js/custom.js
+2025-04-16 14:19:53.575334 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/custom.js
+2025-04-16 14:19:53.575355 [debug]: filesize:1047, 2  to 1176
+2025-04-16 14:19:53.575643 [debug]: [GET], [/images/profile-image.jpg], [1.1]
+2025-04-16 14:19:53.575665 [debug]: /images/profile-image.jpg
+2025-04-16 14:19:53.575697 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//images/profile-image.jpg
+2025-04-16 14:19:53.575715 [debug]: filesize:47176, 2  to 47300
+2025-04-16 14:19:55.369399 [debug]: [GET], [/login.html], [1.1]
+2025-04-16 14:19:55.369501 [debug]: /login.html
+2025-04-16 14:19:55.369590 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//login.html
+2025-04-16 14:19:55.369627 [debug]: filesize:3295, 2  to 3417
+2025-04-16 14:19:55.404694 [debug]: [GET], [/css/animate.css], [1.1]
+2025-04-16 14:19:55.405440 [debug]: [GET], [/css/magnific-popup.css], [1.1]
+2025-04-16 14:19:55.405638 [debug]: /css/magnific-popup.css
+2025-04-16 14:19:55.405727 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/magnific-popup.css
+2025-04-16 14:19:55.405749 [debug]: filesize:6951, 2  to 7073
+2025-04-16 14:19:55.405881 [debug]: [GET], [/css/bootstrap.min.css], [1.1]
+2025-04-16 14:19:55.405899 [debug]: /css/bootstrap.min.css
+2025-04-16 14:19:55.405979 [debug]: /css/animate.css
+2025-04-16 14:19:55.406169 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/animate.css
+2025-04-16 14:19:55.406197 [debug]: filesize:72922, 2  to 73045
+2025-04-16 14:19:55.407369 [debug]: [GET], [/css/font-awesome.min.css], [1.1]
+2025-04-16 14:19:55.407394 [debug]: /css/font-awesome.min.css
+2025-04-16 14:19:55.407424 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/font-awesome.min.css
+2025-04-16 14:19:55.407436 [debug]: filesize:27392, 2  to 27515
+2025-04-16 14:19:55.407748 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/bootstrap.min.css
+2025-04-16 14:19:55.409067 [debug]: [GET], [/css/style.css], [1.1]
+2025-04-16 14:19:55.409158 [debug]: /css/style.css
+2025-04-16 14:19:55.409948 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/style.css
+2025-04-16 14:19:55.410042 [debug]: filesize:121260, 2  to 121384
+2025-04-16 14:19:55.410064 [debug]: filesize:9807, 2  to 9929
+2025-04-16 14:19:55.410543 [debug]: [GET], [/js/jquery.js], [1.1]
+2025-04-16 14:19:55.410553 [debug]: /js/jquery.js
+2025-04-16 14:19:55.410592 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.js
+2025-04-16 14:19:55.411102 [debug]: filesize:85658, 2  to 85788
+2025-04-16 14:19:55.411762 [debug]: [GET], [/js/jquery.magnific-popup.min.js], [1.1]
+2025-04-16 14:19:55.411775 [debug]: /js/jquery.magnific-popup.min.js
+2025-04-16 14:19:55.411813 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.magnific-popup.min.js
+2025-04-16 14:19:55.411832 [debug]: filesize:20932, 2  to 21062
+2025-04-16 14:19:55.412976 [debug]: [GET], [/js/bootstrap.min.js], [1.1]
+2025-04-16 14:19:55.413015 [debug]: /js/bootstrap.min.js
+2025-04-16 14:19:55.413051 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/bootstrap.min.js
+2025-04-16 14:19:55.413066 [debug]: filesize:36868, 2  to 36998
+2025-04-16 14:19:55.413323 [debug]: [GET], [/js/smoothscroll.js], [1.1]
+2025-04-16 14:19:55.413335 [debug]: /js/smoothscroll.js
+2025-04-16 14:19:55.413377 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/smoothscroll.js
+2025-04-16 14:19:55.413392 [debug]: filesize:4474, 2  to 4603
+2025-04-16 14:19:55.413959 [debug]: [GET], [/js/wow.min.js], [1.1]
+2025-04-16 14:19:55.413981 [debug]: /js/wow.min.js
+2025-04-16 14:19:55.414009 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/wow.min.js
+2025-04-16 14:19:55.414020 [debug]: filesize:7082, 2  to 7211
+2025-04-16 14:19:55.414703 [debug]: [GET], [/js/magnific-popup-options.js], [1.1]
+2025-04-16 14:19:55.415252 [debug]: /js/magnific-popup-options.js
+2025-04-16 14:19:55.415296 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/magnific-popup-options.js
+2025-04-16 14:19:55.415311 [debug]: filesize:1069, 2  to 1198
+2025-04-16 14:19:55.420164 [debug]: [GET], [/js/custom.js], [1.1]
+2025-04-16 14:19:55.420732 [debug]: /js/custom.js
+2025-04-16 14:19:55.420871 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/custom.js
+2025-04-16 14:19:55.421030 [debug]: filesize:1047, 2  to 1176
+2025-04-16 14:19:57.939071 [debug]: username = 111
+2025-04-16 14:19:57.939119 [debug]: Tag:1
+2025-04-16 14:19:57.939125 [info] : Verify name:111 pwd:111
+2025-04-16 14:19:57.939130 [debug]: SELECT username, password FROM user WHERE username='111' LIMIT 1
+2025-04-16 14:19:57.939613 [debug]: MYSQL ROW: 111 111
+2025-04-16 14:19:57.939656 [debug]: UserVerify success!!
+2025-04-16 14:19:57.939738 [debug]: Body:username=111&password=111, len:25
+2025-04-16 14:19:57.939761 [debug]: [POST], [/welcome.html], [1.1]
+2025-04-16 14:19:57.939832 [debug]: /welcome.html
+2025-04-16 14:19:57.939885 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//welcome.html
+2025-04-16 14:19:57.940004 [debug]: filesize:3159, 2  to 3281
+2025-04-16 14:19:57.960337 [debug]: [GET], [/css/bootstrap.min.css], [1.1]
+2025-04-16 14:19:57.960362 [debug]: /css/bootstrap.min.css
+2025-04-16 14:19:57.960407 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/bootstrap.min.css
+2025-04-16 14:19:57.960443 [debug]: filesize:121260, 2  to 121384
+2025-04-16 14:19:57.963901 [debug]: [GET], [/css/font-awesome.min.css], [1.1]
+2025-04-16 14:19:57.966171 [debug]: [GET], [/css/style.css], [1.1]
+2025-04-16 14:19:57.966728 [debug]: [GET], [/css/magnific-popup.css], [1.1]
+2025-04-16 14:19:57.971313 [debug]: /css/font-awesome.min.css
+2025-04-16 14:19:57.971398 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/font-awesome.min.css
+2025-04-16 14:19:57.971416 [debug]: filesize:27392, 2  to 27515
+2025-04-16 14:19:57.971497 [debug]: [GET], [/css/animate.css], [1.1]
+2025-04-16 14:19:57.971514 [debug]: /css/animate.css
+2025-04-16 14:19:57.971570 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/animate.css
+2025-04-16 14:19:57.971588 [debug]: filesize:72922, 2  to 73045
+2025-04-16 14:19:57.971609 [debug]: [GET], [/js/jquery.js], [1.1]
+2025-04-16 14:19:57.971613 [debug]: /js/jquery.js
+2025-04-16 14:19:57.971642 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.js
+2025-04-16 14:19:57.971654 [debug]: filesize:85658, 2  to 85788
+2025-04-16 14:19:57.972622 [debug]: [GET], [/js/bootstrap.min.js], [1.1]
+2025-04-16 14:19:57.972629 [debug]: /js/bootstrap.min.js
+2025-04-16 14:19:57.972659 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/bootstrap.min.js
+2025-04-16 14:19:57.972670 [debug]: filesize:36868, 2  to 36998
+2025-04-16 14:19:57.973963 [debug]: /css/style.css
+2025-04-16 14:19:57.973991 [debug]: /css/magnific-popup.css
+2025-04-16 14:19:57.974024 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/style.css
+2025-04-16 14:19:57.974089 [debug]: filesize:9807, 2  to 9929
+2025-04-16 14:19:57.974096 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/magnific-popup.css
+2025-04-16 14:19:57.974111 [debug]: filesize:6951, 2  to 7073
+2025-04-16 14:19:57.976219 [debug]: [GET], [/js/smoothscroll.js], [1.1]
+2025-04-16 14:19:57.976249 [debug]: /js/smoothscroll.js
+2025-04-16 14:19:57.976284 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/smoothscroll.js
+2025-04-16 14:19:57.976297 [debug]: filesize:4474, 2  to 4603
+2025-04-16 14:19:57.977455 [debug]: [GET], [/js/magnific-popup-options.js], [1.1]
+2025-04-16 14:19:57.977462 [debug]: /js/magnific-popup-options.js
+2025-04-16 14:19:57.977493 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/magnific-popup-options.js
+2025-04-16 14:19:57.977504 [debug]: filesize:1069, 2  to 1198
+2025-04-16 14:19:57.977541 [debug]: [GET], [/js/wow.min.js], [1.1]
+2025-04-16 14:19:57.977558 [debug]: /js/wow.min.js
+2025-04-16 14:19:57.977542 [debug]: [GET], [/js/custom.js], [1.1]
+2025-04-16 14:19:57.977584 [debug]: /js/custom.js
+2025-04-16 14:19:57.977611 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/wow.min.js
+2025-04-16 14:19:57.977631 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/custom.js
+2025-04-16 14:19:57.977650 [debug]: filesize:1047, 2  to 1176
+2025-04-16 14:19:57.977633 [debug]: filesize:7082, 2  to 7211
+2025-04-16 14:19:57.976220 [debug]: [GET], [/js/jquery.magnific-popup.min.js], [1.1]
+2025-04-16 14:19:57.978105 [debug]: /js/jquery.magnific-popup.min.js
+2025-04-16 14:19:57.978136 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.magnific-popup.min.js
+2025-04-16 14:19:57.978149 [debug]: filesize:20932, 2  to 21062
+2025-04-16 14:19:57.982954 [debug]: [GET], [/images/profile-image.jpg], [1.1]
+2025-04-16 14:19:57.983016 [debug]: /images/profile-image.jpg
+2025-04-16 14:19:57.983074 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//images/profile-image.jpg
+2025-04-16 14:19:57.983098 [debug]: filesize:47176, 2  to 47300
+2025-04-16 14:20:18.508241 [debug]: [GET], [/register.html], [1.1]
+2025-04-16 14:20:18.508303 [debug]: /register.html
+2025-04-16 14:20:18.508352 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//register.html
+2025-04-16 14:20:18.508370 [debug]: filesize:3289, 2  to 3411
+2025-04-16 14:20:18.535969 [debug]: [GET], [/css/animate.css], [1.1]
+2025-04-16 14:20:18.536009 [debug]: [GET], [/css/font-awesome.min.css], [1.1]
+2025-04-16 14:20:18.536030 [debug]: /css/font-awesome.min.css
+2025-04-16 14:20:18.536080 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/font-awesome.min.css
+2025-04-16 14:20:18.536097 [debug]: filesize:27392, 2  to 27515
+2025-04-16 14:20:18.536325 [debug]: [GET], [/css/style.css], [1.1]
+2025-04-16 14:20:18.536339 [debug]: /css/style.css
+2025-04-16 14:20:18.536385 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/style.css
+2025-04-16 14:20:18.536399 [debug]: filesize:9807, 2  to 9929
+2025-04-16 14:20:18.536724 [debug]: [GET], [/css/magnific-popup.css], [1.1]
+2025-04-16 14:20:18.536737 [debug]: /css/magnific-popup.css
+2025-04-16 14:20:18.536939 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/magnific-popup.css
+2025-04-16 14:20:18.536958 [debug]: filesize:6951, 2  to 7073
+2025-04-16 14:20:18.536013 [debug]: /css/animate.css
+2025-04-16 14:20:18.537057 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/animate.css
+2025-04-16 14:20:18.537069 [debug]: filesize:72922, 2  to 73045
+2025-04-16 14:20:18.537111 [debug]: [GET], [/css/bootstrap.min.css], [1.1]
+2025-04-16 14:20:18.537120 [debug]: /css/bootstrap.min.css
+2025-04-16 14:20:18.537154 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/bootstrap.min.css
+2025-04-16 14:20:18.537169 [debug]: filesize:121260, 2  to 121384
+2025-04-16 14:20:18.537635 [debug]: [GET], [/js/jquery.js], [1.1]
+2025-04-16 14:20:18.537905 [debug]: /js/jquery.js
+2025-04-16 14:20:18.538137 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.js
+2025-04-16 14:20:18.538163 [debug]: filesize:85658, 2  to 85788
+2025-04-16 14:20:18.538877 [debug]: [GET], [/js/bootstrap.min.js], [1.1]
+2025-04-16 14:20:18.540699 [debug]: /js/bootstrap.min.js
+2025-04-16 14:20:18.540766 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/bootstrap.min.js
+2025-04-16 14:20:18.540782 [debug]: filesize:36868, 2  to 36998
+2025-04-16 14:20:18.541129 [debug]: [GET], [/js/jquery.magnific-popup.min.js], [1.1]
+2025-04-16 14:20:18.541143 [debug]: /js/jquery.magnific-popup.min.js
+2025-04-16 14:20:18.541186 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.magnific-popup.min.js
+2025-04-16 14:20:18.541200 [debug]: filesize:20932, 2  to 21062
+2025-04-16 14:20:18.541984 [debug]: [GET], [/js/smoothscroll.js], [1.1]
+2025-04-16 14:20:18.542000 [debug]: /js/smoothscroll.js
+2025-04-16 14:20:18.542043 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/smoothscroll.js
+2025-04-16 14:20:18.542059 [debug]: filesize:4474, 2  to 4603
+2025-04-16 14:20:18.542213 [debug]: [GET], [/js/magnific-popup-options.js], [1.1]
+2025-04-16 14:20:18.542223 [debug]: /js/magnific-popup-options.js
+2025-04-16 14:20:18.542259 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/magnific-popup-options.js
+2025-04-16 14:20:18.542272 [debug]: filesize:1069, 2  to 1198
+2025-04-16 14:20:18.542430 [debug]: [GET], [/js/wow.min.js], [1.1]
+2025-04-16 14:20:18.542438 [debug]: /js/wow.min.js
+2025-04-16 14:20:18.542466 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/wow.min.js
+2025-04-16 14:20:18.542479 [debug]: filesize:7082, 2  to 7211
+2025-04-16 14:20:18.544182 [debug]: [GET], [/js/custom.js], [1.1]
+2025-04-16 14:20:18.547973 [debug]: /js/custom.js
+2025-04-16 14:20:18.548065 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/custom.js
+2025-04-16 14:20:18.548089 [debug]: filesize:1047, 2  to 1176
+2025-04-16 14:20:26.966321 [debug]: username = %F8%B9%@0%F9%@5%B9
+2025-04-16 14:20:26.966400 [debug]: Tag:0
+2025-04-16 14:20:26.966415 [info] : Verify name:%F8%B9%@0%F9%@5%B9 pwd:nihao
+2025-04-16 14:20:26.966439 [debug]: SELECT username, password FROM user WHERE username='%F8%B9%@0%F9%@5%B9' LIMIT 1
+2025-04-16 14:20:26.967050 [debug]: regirster!
+2025-04-16 14:20:26.967082 [debug]: INSERT INTO user(username, password) VALUES('%F8%B9%@0%F9%@5%B9','nihao')
+2025-04-16 14:20:26.970499 [debug]: UserVerify success!!
+2025-04-16 14:20:26.970559 [debug]: Body:username=%E4%BD%A0%E5%A5%BD&password=nihao, len:42
+2025-04-16 14:20:26.970572 [debug]: [POST], [/welcome.html], [1.1]
+2025-04-16 14:20:26.970577 [debug]: /welcome.html
+2025-04-16 14:20:26.970636 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//welcome.html
+2025-04-16 14:20:26.970663 [debug]: filesize:3159, 2  to 3281
+2025-04-16 14:20:26.997691 [debug]: [GET], [/css/bootstrap.min.css], [1.1]
+2025-04-16 14:20:26.997738 [debug]: /css/bootstrap.min.css
+2025-04-16 14:20:26.997779 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/bootstrap.min.css
+2025-04-16 14:20:26.997797 [debug]: filesize:121260, 2  to 121384
+2025-04-16 14:20:27.003200 [debug]: [GET], [/css/font-awesome.min.css], [1.1]
+2025-04-16 14:20:27.003244 [debug]: /css/font-awesome.min.css
+2025-04-16 14:20:27.003251 [debug]: [GET], [/css/magnific-popup.css], [1.1]
+2025-04-16 14:20:27.003276 [debug]: /css/magnific-popup.css
+2025-04-16 14:20:27.003305 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/font-awesome.min.css
+2025-04-16 14:20:27.003321 [debug]: filesize:27392, 2  to 27515
+2025-04-16 14:20:27.003362 [debug]: [GET], [/css/animate.css], [1.1]
+2025-04-16 14:20:27.003367 [debug]: /css/animate.css
+2025-04-16 14:20:27.003395 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/animate.css
+2025-04-16 14:20:27.003411 [debug]: filesize:72922, 2  to 73045
+2025-04-16 14:20:27.003430 [debug]: [GET], [/css/style.css], [1.1]
+2025-04-16 14:20:27.003444 [debug]: /css/style.css
+2025-04-16 14:20:27.003486 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/style.css
+2025-04-16 14:20:27.003500 [debug]: filesize:9807, 2  to 9929
+2025-04-16 14:20:27.003555 [debug]: [GET], [/js/bootstrap.min.js], [1.1]
+2025-04-16 14:20:27.007392 [debug]: /js/bootstrap.min.js
+2025-04-16 14:20:27.007450 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/bootstrap.min.js
+2025-04-16 14:20:27.007465 [debug]: filesize:36868, 2  to 36998
+2025-04-16 14:20:27.003322 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//css/magnific-popup.css
+2025-04-16 14:20:27.007701 [debug]: filesize:6951, 2  to 7073
+2025-04-16 14:20:27.008172 [debug]: [GET], [/js/jquery.magnific-popup.min.js], [1.1]
+2025-04-16 14:20:27.008184 [debug]: /js/jquery.magnific-popup.min.js
+2025-04-16 14:20:27.008223 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.magnific-popup.min.js
+2025-04-16 14:20:27.008238 [debug]: filesize:20932, 2  to 21062
+2025-04-16 14:20:27.008568 [debug]: [GET], [/js/magnific-popup-options.js], [1.1]
+2025-04-16 14:20:27.008577 [debug]: /js/magnific-popup-options.js
+2025-04-16 14:20:27.008615 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/magnific-popup-options.js
+2025-04-16 14:20:27.008629 [debug]: filesize:1069, 2  to 1198
+2025-04-16 14:20:27.009726 [debug]: [GET], [/js/smoothscroll.js], [1.1]
+2025-04-16 14:20:27.009812 [debug]: /js/smoothscroll.js
+2025-04-16 14:20:27.009845 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/smoothscroll.js
+2025-04-16 14:20:27.009869 [debug]: filesize:4474, 2  to 4603
+2025-04-16 14:20:27.011834 [debug]: [GET], [/js/jquery.js], [1.1]
+2025-04-16 14:20:27.011952 [debug]: /js/jquery.js
+2025-04-16 14:20:27.011997 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/jquery.js
+2025-04-16 14:20:27.012018 [debug]: filesize:85658, 2  to 85788
+2025-04-16 14:20:27.016507 [debug]: [GET], [/js/wow.min.js], [1.1]
+2025-04-16 14:20:27.016546 [debug]: /js/wow.min.js
+2025-04-16 14:20:27.016589 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/wow.min.js
+2025-04-16 14:20:27.016605 [debug]: filesize:7082, 2  to 7211
+2025-04-16 14:20:27.018266 [debug]: [GET], [/js/custom.js], [1.1]
+2025-04-16 14:20:27.018296 [debug]: /js/custom.js
+2025-04-16 14:20:27.018333 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//js/custom.js
+2025-04-16 14:20:27.018346 [debug]: filesize:1047, 2  to 1176
+2025-04-16 14:20:27.021217 [debug]: [GET], [/images/profile-image.jpg], [1.1]
+2025-04-16 14:20:27.021276 [debug]: /images/profile-image.jpg
+2025-04-16 14:20:27.021330 [debug]: file path /home/ubuntu2204/ZZQ/zzqStudy/project/5_tinyWebServer/resources//images/profile-image.jpg
+2025-04-16 14:20:27.021365 [debug]: filesize:47176, 2  to 47300
+2025-04-16 14:20:37.863772 [info] : Client[23] quit!
+2025-04-16 14:20:37.863903 [info] : Client[23](127.0.0.1:7327) quit, UserCount:5
+2025-04-16 14:20:37.863981 [info] : Client[21] quit!
+2025-04-16 14:20:37.864035 [info] : Client[21](127.0.0.1:4255) quit, UserCount:4
+2025-04-16 14:20:37.864058 [info] : Client[22] quit!
+2025-04-16 14:20:37.864127 [info] : Client[22](127.0.0.1:6303) quit, UserCount:3
+2025-04-16 14:20:37.864150 [info] : Client[20] quit!
+2025-04-16 14:20:37.864185 [info] : Client[20](127.0.0.1:159) quit, UserCount:2
+2025-04-16 14:20:37.864207 [info] : Client[19] quit!
+2025-04-16 14:20:37.864246 [info] : Client[19](127.0.0.1:64158) quit, UserCount:1
+2025-04-16 14:20:37.864268 [info] : Client[18] quit!
+2025-04-16 14:20:37.864302 [info] : Client[18](127.0.0.1:62110) quit, UserCount:0

@@ -3,9 +3,8 @@
 
 CMakeFiles/transcode.dir/src/audioAnalysis.cpp.o
  /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/src/audioAnalysis.cpp
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/src/audioAnalysis.cpp
  /usr/include/stdc-predef.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/manageAll.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/manageAll.h
  /usr/include/c++/11/iostream
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h
@@ -214,11 +213,11 @@ CMakeFiles/transcode.dir/src/audioAnalysis.cpp.o
  /usr/include/c++/11/atomic
  /usr/include/c++/11/bits/atomic_base.h
  /usr/include/c++/11/bits/atomic_lockfree_defines.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avformat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avformat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
  /usr/include/inttypes.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h
@@ -244,65 +243,65 @@ CMakeFiles/transcode.dir/src/audioAnalysis.cpp.o
  /usr/include/c++/11/stdlib.h
  /usr/include/string.h
  /usr/include/strings.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/macros.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avconfig.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mem.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/error.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mathematics.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/intfloat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/cpu.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/hwcontext.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/bsf.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_par.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/packet.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_desc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avio.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/swresample.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/opt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersink.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersrc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/queue.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/circularbuffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/macros.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avconfig.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mem.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/error.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mathematics.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/intfloat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/cpu.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/hwcontext.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/bsf.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_par.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/packet.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_desc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avio.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/swresample.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/opt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersink.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersrc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/queue.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/circularbuffer.h
  /usr/include/c++/11/vector
  /usr/include/c++/11/bits/stl_uninitialized.h
  /usr/include/c++/11/bits/stl_vector.h
@@ -311,9 +310,8 @@ CMakeFiles/transcode.dir/src/audioAnalysis.cpp.o
 
 CMakeFiles/transcode.dir/src/audioFrameEncoding.cpp.o
  /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/src/audioFrameEncoding.cpp
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/src/audioFrameEncoding.cpp
  /usr/include/stdc-predef.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/manageAll.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/manageAll.h
  /usr/include/c++/11/iostream
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h
@@ -522,11 +520,11 @@ CMakeFiles/transcode.dir/src/audioFrameEncoding.cpp.o
  /usr/include/c++/11/atomic
  /usr/include/c++/11/bits/atomic_base.h
  /usr/include/c++/11/bits/atomic_lockfree_defines.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avformat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avformat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
  /usr/include/inttypes.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h
@@ -552,65 +550,65 @@ CMakeFiles/transcode.dir/src/audioFrameEncoding.cpp.o
  /usr/include/c++/11/stdlib.h
  /usr/include/string.h
  /usr/include/strings.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/macros.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avconfig.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mem.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/error.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mathematics.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/intfloat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/cpu.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/hwcontext.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/bsf.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_par.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/packet.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_desc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avio.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/swresample.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/opt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersink.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersrc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/queue.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/circularbuffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/macros.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avconfig.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mem.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/error.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mathematics.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/intfloat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/cpu.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/hwcontext.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/bsf.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_par.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/packet.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_desc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avio.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/swresample.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/opt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersink.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersrc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/queue.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/circularbuffer.h
  /usr/include/c++/11/vector
  /usr/include/c++/11/bits/stl_uninitialized.h
  /usr/include/c++/11/bits/stl_vector.h
@@ -619,9 +617,8 @@ CMakeFiles/transcode.dir/src/audioFrameEncoding.cpp.o
 
 CMakeFiles/transcode.dir/src/initGlobalVariable.cpp.o
  /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/src/initGlobalVariable.cpp
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/src/initGlobalVariable.cpp
  /usr/include/stdc-predef.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/manageAll.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/manageAll.h
  /usr/include/c++/11/iostream
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h
@@ -830,11 +827,11 @@ CMakeFiles/transcode.dir/src/initGlobalVariable.cpp.o
  /usr/include/c++/11/atomic
  /usr/include/c++/11/bits/atomic_base.h
  /usr/include/c++/11/bits/atomic_lockfree_defines.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avformat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avformat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
  /usr/include/inttypes.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h
@@ -860,65 +857,65 @@ CMakeFiles/transcode.dir/src/initGlobalVariable.cpp.o
  /usr/include/c++/11/stdlib.h
  /usr/include/string.h
  /usr/include/strings.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/macros.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avconfig.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mem.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/error.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mathematics.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/intfloat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/cpu.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/hwcontext.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/bsf.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_par.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/packet.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_desc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avio.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/swresample.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/opt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersink.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersrc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/queue.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/circularbuffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/macros.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avconfig.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mem.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/error.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mathematics.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/intfloat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/cpu.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/hwcontext.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/bsf.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_par.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/packet.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_desc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avio.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/swresample.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/opt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersink.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersrc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/queue.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/circularbuffer.h
  /usr/include/c++/11/vector
  /usr/include/c++/11/bits/stl_uninitialized.h
  /usr/include/c++/11/bits/stl_vector.h
@@ -927,9 +924,8 @@ CMakeFiles/transcode.dir/src/initGlobalVariable.cpp.o
 
 CMakeFiles/transcode.dir/src/productionPackage.cpp.o
  /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/src/productionPackage.cpp
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/src/productionPackage.cpp
  /usr/include/stdc-predef.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/manageAll.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/manageAll.h
  /usr/include/c++/11/iostream
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h
@@ -1138,11 +1134,11 @@ CMakeFiles/transcode.dir/src/productionPackage.cpp.o
  /usr/include/c++/11/atomic
  /usr/include/c++/11/bits/atomic_base.h
  /usr/include/c++/11/bits/atomic_lockfree_defines.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avformat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avformat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
  /usr/include/inttypes.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h
@@ -1168,65 +1164,65 @@ CMakeFiles/transcode.dir/src/productionPackage.cpp.o
  /usr/include/c++/11/stdlib.h
  /usr/include/string.h
  /usr/include/strings.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/macros.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avconfig.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mem.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/error.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mathematics.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/intfloat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/cpu.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/hwcontext.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/bsf.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_par.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/packet.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_desc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avio.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/swresample.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/opt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersink.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersrc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/queue.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/circularbuffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/macros.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avconfig.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mem.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/error.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mathematics.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/intfloat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/cpu.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/hwcontext.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/bsf.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_par.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/packet.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_desc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avio.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/swresample.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/opt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersink.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersrc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/queue.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/circularbuffer.h
  /usr/include/c++/11/vector
  /usr/include/c++/11/bits/stl_uninitialized.h
  /usr/include/c++/11/bits/stl_vector.h
@@ -1235,9 +1231,8 @@ CMakeFiles/transcode.dir/src/productionPackage.cpp.o
 
 CMakeFiles/transcode.dir/src/videoAnalysis.cpp.o
  /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/src/videoAnalysis.cpp
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/src/videoAnalysis.cpp
  /usr/include/stdc-predef.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/manageAll.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/manageAll.h
  /usr/include/c++/11/iostream
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h
@@ -1446,11 +1441,11 @@ CMakeFiles/transcode.dir/src/videoAnalysis.cpp.o
  /usr/include/c++/11/atomic
  /usr/include/c++/11/bits/atomic_base.h
  /usr/include/c++/11/bits/atomic_lockfree_defines.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avformat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avformat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
  /usr/include/inttypes.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h
@@ -1476,65 +1471,65 @@ CMakeFiles/transcode.dir/src/videoAnalysis.cpp.o
  /usr/include/c++/11/stdlib.h
  /usr/include/string.h
  /usr/include/strings.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/macros.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avconfig.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mem.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/error.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mathematics.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/intfloat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/cpu.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/hwcontext.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/bsf.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_par.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/packet.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_desc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avio.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/swresample.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/opt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersink.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersrc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/queue.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/circularbuffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/macros.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avconfig.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mem.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/error.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mathematics.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/intfloat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/cpu.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/hwcontext.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/bsf.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_par.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/packet.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_desc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avio.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/swresample.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/opt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersink.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersrc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/queue.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/circularbuffer.h
  /usr/include/c++/11/vector
  /usr/include/c++/11/bits/stl_uninitialized.h
  /usr/include/c++/11/bits/stl_vector.h
@@ -1543,9 +1538,8 @@ CMakeFiles/transcode.dir/src/videoAnalysis.cpp.o
 
 CMakeFiles/transcode.dir/src/videoFrameEncoding.cpp.o
  /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/src/videoFrameEncoding.cpp
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/src/videoFrameEncoding.cpp
  /usr/include/stdc-predef.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/manageAll.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/manageAll.h
  /usr/include/c++/11/iostream
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h
@@ -1754,11 +1748,11 @@ CMakeFiles/transcode.dir/src/videoFrameEncoding.cpp.o
  /usr/include/c++/11/atomic
  /usr/include/c++/11/bits/atomic_base.h
  /usr/include/c++/11/bits/atomic_lockfree_defines.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avformat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avformat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
  /usr/include/inttypes.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h
@@ -1784,65 +1778,65 @@ CMakeFiles/transcode.dir/src/videoFrameEncoding.cpp.o
  /usr/include/c++/11/stdlib.h
  /usr/include/string.h
  /usr/include/strings.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/macros.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avconfig.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mem.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/error.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mathematics.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/intfloat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/cpu.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/hwcontext.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/bsf.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_par.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/packet.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_desc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avio.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/swresample.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/opt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersink.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersrc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/queue.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/circularbuffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/macros.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avconfig.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mem.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/error.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mathematics.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/intfloat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/cpu.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/hwcontext.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/bsf.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_par.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/packet.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_desc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avio.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/swresample.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/opt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersink.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersrc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/queue.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/circularbuffer.h
  /usr/include/c++/11/vector
  /usr/include/c++/11/bits/stl_uninitialized.h
  /usr/include/c++/11/bits/stl_vector.h
@@ -1851,9 +1845,8 @@ CMakeFiles/transcode.dir/src/videoFrameEncoding.cpp.o
 
 CMakeFiles/transcode.dir/src/videoOutMP4File.cpp.o
  /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/src/videoOutMP4File.cpp
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/src/videoOutMP4File.cpp
  /usr/include/stdc-predef.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/manageAll.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/manageAll.h
  /usr/include/c++/11/iostream
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h
@@ -2062,11 +2055,11 @@ CMakeFiles/transcode.dir/src/videoOutMP4File.cpp.o
  /usr/include/c++/11/atomic
  /usr/include/c++/11/bits/atomic_base.h
  /usr/include/c++/11/bits/atomic_lockfree_defines.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avformat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avformat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
  /usr/include/inttypes.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h
@@ -2092,65 +2085,65 @@ CMakeFiles/transcode.dir/src/videoOutMP4File.cpp.o
  /usr/include/c++/11/stdlib.h
  /usr/include/string.h
  /usr/include/strings.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/macros.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avconfig.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mem.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/error.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mathematics.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/intfloat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/cpu.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/hwcontext.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/bsf.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_par.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/packet.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_desc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avio.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/swresample.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/opt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersink.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersrc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/queue.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/circularbuffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/macros.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avconfig.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mem.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/error.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mathematics.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/intfloat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/cpu.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/hwcontext.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/bsf.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_par.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/packet.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_desc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avio.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/swresample.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/opt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersink.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersrc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/queue.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/circularbuffer.h
  /usr/include/c++/11/vector
  /usr/include/c++/11/bits/stl_uninitialized.h
  /usr/include/c++/11/bits/stl_vector.h
@@ -2159,7 +2152,6 @@ CMakeFiles/transcode.dir/src/videoOutMP4File.cpp.o
 
 CMakeFiles/transcode.dir/transcode.cpp.o
  /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/transcode.cpp
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/transcode.cpp
  /usr/include/stdc-predef.h
  /usr/include/c++/11/iostream
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h
@@ -2336,7 +2328,7 @@ CMakeFiles/transcode.dir/transcode.cpp.o
  /usr/include/c++/11/bits/ostream.tcc
  /usr/include/c++/11/istream
  /usr/include/c++/11/bits/istream.tcc
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/manageAll.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/manageAll.h
  /usr/include/c++/11/fstream
  /usr/include/c++/11/bits/codecvt.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
@@ -2370,11 +2362,11 @@ CMakeFiles/transcode.dir/transcode.cpp.o
  /usr/include/c++/11/atomic
  /usr/include/c++/11/bits/atomic_base.h
  /usr/include/c++/11/bits/atomic_lockfree_defines.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avformat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avformat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
  /usr/include/inttypes.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h
@@ -2400,58 +2392,58 @@ CMakeFiles/transcode.dir/transcode.cpp.o
  /usr/include/c++/11/stdlib.h
  /usr/include/string.h
  /usr/include/strings.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/macros.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avconfig.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mem.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/error.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/mathematics.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/intfloat.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/attributes.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/cpu.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/buffer.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/dict.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/samplefmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/hwcontext.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/frame.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/log.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/pixfmt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/rational.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/bsf.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_par.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/packet.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_id.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/codec_desc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/avio.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/common.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavformat/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavcodec/avcodec.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/avutil.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/swresample.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libswresample/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/opt.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavutil/channel_layout.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/version.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersink.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/avfilter.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/libavfilter/buffersrc.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/queue.h
- /home/ubuntu2204/ZZQ/MianWork/videotranscode/lib/include/circularbuffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/macros.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avconfig.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mem.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/error.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/mathematics.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/intfloat.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/attributes.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/cpu.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/buffer.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/dict.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/samplefmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/hwcontext.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/frame.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/log.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/pixfmt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/rational.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/bsf.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_par.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/packet.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_id.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/codec_desc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/avio.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/common.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavformat/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavcodec/avcodec.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/avutil.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/swresample.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libswresample/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/opt.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavutil/channel_layout.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/version.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersink.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/avfilter.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/libavfilter/buffersrc.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/queue.h
+ /home/ubuntu2204/ZZQ/zzqStudy/project/1_ffmpeg/lib/include/circularbuffer.h
  /usr/include/c++/11/vector
  /usr/include/c++/11/bits/stl_uninitialized.h
  /usr/include/c++/11/bits/stl_vector.h
