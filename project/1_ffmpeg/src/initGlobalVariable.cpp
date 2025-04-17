@@ -184,7 +184,7 @@ int initGlobalVariable(const char* filePath){
         cout<<"无法创建编码器上下文信息-视频！"<<endl;
         return -16;
     }
-
+    videoEncoderCtx->profile = FF_PROFILE_H264_HIGH;  // 选择档次
     videoEncoderCtx->width = 1024;                     // 视频宽度
     videoEncoderCtx->height = 436;                     // 视频高度
     videoEncoderCtx->pix_fmt = AV_PIX_FMT_YUV420P;     // MPEG4 标准支持的像素格式
