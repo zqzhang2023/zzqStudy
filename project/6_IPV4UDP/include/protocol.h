@@ -36,6 +36,6 @@ typedef struct msg_listdesc_t{
 typedef struct msg_list_t{
     chnid_t chnid;           // 频道号（1字节）
     msg_listdesc_t list[0];  // 柔性数组，包含多个节目条目
-}
+}__attribute__((packed)) msg_list_t;
 
 #endif
