@@ -1,6 +1,17 @@
 {
     "files.associations": {
         "time.h": "c",
-        "select.h": "c"
+        "select.h": "c",
+        "errno.h": "c",
+        "string.h": "c",
+        "types.h": "c",
+        "stdlib.h": "c",
+        "syslog.h": "c",
+        "fcntl.h": "c",
+        "server_conf.h": "c",
+        "stdio.h": "c",
+        "stdint.h": "c",
+        "protocol.h": "c",
+        "stat.h": "c"
     }
 }

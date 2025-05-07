@@ -132,3 +132,92 @@ public:
 ```
 
 
+# 55
+
+![alt text](images/55.png)
+
+这个不需要运动动态规划，直接贪心暴力即可
+
+```cpp
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int res = 0;
+        for(int i=0;i<nums.size();i++){
+            if(i > res){
+                return false;
+            }
+            res = max(res,i+nums[i]);
+        }
+        return true;
+    }
+};
+```
+
+# 198
+
+![alt text](images/198.png)
+
+想法，之前想的非常简单，暴力加贪心，分成奇数和偶数，然后隔一个都偷，这样过了40个测试例子，然后 2 1 1 2 没过
+
+动态规划：
+
+dp[i] 表示，第i下标最高偷多少
+
+然后堆一nums[i]可不可以偷，就得看dp[i-1]有没有偷，如果 dp[i-1] 偷了那么dp[i] 等于 dp[i-1] ，反之 dp[i] = dp[i-2] + nums
+
+因此状态转移就是： dp[i] = max(dp[i-2]+nums[i],dp[i-1]);
+
+```cpp
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        
+        int n = nums.size();
+        if(n==0){
+            return 0;
+        }else if(n==1){
+            return nums[0];
+        }else if(n==2){
+            return max(nums[0],nums[1]);
+        }
+
+        int dp[n];
+        dp[0] = nums[0];
+        dp[1] = max(nums[1],nums[0]);
+        for(int i=2;i<n;i++){
+            dp[i] = max(dp[i-2]+nums[i],dp[i-1]);
+        }
+
+        return dp[n-1];
+    }
+};
+```
+
+官方题解更加巧妙,但是思路是一样的：
+
+```cpp
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        if (nums.empty()) {
+            return 0;
+        }
+        int size = nums.size();
+        if (size == 1) {
+            return nums[0];
+        }
+        int first = nums[0], second = max(nums[0], nums[1]);
+        for (int i = 2; i < size; i++) {
+            int temp = second;
+            second = max(first + nums[i], second);
+            first = temp;
+        }
+        return second;
+    }
+};
+
+```
+
+
+

@@ -363,3 +363,61 @@ int threadpool_addtask(ThreadPool_t *argPool, void (*function)(void *, volatile 
     pthread_mutex_unlock(&pool->mutexPool);
     return 0;
 }
+
+
+/*
+ * @name            : threadexit_unlock
+ * @description		: 线程退出函数，并将该线程 ID 从工作者线程数组中删除
+ * @param - argPool : 传入线程池对象
+ * @return 			: 无
+ */
+void threadexit_unlock(ThreadPool_t *argPool){
+    int i;
+    struct ThreadPool_t *pool = (struct ThreadPool_t *)argPool;
+    pthread_t tmptid = pthread_self();
+    for (i = 0; i < pool->numMax; i++)
+    {
+        if (pool->workerIDs[i] == tmptid)
+        {
+            pool->workerIDs[i] = 0;
+            break;
+        }
+    }
+    syslog(LOG_INFO, "thread [%ld] is going to exit...", tmptid);
+#ifdef DEBUG
+    fprintf(stdout, "[thread = %ld] is going to exit...\n", tmptid);
+#endif // DEBUG
+    pthread_exit(NULL);
+}
+
+/*
+ * @name            : get_thread_live
+ * @description		: 获取线程池中存活线程数
+ * @param - argPool : 传入线程池对象
+ * @return 			: 线程池中存活线程数
+ */
+int get_thread_live(ThreadPool_t *argPool)
+{
+    struct ThreadPool_t *pool = (struct ThreadPool_t *)argPool;
+    int num;
+    pthread_mutex_lock(&pool->mutexPool);
+    num = pool->numLive;
+    pthread_mutex_unlock(&pool->mutexPool);
+    return num;
+}
+
+/*
+ * @name            : get_thread_busy
+ * @description		: 获取线程池中忙线程数
+ * @param - argPool : 传入线程池对象
+ * @return 			: 线程池中忙线程数
+ */
+int get_thread_busy(ThreadPool_t *argPool)
+{
+    struct ThreadPool_t *pool = (struct ThreadPool_t *)argPool;
+    int num;
+    pthread_mutex_lock(&pool->mutexBusy);
+    num = pool->numBusy;
+    pthread_mutex_unlock(&pool->mutexBusy);
+    return num;
+}

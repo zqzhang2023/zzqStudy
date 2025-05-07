@@ -17,6 +17,9 @@ typedef uint8_t chnid_t;    //定义频道ID类型为8位无符号整数，范�
 #define MSG_CHANNEL_MAX    (65536U - 20U - 8U)  // 最大频道数据包  20U IP头   8U UDP头
 #define MAX_CHANNEL_DATA   (MSG_CHANNEL_MAX - sizeof(chnid_t)) //MSG_CHANNEL_MAX去除掉一个 
 
+#define MSG_LISTCHN_MAX     (65536U - 20U - 8U) // 最大节目单数据包  20U IP头   8U UDP头
+#define MAX_LISTCHN_DATA    (MSG_LISTCHN_MAX - sizeof(chnid_t))
+
 
 /* 频道包，第一字节描述频道号，data[0]在结构体最后作用为变长数组，根据malloc到的实际内存大小决定 */
 typedef struct msg_channel_t{

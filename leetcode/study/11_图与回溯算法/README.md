@@ -2,6 +2,34 @@
 241、282、679、22、301、488、133、200、695、463、542、130、417、529、127、126433、675
 547、684、685、399、207、210、65、468
 
+# 565
+
+![alt text](images/565.png)
+
+图的遍历，第一印象还是暴力，但是按照题目的想法，把这个数组构造成一个有向图，然后遍历最大的环。
+
+```cpp
+class Solution {
+public:
+    int arrayNesting(vector<int>& nums) {
+        int res = 0, n = nums.size();
+        vector<int> visited(n,0);
+
+        for(int i=0;i<n;i++){
+            int ans = 0;
+            while(!visited[i]){
+                visited[i] = true;
+                i = nums[i];
+                ++ans;
+            }
+            res = max(ans, res);
+        }
+
+        return res;
+    }
+};
+```
+
 先看一下代码随想录的视频回溯的
 
 三步骤，与剪枝
@@ -30,7 +58,7 @@ public:
 
         for(int i=index;i<=n;i++){
             path.push_back(i);
-            backtrack(resultVector,path,n,k,i+1);
+            backtrack(resultVector,path,n,k,i+1);![alt text](image.png)
             path.pop_back();
         }
     }
