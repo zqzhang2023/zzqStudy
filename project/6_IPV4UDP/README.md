@@ -20,6 +20,7 @@
 终端上会有提示，到时候直接ubuntu命令下载即可
 
 ```cpp
+sudo cp -r ./medialib/ /var/
 // 终端-1 server
 cd server
 make

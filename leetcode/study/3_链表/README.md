@@ -112,3 +112,46 @@ public:
     }
 };
 ```
+
+
+# 19
+
+![alt text](images/19.png)
+
+第一个想法就是遍历一遍，求得链表的长度，然后再遍历一遍，遍历到要删除的这个节点的前驱节点，然后删除
+
+需要注意的是有很多的坑，最大的原因就是没有空头节点
+
+可以使用双指针，第一个指针先走n个点，然后再两个指针一起走 (加一个头节点来处理一些坑)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* first = head;
+        ListNode* second = dummy;
+        for (int i = 0; i < n; ++i) {
+            first = first->next;
+        }
+        while (first) {
+            first = first->next;
+            second = second->next;
+        }
+        second->next = second->next->next;
+        ListNode* ans = dummy->next;
+        delete dummy;
+        return ans;
+    }
+};
+```

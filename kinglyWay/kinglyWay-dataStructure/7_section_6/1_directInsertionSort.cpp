@@ -29,7 +29,6 @@ int main(){
             data_2[j] = data_2[j-1];
             j--;
         }
-
         data_2[j] = key;
     }
 
