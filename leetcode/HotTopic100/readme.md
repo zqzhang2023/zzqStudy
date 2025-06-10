@@ -702,3 +702,522 @@ public:
     }
 };
 ```
+
+# 第十八题 矩阵置零
+
+![alt text](image/18.png)
+
+第一印象，申请两个数组，分别代表行和列，当matrix[i][j] == 0的时候，将对应的行或者列设为true，后面再遍历一遍就好
+
+```cpp
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+        vector<int> row(m), col(n);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (!matrix[i][j]) {
+                    row[i] = col[j] = true;
+                }
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (row[i] || col[j]) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+};
+
+```
+
+省空间的解法，就是将直接使用matrix[i][0] 以及 matrix[0][i] 代替原来的行和列数组，不过要单独申请两个参数来记录一下第0行和第0列对应有没有0
+
+```cpp
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+        bool flag_row = false, flag_col = false;
+        for(int i = 0;i<m;i++){
+            if(matrix[i][0]==0){
+                flag_col = true;
+            }
+        }
+
+        for(int i = 0;i<n;i++){
+            if(matrix[0][i]==0){
+                flag_row = true;
+            }
+        }
+
+        for(int i = 1;i<m;i++){
+            for(int j=1;j<n;j++){
+                if(matrix[i][j] == 0){
+                    matrix[0][j] = matrix[i][0] = 0;
+                }
+            }
+        }
+
+        for(int i = 1;i<m;i++){
+            for(int j=1;j<n;j++){
+                if(matrix[0][j] == 0||matrix[i][0] == 0){
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        if(flag_col){
+            for(int i=0;i<m;i++){
+                matrix[i][0] = 0;
+            }
+        }
+        
+        if(flag_row){
+            for(int i=0;i<n;i++){
+                matrix[0][i] = 0;
+            }
+        }
+
+
+    }
+};
+```
+# 第十九题 螺旋矩阵
+
+![alt text](image/19.png)
+
+最直接的方法就是模拟，模拟 上下左右 的 走 直接看代码把
+
+```cpp
+class Solution {
+public:
+    static constexpr int directions[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        if(matrix.size() == 0 || matrix[0].size() == 0){
+            return {};
+        }
+        int rows = matrix.size();
+        int columns = matrix[0].size();
+        int total = rows * columns;
+        vector<vector<bool>> visited(rows,vector<bool>(columns));
+        
+        int row = 0, column = 0;
+        int directionIndex = 0;
+        vector<int> order(total);
+
+        for(int i = 0;i<total;i++){
+            order[i] = matrix[row][column];
+            visited[row][column] = true;
+            int nextRow = row + directions[directionIndex][0], nextColumn = column + directions[directionIndex][1];
+            if(nextRow < 0 || nextRow >= rows || nextColumn < 0 || nextColumn >= columns ||  visited[nextRow][nextColumn]){
+                directionIndex = (directionIndex + 1) % 4;
+            }
+            row += directions[directionIndex][0];
+            column += directions[directionIndex][1];
+        }
+        return order;
+    }
+};
+```
+
+# 第二十题 旋转图像
+
+![alt text](image/20.png)
+
+最简单的，申请一个额外的二维数组，然后对比旋转前后位置的关系
+
+matrix_new[j][n - i - 1] = matrix[i][j]; 
+
+直接两层for循环就好
+
+如果要原地，则使用翻转代替旋转
+
+![alt text](image/20_1.png)
+
+```cpp
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        for(int i=0;i<n/2;i++){
+            for(int j=0;j<n;j++){
+                swap(matrix[i][j],matrix[n-i-1][j]);
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<i;j++){
+                swap(matrix[i][j],matrix[j][i]);
+            }
+        }
+    }
+};
+
+```
+
+# 第二十一题 搜索二维矩阵 II
+
+![alt text](image/21.png)
+
+注意看每一行每一列的数据特点
+
+最简单的，直接两层循环 得到结果
+
+其次，没一行使用二分查找，遍历所有行
+
+要想充分利用每一行每一列的数据特点，则从右上角出发，如果大于这个数据，则往下查找，反之，小于的话则往左查找。
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size(),n = matrix[0].size();
+        int x = 0, y = n - 1;
+        while(x < m && y >= 0){
+            if(matrix[x][y] == target){
+                return true;
+            }
+            if(matrix[x][y] > target){
+                --y;
+            }else{
+                ++x;
+            }
+        }
+        return false;
+    }
+};
+```
+
+# 第二十二题 相交链表
+
+![alt text](image/22.png)
+
+好怀念的题目，大三的时候第一次刷题就是这一题
+
+```cpp
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if(headA == NULL || headB == NULL){
+            return NULL;
+        }
+        ListNode * pA = headA;
+        ListNode * pB = headB;
+        while(pA!=pB){
+            pA = pA == nullptr ? headB : pA->next;
+            pB = pB == nullptr ? headA : pB->next;
+        }
+        return pA;
+    }
+};
+```
+
+# 第二十三题 反转链表
+
+![alt text](image/23.png)
+
+第一想法：暴力
+
+一次遍历就好：最关键的是存储两个节点，对于相邻两个节点，只需要将他们两个的指针反过来就好！（我是SB，我老是想着暴力）
+
+```cpp
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(!head){
+            return nullptr;
+        }
+        ListNode* cur = head;
+        ListNode* pre = nullptr;
+        ListNode* tem = cur;
+        while(cur){
+            tem = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = tem;
+        }
+        return pre;
+
+    }
+};
+```
+# 第二十四题 回文链表
+
+![alt text](image/24.png)
+
+最为简单的，使用一个vector来存储一下链表里面的数据，然后直接双指针前后处理即可
+
+```cpp
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        vector<int> vals;
+        while(head!=nullptr){
+            vals.emplace_back(head->val);
+            head = head->next;
+        }
+        for(int i=0,j=vals.size()-1;i<vals.size()&&j>=0;i++,j--){
+            if(vals[i] != vals[j]){
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+# 第二十五题 环形链表
+
+![alt text](image/25.png)
+
+快慢指针，快指针一次跑两步，慢指针一次跑一步，如果有环的话一定可以相遇
+
+```cpp
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if(head == NULL || head->next == NULL){
+            return false;
+        }
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+        while(slow != fast){
+            if(fast == NULL || fast->next == NULL){
+                return false;
+            }
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return true;
+    }
+};
+```
+
+# 第二十六题 环形链表 II
+
+![alt text](image/26.png)
+
+好吧，我先背会再说。
+
+```cpp
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode * slow = head;
+        ListNode * fast = head;
+        while(true){
+            if(fast == NULL || fast->next == NULL){
+                return NULL;
+            }
+            fast = fast->next->next;
+            slow = slow->next;
+            if(fast == slow){
+                break;
+            }
+        }
+        fast = head;
+        while(slow != fast){
+            slow = slow->next;
+            fast = fast->next;
+        }
+        return fast;
+
+    }
+};
+```
+
+# 第二十七题 合并两个有序链表
+
+![alt text](image/27.png)
+
+注意的是这一题的要求是原地合并，不是再重新申请一个list
+
+超内存～～～～
+```cpp
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        if(list1 == nullptr && list2 == nullptr){
+            return nullptr;
+        }
+        ListNode* res = new ListNode();
+        ListNode* tmp1 = res;
+        while(!(list1 == nullptr || list2 == nullptr)){
+            ListNode* tmp2 = new ListNode();
+            if(list1->val <= list2->val){
+                tmp2->val = list1->val;
+                list1 = list1->next;
+            }else{
+                tmp2->val = list2->val;
+                list2 = list2->next;
+            }
+            tmp1->next = tmp2;
+            tmp1 = tmp2;
+        }
+        if(list1 == nullptr){
+            while(list2 != nullptr){
+                ListNode* tmp2 = new ListNode();
+                tmp2->val = list2->val;
+                tmp1->next = tmp2;
+                tmp1 = tmp2;
+            }
+        }
+        if(list2 == nullptr){
+            while(list1 != nullptr){
+                ListNode* tmp2 = new ListNode();
+                tmp2->val = list1->val;
+                tmp1->next = tmp2;
+                tmp1 = tmp2;
+            }
+        }
+        return res->next;
+    }
+};
+```
+
+递归：很牛的递归
+
+```cpp
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        if(list1 == nullptr){
+            return list2;
+        }else if(list2 == nullptr){
+            return list1;
+        }
+
+        if(list1->val < list2->val){
+            list1->next = mergeTwoLists(list1->next,list2);
+            return list1;
+        }else{
+            list2->next = mergeTwoLists(list1,list2->next);
+            return list2;
+        }
+    }
+};
+```
+
+迭代：
+
+```cpp
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        ListNode * preHead = new ListNode(-1);
+        ListNode * pre = preHead;
+        while(list1!=nullptr&&list2!=nullptr){
+            if(list1->val < list2->val){
+                pre->next = list1;
+                list1 = list1->next;
+            }else{
+                pre->next = list2;
+                list2 = list2->next;
+            }
+            pre = pre->next;
+        }
+
+        pre->next = (list1==nullptr)?list2:list1;
+
+        return preHead->next;
+    }
+};
+```
+
+# 第二十八题 两数相加
+
+![alt text](image/28.png)
+
+模拟一下，要注意的是要记得进位
+
+```cpp
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* head = nullptr, *tail = nullptr;
+        int carry = 0;
+        while(l1||l2){
+            int n1 = l1?l1->val:0;
+            int n2 = l2?l2->val:0;
+            int sum = n1 + n2 + carry;
+            if(!head){
+                head = tail = new ListNode(sum % 10);
+            }else{
+                tail->next = new ListNode(sum % 10);
+                tail = tail->next;
+            }
+
+            carry = sum / 10;
+            if(l1){
+                l1 = l1->next;
+            }
+
+            if(l2){
+                l2 = l2->next;
+            }
+        }
+
+        if(carry > 0){
+            tail->next = new ListNode(carry);
+        }
+
+        return head;
+    }
+};
+```
+
+# 第二十九题 删除链表的倒数第 N 个结点
+
+![alt text](image/29.png)
+
+双指针，一个就先跑N个节点，。然后两个再一起跑，这样的话就能找到倒数第N个节点的前一个节点了
+
+```cpp
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* first = head;
+        ListNode* second = dummy;
+        for (int i = 0; i < n; ++i) {
+            first = first->next;
+        }
+        while (first) {
+            first = first->next;
+            second = second->next;
+        }
+        second->next = second->next->next;
+        ListNode* ans = dummy->next;
+        delete dummy;
+        return ans;
+    }
+};
+```
+
+# 第三十题 两两交换链表中的节点
+
+![alt text](image/30.png)
+
+递归永远是最神奇的算法
+
+```cpp
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        if(head == nullptr || head->next == nullptr){
+            return head;
+        }
+        ListNode* newHead = head->next;
+        head->next = swapPairs(newHead->next);
+        newHead->next = head;
+
+        return newHead;
+    }
+};
+```
