@@ -1206,6 +1206,10 @@ public:
 
 递归永远是最神奇的算法
 
+A B C D 举例 对于 A B A是head B就是反转之后的newhead 那么A 的 next 应该就是 对B的next执行的翻转，执行结束值周B的next应该变成A
+
+看下面的代码就能看懂，很巧妙
+
 ```cpp
 class Solution {
 public:
@@ -1221,3 +1225,2125 @@ public:
     }
 };
 ```
+
+# 第三十一题 K 个一组翻转链表
+
+![alt text](image/31.png)
+
+一样的，还可以用递归,和前面的一样的思路，先找一下K个数据的结尾tail，那么tail->next 应该就是 reverseKGroup(tail->next, k); 对tail->next后面链表的处理。注意这个时候head----tail之间还没翻转
+
+当ail->next = reverseKGroup(tail->next, k);返回的时候，表示tail->next后面的链表已经处理完了，这个时候再对head----tail进行翻转
+
+A B C D EEE  
+
+模拟一下就明白了 假设k = 4，那么head = A tail = D 后面处理好的是EEE
+
+A->B->C->D->EEE 
+
+ListNode *p=head->next;（p = B） head->next=tail->next;  tail->next=head; 这两行就变成了 B->C->D->A->EEE  这样就好理解了
+
+```cpp
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if (!head || k == 1) return head;
+        ListNode *tail = head;
+        for (int i = 1; i < k; i++) {
+            tail = tail->next;
+            if (!tail) return head;
+        }
+
+        tail->next = reverseKGroup(tail->next, k);
+
+        // 翻转【head-----tail】
+        while(head!=tail){
+            ListNode *p=head->next;
+            head->next=tail->next;
+            tail->next=head;
+            head=p;
+        }
+        return head;
+    }
+};
+```
+
+# 第三十二题 随机链表的复制
+
+![alt text](image/32.png)
+
+不能直接返回head我很失望 流泪
+
+一般这种题目主要是模拟！！！只要模拟好了就好处理了
+
+直接看官方题解
+
+![alt text](image/32_1.png)
+
+```cpp
+class Solution {
+public:
+    Node* copyRandomList(Node* head) {
+        if(head == nullptr){
+            return nullptr;
+        }
+        for(Node* node = head;node !=nullptr;node = node->next->next){
+            Node* nodeNew = new Node(node->val);
+            nodeNew->next = node->next;
+            node->next = nodeNew;
+        }
+        for (Node* node = head; node != nullptr; node = node->next->next) {
+            Node* nodeNew = node->next;
+            nodeNew->random = (node->random != nullptr)? node->random->next:nullptr;
+        }
+        Node* headNew = head->next;
+        for(Node* node = head; node != nullptr; node=node->next){
+            Node* nodeNew = node->next;
+            node->next = node->next->next;
+            nodeNew->next = (nodeNew->next !=nullptr)?nodeNew->next->next:nullptr;
+        }
+        return headNew;
+    }
+};
+```
+
+# 第三十三题 排序链表
+
+# 第三十四题 合并 K 个升序链表
+
+# 第三十五题 LRU 缓存
+
+# 第三十六题 二叉树的中序遍历
+
+![alt text](image/36.png)
+
+中序遍历，基础操作
+
+```cpp
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        inorderTraversalTemp(root,ans);
+        return ans;
+    }
+
+    void inorderTraversalTemp(TreeNode* root,vector<int>& ans){
+        if(root){
+            inorderTraversalTemp(root->left,ans);
+            ans.push_back(root->val);
+            inorderTraversalTemp(root->right,ans);
+        }
+    }
+};
+```
+
+非递归：
+
+前序：
+```cpp
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res; 
+        stack<TreeNode*> stk;
+        while(root!=nullptr || !stk.empty()){
+            while(root != nullptr){
+                stk.push(root);
+                res.push_back(root->val);
+                root = root->left;
+            }
+            root = stk.top();
+            stk.pop();
+            root = root->right;
+        }
+        return res;
+    }
+};
+```
+
+中序：
+```cpp
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        // 采用迭代写法，需要借助栈结构来实现
+        // 前序遍历；出栈顺序：根-左-右；入栈顺序：右-左-根；
+        // 中序遍历；出栈顺序：左-根-右；入栈顺序：右-根-左；
+        // 后序遍历；出栈顺序：左-右-根；入栈顺序：根-右-左；
+        vector<int> res; 
+        stack<TreeNode*> stk;
+        while(root!=nullptr || !stk.empty()){
+            while(root != nullptr){
+                stk.push(root);
+                root = root->left;
+            }
+            root = stk.top();
+            stk.pop();
+            res.push_back(root->val);
+            root = root->right;
+        }
+        return res;
+    }
+};
+```
+
+后序：
+```cpp
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> res; 
+        if(root == nullptr){
+            return res;
+        }
+        stack<TreeNode*> stk;
+        TreeNode *prev = nullptr;
+        while(root!=nullptr || !stk.empty()){
+            while(root != nullptr){
+                stk.push(root);
+                root = root->left;
+            }
+            root = stk.top();
+            stk.pop();
+            // 右节点为null或者右节点已经遍历过了
+            if(root->right == nullptr || root->right == prev){
+                res.push_back(root->val);
+                prev = root;
+                root = nullptr;
+            }else{ //否则就先处理右节点 （左 右 中）
+                stk.push(root);
+                root = root->right;
+            }
+        }
+        return res;
+    }
+};
+```
+
+# 第三十七题 二叉树的最大深度
+
+![alt text](image/37.png)
+
+递归基础操作
+
+```cpp
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if(!root){
+            return 0;
+        }
+        return max(maxDepth(root->left),maxDepth(root->right))+1;
+    }
+};
+```
+
+# 第三十八题 翻转二叉树
+
+![alt text](image/38.png)
+
+二叉树递归很好用
+
+```cpp
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if(root == nullptr){
+            return nullptr;
+        }
+        TreeNode* left = invertTree(root->left);
+        TreeNode* right = invertTree(root->right);
+        root->left = right;
+        root->right = left;
+        return root;
+    }
+};
+```
+
+# 第三十九题 对称二叉树
+
+![alt text](image/39.png)
+
+还是递归，要注意判断的条件 left->val == right->val && check(left->left,right->right) && check(left->right,right->left);
+
+```cpp
+class Solution {
+public:
+    bool check(TreeNode* left,TreeNode* right){
+        // 都是空的
+        if(!left && !right){
+            return true;
+        }
+        // 一个空的另外一个非空
+        if(!left || !right){
+            return false;
+        }
+
+        return left->val == right->val && check(left->left,right->right) && check(left->right,right->left);
+    }
+
+    bool isSymmetric(TreeNode* root) {
+        return check(root->left,root->right);
+    }
+};
+```
+
+# 第四十题 二叉树的直径
+
+![alt text](image/40.png)
+
+直接按照计算深度的方式来就好  L_depth + R_depth + 1
+
+```cpp
+class Solution {
+public:
+    int ans=1;
+    int depth(TreeNode* root){
+        if(root == nullptr){
+            return 0;
+        }
+        int L = depth(root->left);
+        int R = depth(root->right);
+        ans = max(ans,L+R+1);
+        return max(L,R) + 1;
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        depth(root);
+        return ans-1;
+    }
+};
+```
+
+# 第四十一题 二叉树的层序遍历
+
+![alt text](image/41.png)
+
+一遍过，哼～
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        if(root == nullptr){
+            return {};
+        }
+        vector<vector<int>> ans;
+        queue<TreeNode*> myqueue;
+        myqueue.push(root);
+        while(!myqueue.empty()){
+            vector<int> temp;
+            int levelSize = myqueue.size();
+            for(int i=0;i<levelSize;i++){
+                TreeNode* frontTmp = myqueue.front();
+                myqueue.pop();
+                temp.push_back(frontTmp->val);
+                if(frontTmp->left){
+                    myqueue.push(frontTmp->left);
+                }
+                if(frontTmp->right){
+                    myqueue.push(frontTmp->right);
+                }
+            }
+            ans.push_back(temp);
+        }
+        return ans;
+    }
+};
+```
+# 第四十二题 将有序数组转换为二叉搜索树
+
+![alt text](image/42.png)
+
+递归，伟大无需多言
+
+```cpp
+class Solution {
+public:
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        return helper(nums,0,nums.size()-1);
+    }
+
+    TreeNode* helper(vector<int>& nums,int left,int right){
+        if(left > right){
+            return nullptr;
+        }
+
+        int mid = (left + right) / 2;
+
+        TreeNode * root = new TreeNode(nums[mid]);
+        root->left = helper(nums,left,mid-1);
+        root->right = helper(nums,mid+1,right);
+        return root;
+    }
+};
+```
+
+# 第四十三题 验证二叉搜索树
+
+![alt text](image/43.png)
+
+记得 中序遍历的 二叉搜索树是有序的！！！！ 咱们按照中序遍历的写法来写就好
+
+```cpp
+class Solution {
+public:
+    long pre = LONG_MIN;
+    bool helper(TreeNode* root){
+        if(root == nullptr){
+            return true;
+        }
+        bool l = helper(root->left);
+        if(root->val <= pre){
+            return false;
+        }
+        pre = root->val;
+        bool r = helper(root->right);
+        return l && r;
+    }
+    bool isValidBST(TreeNode* root) {
+        return helper(root);
+    }
+};
+```
+
+
+
+# 第四十四题 二叉搜索树中第 K 小的元素
+
+一样的，中序遍历的 二叉搜索树是有序的 所以按照中序遍历来就好，中序遍历的时候记录一下节点数，当有k个节点的时候就好
+
+![alt text](image/44.png)
+
+```cpp
+class Solution {
+public:
+    int res = 0, k = 0;
+    int kthSmallest(TreeNode* root, int k) {
+        this->k = k;
+        inorder(root);
+        return res;
+    }
+    void inorder(TreeNode* root){
+        if(root == nullptr){
+            return;
+        }
+        inorder(root->left);
+        if(k == 0){
+            return;
+        }
+        if(--k == 0){
+            res = root->val;
+        }
+        inorder(root->right);
+    }
+
+};
+```
+
+# 第四十五题 二叉树的右视图
+
+![alt text](image/45.png)
+
+这个直接层次（广度）遍历的每一层的最后一个就好，可以直接使用前面层次遍历的代码
+
+```cpp
+class Solution {
+public:
+    vector<int> rightSideView(TreeNode* root) {
+        if(root == nullptr){
+            return {};
+        }
+        vector<int> ans;
+        queue<TreeNode*> myqueue;
+        myqueue.push(root);
+        while(!myqueue.empty()){
+            int levelSize = myqueue.size();
+            for(int i=0;i<levelSize;i++){
+                TreeNode* frontTmp = myqueue.front();
+                myqueue.pop();
+                if(i == levelSize-1){
+                    ans.push_back(frontTmp->val);
+                }
+                if(frontTmp->left){
+                    myqueue.push(frontTmp->left);
+                }
+                if(frontTmp->right){
+                    myqueue.push(frontTmp->right);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+# 第四十六题 二叉树展开为链表
+
+![alt text](image/46.png)
+
+直接前序遍历，存储起来，然后连接就好！！！
+
+非迭代模式将两步合并在一起的代码
+
+```cpp
+class Solution {
+public:
+    void flatten(TreeNode* root) {
+        if(root == nullptr){
+            return;
+        }
+        stack<TreeNode*> stk;
+        stk.push(root);
+        TreeNode *prev = nullptr;
+        while(!stk.empty()){
+            TreeNode* curr = stk.top();
+            stk.pop();
+            if(prev!=nullptr){
+                prev->left = nullptr;
+                prev->right = curr;
+            }
+            TreeNode* left = curr->left;
+            TreeNode* right = curr->right;
+            if(right != nullptr){
+                stk.push(right);
+            }
+            if(left != nullptr){
+                stk.push(left);
+            }
+            prev = curr;
+        }
+
+    }
+};
+```
+
+# 第四十七题 从前序与中序遍历序列构造二叉树
+
+![alt text](image/47.png)
+
+例子：前序A = [3,9,20,15,7] 与 中序 B = [9,3,15,20,7]
+
+前序的第一个节点就是根节点。比如这个例子：看前序 第一个根节点是3 。那么从B中我们可以看到 3 左边 是左子树[9] 3 右边是右子树 [15,20,7]
+
+从中我们可以看到 左子树的长度是1,那么处理一下A，我们就可以看到 A 左子树 [9] A 右子树 [20,15,7] 那么结合一下 这两个 就可以递归处理了
+
+左子树[9]就不看了  右子树 前序 [20,15,7]  中序列 [15,20,7] 后面处理方法和前面一样
+
+```cpp
+class Solution {
+private:
+    unordered_map<int,int> index;
+
+public:
+    TreeNode* myBuildTree(vector<int>& preorder, vector<int>& inorder, int preorder_left, int preorder_right, int inorder_left, int inorder_right) {
+        if(preorder_left > preorder_right){
+            return nullptr;
+        }
+        if(inorder_left > inorder_right){
+            return nullptr;
+        }
+        // 前序遍历中的第一个节点就是根节点
+        int preorder_root = preorder_left;
+        // 在中序遍历中定位根节点
+        int inorder_root = index[preorder[preorder_root]];
+
+        // 先把根节点建立出来
+        TreeNode* root = new TreeNode(preorder[preorder_root]);
+        // 得到左子树中的节点数目
+        int size_left_subtree = inorder_root - inorder_left;
+        // 递归地构造左子树，并连接到根节点
+        // 先序遍历中「从 左边界+1 开始的 size_left_subtree」个元素就对应了中序遍历中「从 左边界 开始到 根节点定位-1」的元素
+        root->left = myBuildTree(preorder,inorder,preorder_left + 1, preorder_left + size_left_subtree,inorder_left, inorder_root - 1);
+        // 递归地构造右子树，并连接到根节点
+        // 先序遍历中「从 左边界+1+左子树节点数目 开始到 右边界」的元素就对应了中序遍历中「从 根节点定位+1 到 右边界」的元素
+        root->right = myBuildTree(preorder,inorder,preorder_left + size_left_subtree + 1,preorder_right, inorder_root + 1, inorder_right);
+        return root;
+    }
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        int n = preorder.size();
+        // 构造哈希映射，帮助我们快速定位根节点
+        for(int i=0;i<n;i++){
+            index[inorder[i]] = i;
+        }
+
+        return myBuildTree(preorder, inorder, 0, n - 1, 0, n - 1);
+    }
+};
+```
+
+# 第四十八题 路径总和 III
+
+![alt text](image/48.png)
+
+注意看题目之中的路径的定义 路径 不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。 也就是说，不存在那个 从左子树 经过 根节点 然后再到右子树的情况
+
+所以就简单了，比如：targetSum  对   A->B->C->D 这个路径 判断 A->val==targetSum 是的话总结果++就好，不是的话往后对于B只需要判断B->val ==targetSum - A->val 就好
+
+所以，递归
+
+```cpp
+class Solution {
+public:
+    int rootSum(TreeNode* root, int targetSum) {
+        if(root == nullptr){
+            return 0;
+        }
+
+        int ret = 0;
+        if(root->val == targetSum){
+            ret++;
+        }
+    
+        ret += rootSum(root->left,targetSum-root->val);
+        ret += rootSum(root->right,targetSum-root->val);
+
+        return ret;
+    }
+
+    int pathSum(TreeNode* root, int targetSum) {
+        if(root == nullptr){
+            return 0;
+        }
+
+        int ret = rootSum(root,targetSum);
+        ret += pathSum(root->left,targetSum);
+        ret += pathSum(root->right,targetSum);
+
+        return ret;
+    }
+
+};
+```
+
+emmm 官方题解好像过不了，因为减法溢出 把int改成 long 就好
+
+```cpp
+class Solution {
+public:
+    long rootSum(TreeNode* root, long targetSum) {
+        if (!root) {
+            return 0;
+        }
+
+        int ret = 0;
+        if (root->val == targetSum) {
+            ret++;
+        } 
+
+        ret += rootSum(root->left, targetSum - root->val);
+        ret += rootSum(root->right, targetSum - root->val);
+        return ret;
+    }
+
+    long pathSum(TreeNode* root, int targetSum) {
+        if (!root) {
+            return 0;
+        }
+        
+        long ret = rootSum(root, targetSum);
+        ret += pathSum(root->left, targetSum);
+        ret += pathSum(root->right, targetSum);
+        return ret;
+    }
+};
+
+```
+
+# 第四十九题 二叉树的最近公共祖先
+
+![alt text](image/49.png)
+
+这个递归就很更好理解了。我们要做的是找到p与q，然后递归回来的时候就相当于回溯的过程，自然可以找到祖先
+
+因此，递归查询p与q在不在，看代码就懂了
+
+```cpp
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(root == NULL || root == p || root == q){
+            //只要当前根节点是p和q中的任意一个，就返回（因为不能比这个更深了，再深p和q中的一个就没了）
+            return root;
+        }
+        //根节点不是p和q中的任意一个，那么就继续分别往左子树和右子树找p和q
+        TreeNode* left = lowestCommonAncestor(root->left,p,q);
+        TreeNode* right = lowestCommonAncestor(root->right,p,q);
+        //p和q都没找到，那就没有
+        if(left == NULL && right == NULL){
+            return NULL;
+        }
+        //左子树没有p也没有q，就返回右子树的结果
+        if(left == NULL){
+            return right;
+        }
+        //右子树没有p也没有q就返回左子树的结果
+        if(right == NULL){
+            return left;
+        }
+        //左右子树都找到p和q了，那就说明p和q分别在左右两个子树上，所以此时的最近公共祖先就是root
+        return root;
+    }
+};
+```
+
+# 第五十题 二叉树中的最大路径和
+
+![alt text](image/50.png)
+
+注意，这个节点的最大贡献值指的是 路径总和 III 这一题之中的路径相似的该该，而不是这一题的路径的概念
+
+这一题的方法是对于一个节点，求左子树的最大贡献值A 与 右子树的最大贡献值B。然后 A + B + VAL 判断所有的节点，找到最大值，递归处理就好！！
+
+```cpp
+class Solution {
+private:
+    int maxSum = INT_MIN;
+
+public:
+    int maxGain(TreeNode* node) {
+        if(node == nullptr){
+            return 0;
+        }
+        // 递归计算左右子节点的最大贡献值
+        // 只有在最大贡献值大于 0 时，才会选取对应子节点
+        int leftGain = max(maxGain(node->left),0);
+        int rightGain  = max(maxGain(node->right),0);
+        // 节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值
+        int priceNewpath = node->val + leftGain + rightGain;
+        // 更新答案
+        maxSum = max(maxSum,priceNewpath);
+        // 返回节点的最大贡献值
+        return node->val + max(leftGain,rightGain);
+    }
+    int maxPathSum(TreeNode* root) {
+        maxGain(root);
+        return maxSum;
+    }
+};
+```
+
+# 第五十一题 岛屿数量
+
+![alt text](image/51.png)
+
+图的遍历！！！
+
+广度优先遍历 与 深度优先遍历
+
+DFS
+
+```cpp
+class Solution {
+public:
+    void dfs(vector<vector<char>>& grid,int r,int c){
+        int nr = grid.size();
+        int nc = grid[0].size();
+
+        grid[r][c] = '0';
+
+        if(r-1>=0 && grid[r-1][c] == '1'){
+            dfs(grid,r-1,c);
+        }
+
+        if(r+1<nr && grid[r+1][c] == '1'){
+            dfs(grid,r+1,c);
+        }
+
+        if(c-1>=0 && grid[r][c-1] == '1'){
+            dfs(grid,r,c-1);
+        }
+
+        if(c+1<nc && grid[r][c+1] == '1'){
+            dfs(grid,r,c+1);
+        }
+    }
+    int numIslands(vector<vector<char>>& grid) {
+        int nr = grid.size();
+        if(!nr){
+            return 0;
+        }
+        int nc = grid[0].size();
+
+        int ans = 0;
+
+        for(int r=0;r<nr;r++){
+            for(int c = 0;c < nc;c++){
+                if(grid[r][c] == '1'){
+                    ans++;
+                    dfs(grid,r,c);
+                }
+            }
+        }
+
+        return ans;
+    }
+};
+```
+
+BFS
+
+```cpp
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int nr = grid.size();
+        if(!nr){
+            return 0;
+        }
+        int nc = grid[0].size();
+
+        int ans = 0;
+
+        for(int r=0; r< nr;r++){
+            for(int c = 0;c < nc;c++){
+                if(grid[r][c] == '1'){
+                    ans++;
+                    grid[r][c] = '0';
+                    queue<pair<int,int>> neighbors;
+                    neighbors.push({r,c});
+                    while(!neighbors.empty()){
+                        auto rc = neighbors.front();
+                        neighbors.pop();
+                        int row = rc.first;
+                        int col = rc.second;
+                        if(row-1>=0 && grid[row-1][col] == '1'){
+                            neighbors.push({row-1,col});
+                            grid[row-1][col] = '0';
+                        }
+                        if(row+1<nr && grid[row+1][col] == '1'){
+                            neighbors.push({row+1,col});
+                            grid[row+1][col] = '0';
+                        }
+                        if(col-1>=0 && grid[row][col-1] == '1'){
+                            neighbors.push({row,col-1});   
+                            grid[row][col-1] = '0';
+                        }
+                        if(col+1<nc && grid[row][col+1] == '1'){
+                            neighbors.push({row,col+1});
+                            grid[row][col+1] = '0';
+                        }
+
+                    }
+                }
+            }
+        }
+
+        return ans;
+    }
+};
+```
+
+# 第五十二题 腐烂的橘子
+
+![alt text](image/52.png)
+
+以腐烂橘子为起点，开始广度优先遍历，一看题目就知道
+
+```cpp
+class Solution {
+public:
+    int ans = 0;    // 记录当前剩余的新鲜橘子数量
+    int time = 0;   // 记录已经过的分钟数
+    int n,m;        // 网格的行数和列数
+    typedef pair<int, int> PII;
+    // 四个方向偏移：右、左、上、下
+    int dx[4] = {0,0,-1,1};
+    int dy[4] = {1,-1,0,0};
+
+    // 判断 (i, j) 是否在网格内部
+    bool isArea(int i,int j){
+        return 0<=i&&i<n&&0<=j&&j<m;
+    }
+
+    int orangesRotting(vector<vector<int>>& grid) {
+        queue<PII> q;
+        n = grid.size();
+        m = grid[0].size();
+
+        // 第一次遍历：统计所有新鲜橘子，并将所有坏橘子入队
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                int t = grid[i][j];
+                // 新鲜句子
+                if(t == 1){
+                    ans++;
+                }
+                // 坏橘子
+                if(t == 2){
+                    q.push({i,j});
+                }
+            }
+        }
+        // 如果没有新鲜橘子，直接返回 0 分钟
+        if(ans == 0){
+            return 0;
+        }
+
+        // 广度优先搜索：每一轮处理当前所有的坏橘子，腐烂其四周新鲜橘子
+        while(!q.empty()){
+            // 如果新鲜橘子已全部腐烂，返回已用时间
+            if (ans == 0) return time;
+
+            int sz = q.size(); // 当前轮要处理的队列大小
+
+            while(sz--){
+                auto [x,y] = q.front();
+                q.pop();
+                // 遍历四个方向
+                for(int k = 0;k < 4;k++){
+                    int nx = x + dx[k];
+                    int ny = y + dy[k];
+                    // 如果在网格内且是新鲜橘子，则腐烂它
+                    if(isArea(nx,ny) && grid[nx][ny] == 1){
+                        grid[nx][ny] = 2; // 标记为坏橘子
+                        ans--;            // 新鲜橘子数量减一
+                        q.push({nx,ny});  // 新腐烂橘子加入队列
+                    }
+                }
+            }
+            // 一轮腐烂完毕，分钟数加一
+            time++;
+        }
+        // 如果所有轮次结束后仍有新鲜橘子，返回 -1
+        return ans?-1:time;
+    }
+};
+```
+
+# 第五十三题 课程表
+
+# 第五十四题 实现 Trie (前缀树)
+
+# 第五十五题 全排列
+
+回溯三部曲：代码随想录 后面的回溯都是可以使用这个步骤来的
+
+![alt text](image/backtrack.png)
+
+![alt text](image/55.png)
+
+回溯，一般不好理解，但是如果画出来树图的话就好理解一些
+
+![alt text](image/55_1.png)
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int> > res;
+        backtrack(res, nums, 0, (int)nums.size());
+        return res;
+    }
+
+    void backtrack(vector<vector<int>>& res, vector<int>& nums,int first,int len){
+        if(first == len){
+            res.push_back(nums);
+            return;
+        }
+
+        for(int i=first;i<len;i++){
+            swap(nums[i], nums[first]);
+            backtrack(res, nums, first + 1, len);
+            swap(nums[i], nums[first]);
+        }
+    }
+};
+```
+
+# 第五十六题 子集
+
+![alt text](image/56.png)
+
+这个回溯就很巧妙了
+
+```cpp
+class Solution {
+public:
+    vector<int> t;
+    vector<vector<int>> ans;
+
+    void dfs(int cur,vector<int> & nums){
+        if(cur == nums.size()){
+            // 记录答案
+            ans.push_back(t);
+            return;
+        }
+        // 考虑选择当前位置
+        t.push_back(nums[cur]);
+        dfs(cur+1,nums);
+        t.pop_back();
+        // 考虑不选择当前位置
+        dfs(cur+1,nums);
+    }
+
+    vector<vector<int>> subsets(vector<int>& nums) {
+        dfs(0,nums);
+        return ans;
+    }
+};
+```
+
+# 第五十七题 电话号码的字母组合
+
+![alt text](image/57.png)
+
+还是最为基础的回溯
+
+```cpp
+class Solution {
+public:
+    vector<string> letterCombinations(string digits) {
+        vector<string> combinations;
+        if(digits.empty()){
+            return combinations;
+        }
+        unordered_map<char,string> phoneMap{
+            {'2', "abc"},
+            {'3', "def"},
+            {'4', "ghi"},
+            {'5', "jkl"},
+            {'6', "mno"},
+            {'7', "pqrs"},
+            {'8', "tuv"},
+            {'9', "wxyz"}
+        };
+        string combination;
+        backtrack(combinations, phoneMap, digits, 0, combination);
+        return combinations;
+    }
+    void backtrack(vector<string>& combinations, const unordered_map<char,string>& phoneMap, const string& digits,int index,string & combination){
+        if(index == digits.length()){
+            combinations.push_back(combination);
+        }else{
+            char digit = digits[index];
+            const string& letters = phoneMap.at(digit);
+            for(const char& letter:letters){
+                combination.push_back(letter);
+                backtrack(combinations,phoneMap,digits,index+1,combination);
+                combination.pop_back();
+            }
+        }
+    }
+};
+```
+
+# 第五十八题 组合总和
+
+![alt text](image/58.png)
+
+这个要注意， 同一个 数字可以 无限制重复被选取 因此回溯的时候 backtrack(resultVector,path,candidates,target,i); 使用的是 i
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> resultVector;
+        vector<int> path;
+        backtrack(resultVector,path,candidates,target,0);
+        return resultVector;
+    }
+
+    void backtrack(vector<vector<int>>& resultVector,vector<int>& path,vector<int>& candidates, int target,int index){
+        if(accumulate(path.begin(), path.end(), 0) == target){
+            resultVector.push_back(path);
+            return;
+        }else if(accumulate(path.begin(), path.end(), 0) > target){
+            return;
+        }else{
+            for(int i=index;i<candidates.size();i++){
+                path.push_back(candidates[i]);
+                backtrack(resultVector,path,candidates,target,i);
+                path.pop_back();
+            }
+        }
+    }
+};
+```
+
+# 第五十九题 括号生成
+
+![alt text](image/59.png)
+
+这一题和排列组合差不多,但是有括号的约束 先push ( 再 push )
+
+```cpp
+class Solution {
+public:
+    void backtrack(vector<string> &ans, string& cur,int open,int close,int n){
+        if(cur.size() == n*2){
+            ans.push_back(cur);
+            return;
+        }
+        if(open < n){
+            cur.push_back('(');
+            backtrack(ans,cur,open+1,close,n);
+            cur.pop_back();
+        }
+        if(close < open){
+            cur.push_back(')');
+            backtrack(ans,cur,open,close+1,n);
+            cur.pop_back();
+        }
+    }
+    vector<string> generateParenthesis(int n) {
+        vector<string> result;
+        string current;
+        backtrack(result,current,0,0,n);
+        return result;
+    }
+};
+```
+
+# 第六十题 单词搜索
+
+![alt text](image/60.png)
+
+这个可以使用深度优先遍历BFS，区别再于递归回来要进行回溯。
+
+```cpp
+class Solution {
+public:
+    bool check(vector<vector<char>>& board, vector<vector<int>>& visited, int i, int j, string& s, int k) {
+        if (board[i][j] != s[k]) {
+            return false;
+        } else if (k == s.length() - 1) {
+            return true;
+        }
+        visited[i][j] = true;
+        vector<pair<int, int>> directions{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        bool result = false;
+        for (const auto& dir: directions) {
+            int newi = i + dir.first, newj = j + dir.second;
+            if (newi >= 0 && newi < board.size() && newj >= 0 && newj < board[0].size()) {
+                if (!visited[newi][newj]) {
+                    bool flag = check(board, visited, newi, newj, s, k + 1);
+                    if (flag) {
+                        result = true;
+                        break;
+                    }
+                }
+            }
+        }
+        visited[i][j] = false;
+        return result;
+    }
+
+    bool exist(vector<vector<char>>& board, string word) {
+        int h = board.size(), w = board[0].size();
+        vector<vector<int>> visited(h, vector<int>(w));
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
+                bool flag = check(board, visited, i, j, word, 0);
+                if (flag) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+
+```
+
+# 第六十一题 分割回文串
+
+![alt text](image/61.png)
+
+没怎么看懂说实话，我先背会
+
+
+思路
+
+定义递归函数 ：
+
+定义一个递归函数 backing(string s, int start)，其中 start 表示当前子串的起始位置。每次进入递归时，将起始位置移动到当前位置的下一个位置（即 start + 1），从而逐步探索从该位置出发的所有可能子串。
+
+递归终止条件 ：
+
+当 start 达到字符串的长度 n 时，说明已经处理完所有可能的子串组合，递归终止。
+
+遍历子串的结束位置 ：
+
+在递归过程中，使用一个 for 循环来遍历从当前起始位置 start 开始的所有可能的子串结束位置。对于每个子串，判断其是否满足回文条件。如果满足，则将其加入结果集；如果不满足，则跳过。
+
+解题过程
+
+核心思想 ：
+
+只有满足回文条件的子串才会被保留下来。通过递归和回溯，可以系统地枚举所有可能的子串，并在过程中动态判断是否符合要求。
+
+具体实现逻辑：
+
+从当前位置 start 出发，尝试生成长度为 1、2、... 的子串。对每个生成的子串进行回文性判断。如果是回文，则将其加入结果集，并继续递归处理剩余部分。如果某个子串不满足回文条件，则直接跳过，避免浪费计算资源。
+
+
+```cpp
+class Solution {
+public:
+    int n;
+    vector<string> res;
+    vector<vector<string>> ans;
+    bool isHuiwen(string s) {
+        if (s.size() == 1) {
+            return true;
+        }
+        for (int i = 0; i < s.size() / 2; i++) {
+            if (s[i] != s[s.size() - i - 1])
+                return false;
+        }
+        return true;
+    }
+    
+    void backing(string s, int start) {
+        if (start == n) {
+            ans.push_back(res);
+            return;
+        }
+        // 遍历子串的长度（即子串的终点）
+        for (int i = start; i < s.size(); i++) {
+            // 满足回文条件，继续遍历剩余的子串
+            if (isHuiwen(s.substr(start, i - start + 1))) {
+                res.push_back(s.substr(start, i - start + 1));
+                backing(s, i + 1);
+                res.pop_back();
+            }
+        }
+    }
+
+    vector<vector<string>> partition(string s) {
+        n = s.size();
+        backing(s, 0);
+        return ans;
+    }
+};
+```
+
+# 第六十一题 N 皇后
+
+# 第六十二题 搜索插入位置
+
+![alt text](image/62.png)
+
+直接最为简单的二分法就好
+
+```cpp
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int left = 0, right = nums.size()-1;
+        while(left <= right){
+            int mid = (left + right) / 2;
+            if(target < nums[mid]){
+                right = mid - 1;
+            }else if(target > nums[mid]){
+                left = mid + 1; 
+            }else{
+                return mid;
+            }
+        }    
+        return left;
+    }
+};
+```
+
+# 第六十三题 搜索二维矩阵
+
+![alt text](image/63.png)
+
+两次搜索，第一次要查找一下再那一行，第二次就在这一行搜索
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        // 搜索对应行
+        int row = matrix.size();
+        int col = matrix[0].size();
+        int left = 0;
+        int right = row - 1;
+        while(left <= right){
+            int mid = (left + right) / 2;
+            if(matrix[mid][0] == target){
+                return true;
+            }else if(matrix[mid][0] > target){
+                right = mid - 1;
+            }else{
+                left = mid + 1;
+            }
+        }
+        int temp = right;
+        if(right < 0){
+            return false;
+        }
+        // 搜索对应列
+        left = 0;
+        right = col - 1;
+        while(left <= right){
+            int mid = (left + right) / 2;
+            if(matrix[temp][mid] == target){
+                return true;
+            }else if(matrix[temp][mid]>target){
+                right = mid - 1;
+            }else{
+                left = mid + 1;
+            }
+        }
+
+        return false;
+    }
+};
+```
+
+# 第六十四题 在排序数组中查找元素的第一个和最后一个位置
+
+![alt text](image/64.png)
+
+两次二分搜索就好，主要是如何在找到的时候不会停而是找到第一个和最后一个位置。
+
+```cpp
+class Solution {
+public:
+
+    int binarySearch(vector<int>& nums,int target,bool lower){
+        int left = 0;
+        int right = nums.size() - 1;
+        int ans = nums.size();
+        while(left <= right){
+            int mid = (left + right) / 2;
+            //搜索lower的时候nums[mid] == target的时候也会继续right向左搜索
+            if(nums[mid] > target || (lower && nums[mid] >= target)){
+                right = mid - 1;
+                ans = mid;
+            }else{
+                left = mid + 1;
+            }
+        }
+        return ans;
+    }
+
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int leftIdx = binarySearch(nums,target,true);
+        int rightIdx = binarySearch(nums,target,false) - 1;
+        if(leftIdx <= rightIdx && rightIdx < nums.size() && nums[leftIdx] == target && nums[rightIdx] == target){
+            return vector<int>{leftIdx,rightIdx};
+        }
+        return vector<int>{-1,-1};
+    }
+};
+```
+
+其实我觉得这个更好，还是原来的二分查找，修改一下target
+
+```cpp
+class Solution {
+public:
+
+    int binarySearch(vector<int>& nums,double target){
+        int left = 0;
+        int right = nums.size() - 1;
+        while(left <= right){
+            int mid = (left + right) / 2;
+            if(nums[mid] == target){
+                return mid;
+            }else if(nums[mid] < target){
+                left = mid + 1;
+            }else{
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int leftIdx = binarySearch(nums,target - 0.5);
+        int rightIdx = binarySearch(nums,target + 0.5) - 1;
+        if(leftIdx <= rightIdx && rightIdx < nums.size() && nums[leftIdx] == target && nums[rightIdx] == target){
+            return vector<int>{leftIdx,rightIdx};
+        }
+        return vector<int>{-1,-1};
+
+    }
+};
+```
+
+# 第六十五题 搜索旋转排序数组
+
+![alt text](image/65.png)
+
+[4,5,6,7,0,1,2] 在做二分查找的时候，一定会有一侧是有序的，我们来看，left 0 right 6 mid 为 3 那么 nums[mid]与 nums[0]比较，如果nums[mid] >= nums[0]的话，表示，左侧肯定是有序的，反之则右侧是有序的
+
+然后就是正常的二分了，这个要注意，要比较一下nums[0] 或者是 nums[n-1]
+
+```cpp
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int n = nums.size();
+        if(n == 0){
+            return -1;
+        }
+        if(n == 1){
+            return nums[0] == target ? 0 : -1;
+        }
+
+        int left = 0, right = n - 1;
+
+        while(left <= right){
+            int mid = (left + right) / 2;
+            if(nums[mid] == target){
+                return mid;
+            }
+            // 判断那边是有序的 true的花就是左侧是有序的，false的花就是右侧是有序的
+            if(nums[0] <= nums[mid]){
+                // 在左侧进行二分查找,nums[0]是左侧最小的值，如果小于nums[0]的话就肯定不行
+                if(nums[0]<=target && target < nums[mid]){
+                    right = mid - 1;
+                }else{
+                    left = mid + 1;
+                }
+            }else{
+                // 在右侧进行二分查找,nums[n-1]是右侧最小的值，如果大于nums[n-1]的话就肯定不行
+                if(nums[mid] < target && target <= nums[n-1]){
+                    left = mid + 1;
+                }else{
+                    right = mid - 1;
+                }
+            }
+        }
+
+        return -1;
+    }
+};
+```
+
+# 第六十六题 寻找旋转排序数组中的最小值
+
+![alt text](image/66.png)
+
+观察特点
+
+![alt text](image/66_1.png)
+
+数组中的最后一个元素 x 在最小值右侧的元素（不包括最后一个元素本身），它们的值一定都严格小于 x；而在最小值左侧的元素，它们的值一定都严格大于 x。因此，我们可以根据这一条性质，通过二分查找的方法找出最小值。
+
+在二分查找的每一步中，左边界为 low，右边界为 high，区间的中点为 pivot，最小值就在该区间内。我们将中轴元素 nums[pivot] 与右边界元素 nums[high] 进行比较。
+
+第一种情况是 nums[pivot]<nums[high]。这说明 nums[pivot] 是最小值右侧的元素，因此我们可以忽略二分查找区间的右半部分。
+
+第二种情况是 nums[pivot]>nums[high]。如下图所示，这说明 nums[pivot] 是最小值左侧的元素，因此我们可以忽略二分查找区间的左半部分。
+
+由于数组不包含重复元素，并且只要当前的区间长度不为 1，pivot 就不会与 high 重合；而如果当前的区间长度为 1，这说明我们已经可以结束二分查找了。因此不会存在 nums[pivot]=nums[high] 的情况。
+
+```cpp
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int low = 0;
+        int high = nums.size() - 1;
+        while(low < high){
+            int mid = (low + high) / 2;
+            if(nums[mid] < nums[high]){
+                high = mid;
+            }else{
+                low =  mid + 1;
+            }
+        }
+
+        return nums[low];
+    }
+};
+```
+
+# 第六十七题 寻找两个正序数组的中位数
+
+# 第六十八题 有效的括号
+
+![alt text](image/68.png)
+
+栈，数据结构课程上讲过
+
+```cpp
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<int> st;
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='('||s[i]=='['||s[i]=='{'){
+                st.push(i);
+            }else{
+                if(st.empty()){
+                    return false;
+                }
+                if(s[i] == ')' && s[st.top()] != '('){
+                    return false;
+                } 
+                if(s[i] == ']' && s[st.top()] != '['){
+                    return false;
+                }
+                if(s[i] == '}' && s[st.top()] != '{'){
+                    return false;
+                } 
+                st.pop();
+            }
+        }
+        return st.empty();
+    }
+};
+```
+
+# 第六十九题 最小栈
+
+![alt text](image/69.png)
+
+两个栈就好 一个存储最小值，一个存储正常值
+
+```cpp
+class MinStack {
+private:
+    stack<int> x_stack;
+    stack<int> min_stack;
+public:
+    MinStack() {
+        min_stack.push(INT_MAX);
+    }
+    
+    void push(int x) {
+        x_stack.push(x);
+        min_stack.push(min(min_stack.top(),x));
+    }
+    
+    void pop() {
+        x_stack.pop();
+        min_stack.pop();
+    }
+    
+    int top() {
+        return x_stack.top();
+    }
+    
+    int getMin() {
+        return min_stack.top();
+    }
+};
+```
+
+# 第七十题 字符串解码
+
+![alt text](image/70.png)
+
+数字存放在数字栈，字符串存放在字符串栈，遇到右括号时候弹出一个数字栈，字母栈弹到左括号为止。
+
+```cpp
+class Solution {
+public:
+    string decodeString(string s) {
+        stack<int> num_stk;    //数字栈
+        stack<string> str_stk; //字符串栈
+        string str;            //当前正在累积的字符串
+        for(int i=0;i<s.size();i++){
+            if(isdigit(s[i])){ // 遇到数字
+                int n = s[i] - '0';
+                while(isdigit(s[++i])){
+                    n = 10 * n + s[i] - '0';
+                }
+                num_stk.push(n);// 加入数组栈
+                i--;            // 往后退一步(for循环处有自增操作)
+            }else if(s[i] == '['){ //遇到左括号
+                str_stk.push(str); // 将当前累积的字符串入栈
+                str = "";          //开始记录新的一段字符串
+            }else if(s[i] == ']'){ //遇到右括号
+                string tmp;
+                //将当前字符串按数字栈栈顶元素为倍数进行扩展
+                for(int i=0;i<num_stk.top();i++){
+                    tmp += str;
+                }
+                str = tmp;
+                num_stk.pop(); //数字栈栈顶元素弹出
+                //字符串栈栈顶元素弹出来并与当前字符串拼接，作为新的当前正在累积的字符串
+                str = str_stk.top() + str;
+                str_stk.pop();
+            }else{
+                str += s[i]; //当前字符串继续累积
+            }
+        }
+        return str;
+    }
+};
+```
+
+# 第七十一题 每日温度
+
+![alt text](image/71.png)
+
+把index push进取，每次push的时候都检查一下栈顶元素，如果temperatures[i] 大于 temperatures[st.top()] 那么就可以记录st.top()的结果了，顺便pop出去
+
+```cpp
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
+        int n = temperatures.size();
+        vector<int> res(n,0);
+        stack<int> st;
+        for(int i=0;i<n;i++){
+            while(!st.empty() && temperatures[i] > temperatures[st.top()]){
+                int t = st.top();
+                st.pop();
+                res[t] = i - t;
+            }
+            st.push(i);
+        }
+
+        return res;
+    }
+};
+```
+
+# 第七十二题 柱状图中最大的矩形
+
+# 第七十三题 数组中的第K个最大元素
+
+# 第七十四题 前 K 个高频元素
+
+# 第七十五题 数据流的中位数
+
+# 第七十六题 买卖股票的最佳时机
+
+![alt text](image/76.png)
+
+前面最低价买入，后面最高加卖出
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int res = 0;
+        int minData = prices[0];
+        for(int i = 0;i<prices.size();i++){
+            minData = prices[i] < minData ? prices[i] : minData;
+            res = max(prices[i]-minData,res);
+        }
+        return res;
+    }
+};
+```
+
+# 第七十七题 跳跃游戏
+
+![alt text](image/77.png)
+
+直接一次遍历，看看能不能到不到对应位置
+
+```cpp
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int res = 0;
+        for(int i=0;i<nums.size();i++){
+            if(i > res){ // 前面的到不了这个地方
+                return false;
+            }
+            res = max(res,i+nums[i]);
+        }
+        return true;
+    }
+};
+```
+
+# 第七十八题 跳跃游戏 II
+
+![alt text](image/78.png)
+
+找到他的状态转移方程
+
+我们来看一下，对于 i 这个位置 那个往后的到 i + nums[i] 这个位置（i+1 - i + nums[i]）都可以到达，也就是说都可以加一步到达这个位置
+
+所以对于dp[i+j] = min(dp[i+j],dp[i]+1) //也就是不经过i 这个位置 和经过 i 这个位置然后再跳(这个有点偏暴力了)
+
+
+```cpp
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> dp(n, INT_MAX);
+        dp[0] = 0;
+        for(int i=0;i<n;i++){
+            for(int j=1;j<=nums[i]&&i+j<n;j++){
+                dp[i+j] = min(dp[i+j],dp[i]+1);
+            }
+        }
+        return dp[n-1];
+    }
+};
+```
+
+# 第七十九题 划分字母区间
+
+# 第八十题 爬楼梯
+
+![alt text](image/80.png)
+
+不多说了，dp[i] = dp[i-1] + dp[i-2]
+
+```cpp
+class Solution {
+public:
+    int climbStairs(int n) {
+        if(n==1){
+            return 1;
+        }else if(n==2){
+            return 2;
+        }
+        int first = 1;
+        int second = 2;
+        int current = first + second;
+        for(int i=3;i<=n;i++){
+            current = first + second;
+            first = second;
+            second = current;
+        }
+        return current;
+    }
+};
+```
+ 
+# 第八十一题 杨辉三角
+
+![alt text](image/81.png)
+
+直接模拟
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> res;
+        for(int i=0;i<numRows;i++){
+            res.push_back(vector<int>(0));
+            for(int j=0;j<i+1;j++){
+                if(j==0||j==i){
+                    res[i].push_back(1);
+                }else{
+                    res[i].push_back(res[i-1][j-1]+res[i-1][j]);
+                }
+            }
+        }
+
+        return res;
+    }
+};
+```
+
+# 第八十二题 打家劫舍
+
+![alt text](image/82.png)
+
+偷窃第 k 间房屋，那么就不能偷窃第 k−1 间房屋，偷窃总金额为前 k−2 间房屋的最高总金额与第 k 间房屋的金额之和。
+
+不偷窃第 k 间房屋，偷窃总金额为前 k−1 间房屋的最高总金额。
+
+dp[i] = max(dp[i-2]+nums[i],dp[i-1]);
+
+```cpp
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        
+        int n = nums.size();
+        if(n==0){
+            return 0;
+        }else if(n==1){
+            return nums[0];
+        }else if(n==2){
+            return max(nums[0],nums[1]);
+        }
+
+        int dp[n];
+        dp[0] = nums[0];
+        dp[1] = max(nums[1],nums[0]);
+        for(int i=2;i<n;i++){
+            dp[i] = max(dp[i-2]+nums[i],dp[i-1]);
+        }
+
+        return dp[n-1];
+    }
+};
+```
+
+# 第八十三题 完全平方数
+
+![alt text](image/83.png)
+
+dp[i] 表示最少需要多少个数的平方来表示整数 i; 这些数必然落在区间 [1, sqrt（i）]，那么从1到j*j<i   dp[i] = 1 + min [（j=1）到 sqrt(i)] dp[i-j*j]
+
+f[i-j*j] + j*j 也就是 dp[i-j*j] + 1
+
+```cpp
+class Solution {
+public:
+    int numSquares(int n) {
+        vector<int> f(n+1);
+        for(int i=1;i<=n;i++){
+            int minn = INT_MAX;
+            for(int j=1;j*j<=i;j++){
+                minn = min(minn,f[i-j*j]);
+            }
+            f[i] = minn +1;
+        }
+        return f[n];
+    }
+};
+```
+
+# 第八十四题 零钱兑换
+
+![alt text](image/84.png)
+
+F[0] 0;
+
+F[1] 1 //F(1)=min(F(1−1),F(1−2),F(1−5))+1=1
+
+F(2) 1 //F(2)=min(F(2−1),F(2−2),F(2−5))+1=1
+
+F(3) 2 //F(3)=min(F(3−1),F(3−2),F(3−5))+1=2
+
+F(4) 2 //F(4)=min(F(4−1),F(4−2),F(4−5))+1=2
+
+...
+
+F(11) 3 //F(11)=min(F(11−1),F(11−2),F(11−5))+1=3
+
+```cpp
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        int Max = amount + 1;
+        vector<int> dp(amount + 1,Max);
+        dp[0] = 0;
+        for(int i = 1;i <= amount;i++){
+            for(int j = 0;j<coins.size();j++){
+                if(coins[j] <= i){
+                    dp[i] = min(dp[i],dp[i-coins[j]] + 1);
+                }
+            }
+        }
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+};
+```
+
+# 第八十五题 单词拆分
+
+![alt text](image/85.png)
+
+以leet code为例，态转移：
+
+当i=0时，""为空字符串，dp[0] = true
+
+当i=1时，"l"不在字典，dp[1]=false
+
+i=2时，"le"不在字典，dp[2]=false
+
+i=3时，"lee"不在字典，dp[3]=false
+
+i=4时，"leet"在字典，dp[4]=true
+
+由于有两个位置，0和4都为true，接下来要检查两个子串
+
+i=5时，"leetc"和"c"都不在字典，dp[5]=false
+
+i=6时，"leetco"和"co"都不在字典，dp[6]=false
+
+i=7时，"leetcod"和"cod"都不在字典，dp[7]=false
+
+i=8时，"leetcode"不在字典，但"code"在字典，dp[8]=true
+
+dp[x],就代表前x个字母能不能被字典拼出来
+
+```cpp
+class Solution {
+public:
+    bool wordBreak(string s, vector<string>& wordDict) {
+        auto wordDictSet = unordered_set<string>();
+        for(auto word:wordDict){
+            wordDictSet.insert(word);
+        }
+        
+        auto dp = vector<bool> (s.size() + 1);
+        dp[0] = true;
+        // dp[i],就代表前x个字母能不能被字典拼出来 dp[j]表示0-j &&  s.substr(j,i-j) 表示 j 到 i
+        for(int i=1;i<=s.size();i++){
+            for(int j=0;j<i;j++){
+                if(dp[j] && wordDictSet.find(s.substr(j,i-j))!=wordDictSet.end()){
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+
+        return dp[s.size()];
+    }
+};
+```
+
+# 第八十六题 最长递增子序列
+
+![alt text](image/86.png)
+
+dp[i] 就表示 前 i 最长递增子序列 的长度，对于num[i] j 在 0 -- i 之间 对于num[i] > num[j] 则 dp[i] = max(dp[i],dp[j]+1);
+
+```cpp
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        if(n == 0) return 0;
+
+        vector<int> dp(n,0);
+
+        int ans = 0;
+        for(int i=0;i<n;i++){
+            dp[i]=1;
+            for(int j=0;j<i;j++){
+                if(nums[j] < nums[i]){
+                    dp[i] = max(dp[i],dp[j]+1);
+                }
+            }
+            ans = ans > dp[i] ? ans: dp[i];
+        }
+
+        return ans;
+    }
+};
+```
+
+# 第八十七题 乘积最大子数组
+
+![alt text](image/87.png)
+
+本来应该max(maxF[i-1] * nums[i],(long)nums[i]); 这样的，但是因为有负数，这样不行 比如 1 -3 50 -4，因此维护了一个minF
+
+maxF[i] = max(maxF[i-1] * nums[i],max((long)nums[i],minF[i-1]*nums[i]));
+
+minF[i] = min(minF[i-1] * nums[i],min((long)nums[i],maxF[i-1]*nums[i]));
+
+```cpp
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        vector<long> maxF(nums.begin(),nums.end()),minF(nums.begin(), nums.end());
+        long ans = nums[0];
+        for(int i=1;i<nums.size();i++){
+            maxF[i] = max(maxF[i-1] * nums[i],max((long)nums[i],minF[i-1]*nums[i]));
+            minF[i] = min(minF[i-1] * nums[i],min((long)nums[i],maxF[i-1]*nums[i]));
+            ans = ans > maxF[i] ? ans : maxF[i];
+        }
+        return ans;
+    }
+};
+```
+
+# 第八十八题 分割等和子集
+
+
+
+# 第八十九题 最长有效括号
+
+# 第九十题 不同路径
+
+![alt text](image/90.png)
+
+f(i,j)=f(i−1,j)+f(i,j−1) 最为简单的多纬动态规划
+
+```cpp
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        vector<vector<int> > dp(m,vector<int>(n,1));
+        for(int i=0;i<m;i++){
+            dp[i][0] = 1;
+        }
+        for(int i=0;i<n;i++){
+            dp[0][i] = 1;
+        }
+        for(int i=1;i<m;i++){
+            for(int j=1;j<n;j++){
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+        return dp[m - 1][n - 1];
+    }
+};
+```
+
+# 第九十一题 最小路径和
+
+![alt text](image/91.png)
+
+和上面的一样
+
+```cpp
+class Solution {
+public:
+    int minPathSum(vector<vector<int>>& grid) {
+        if(grid.size() == 0 || grid[0].size() == 0){
+            return 0;
+        }
+        int rows = grid.size(),columns = grid[0].size();
+        vector<vector<int>> dp(rows,vector<int>(columns));
+        dp[0][0] = grid[0][0];
+        for(int i=1;i<rows;i++){
+            dp[i][0] = dp[i-1][0] + grid[i][0];
+        }
+        for(int j=1;j<columns;j++){
+            dp[0][j] = dp[0][j-1] + grid[0][j];
+        }
+        for(int i=1;i<rows;i++){
+            for(int j=1;j<columns;j++){
+                dp[i][j] = min(dp[i-1][j],dp[i][j-1]) + grid[i][j];
+            }
+        }
+
+        return dp[rows - 1][columns - 1];
+    }
+};
+```
+
+# 第九十二题 最长回文子串
+
+# 第九十三题 最长公共子序列
+
+# 第九十四题 编辑距离
+
+# 第九十五题 只出现一次的数字
+
+![alt text](image/95.png)
+
+任何数和 0 做异或运算，结果仍然是原来的数，即 a⊕0=a。
+
+任何数和其自身做异或运算，结果是 0，即 a⊕a=0。
+
+异或运算满足交换律和结合律，即 a⊕b⊕a=b⊕a⊕a=b⊕(a⊕a)=b⊕0=b。
+
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ret = 0;
+        for(auto e:nums){
+            ret ^= e;
+        }
+        return ret;
+    }
+};
+```
+
+# 第九十六题 多数元素
+
+![alt text](image/96.png)
+
+第一印象:
+
+1.sort排序一下，输出中间值(O(nlogn))
+```cpp
+sort(nums.begin(),nums.end());
+return nums[nums.size()/2];
+```
+2.使用一个非常大的数组存储O(n) 但是空间复杂度极高
+```cpp
+count[nums[i]]++;
+return max(count.begin(),count.end());
+```
+
+官方解法：
+
+多数元素是指在数组中出现次数 大于 ⌊ n/2 ⌋ 的元素。
+
+因此总体看来 其对应的 count 不可能为负，而其他的元素 小于 ⌊ n/2 ⌋ ，因此必定为 负
+
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+
+        int major = nums[0];
+        int count = 0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==major){
+                count++;
+            }else{
+                count--;
+                if(count < 0){
+                    major = nums[i];
+                    count = 0;
+                }
+            }
+        }
+        return major;
+
+    }
+};
+```
+
+
+# 第九十七题 颜色分类
+
+![alt text](image/97.png)
+
+其实就相当于计数了
+
+22222222222 先全变成2
+
+11111122222 再变成1
+
+00011122222 再变成0
+
+```cpp
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int p0 = 0,p1 = 0;
+        for(int i=0;i<nums.size();i++){
+            int x = nums[i];
+            nums[i] = 2;
+            if(x<=1){
+                nums[p1++] = 1;
+            }
+            if(x == 0){
+                nums[p0++] = 0;
+            }
+        }
+    }
+};
+```
+
+# 第九十八题 下一个排列
+
+
+
+# 第九十九题 寻找重复数
+
+# 第一百题
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
