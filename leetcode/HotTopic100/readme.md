@@ -1308,9 +1308,205 @@ public:
 
 # 第三十三题 排序链表
 
+![alt text](image/33.png)
+
+归并排序的思想，自上而下
+
+运用递归的思想，先把链表分割成两个，然后分别对两个进行排序（递归），然后归并一下
+
+```cpp
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        // 结束的条件
+        if(head == nullptr || head->next == nullptr){
+            return head;
+        }
+        // 分割成两个，快慢指针，快指针走两步，满指针走一步就能找到中间节点了
+        ListNode * slow = head;
+        ListNode * fast = head->next;
+        while(fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        ListNode* second = slow->next;
+        // 分割一下，分割成两个链表
+        slow->next = nullptr;
+        ListNode* first = head;
+        // 左右分别排序
+        first = sortList(head);
+        second = sortList(second);
+        // 归并
+        return margeList(first,second);
+    }
+    // 无需多言
+    ListNode* margeList(ListNode* left,ListNode* right) {
+        ListNode* dummy = new ListNode(0);
+        ListNode* tail = dummy;
+        while(left && right){
+            if(left->val < right->val){
+                tail->next = left;
+                left = left->next;
+            }else{
+                tail->next = right;
+                right = right->next;
+            }
+            tail = tail->next;
+        }
+
+        if(left){
+            tail->next = left;
+        }
+        if(right){
+            tail->next = right;
+        }
+
+        return dummy->next;
+    }
+};
+```
+
 # 第三十四题 合并 K 个升序链表
 
+![alt text](image/34.png)
+
+同样的，分治归并
+
+```cpp
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        return marge(lists,0,lists.size()-1);
+    }
+
+    // 无语多言
+    ListNode* mergeTwoLists(ListNode *a, ListNode *b) {
+        if ((!a) || (!b)) return a ? a : b;
+        ListNode head, *tail = &head, *aPtr = a, *bPtr = b;
+        while (aPtr && bPtr) {
+            if (aPtr->val < bPtr->val) {
+                tail->next = aPtr; aPtr = aPtr->next;
+            } else {
+                tail->next = bPtr; bPtr = bPtr->next;
+            }
+            tail = tail->next;
+        }
+        tail->next = (aPtr ? aPtr : bPtr);
+        return head.next;
+    }
+
+    // 分治的点
+    ListNode* marge(vector<ListNode*>& lists, int l,int r){
+        if(l == r){
+            return lists[l];
+        }
+        if(l > r){
+            return nullptr;
+        }
+        // 分割成两个
+        int mid = (l + r) / 2;
+        // 合并两个链表
+        return mergeTwoLists(marge(lists,l,mid),marge(lists,mid+1,r));
+    }
+};
+```
+
 # 第三十五题 LRU 缓存
+
+![alt text](image/35.png)
+
+直接模拟，我觉得不大可能会考手撕这种题目
+
+```cpp
+
+struct DLinkedNode {
+    int key, value;
+    DLinkedNode* prev;
+    DLinkedNode* next;
+    DLinkedNode(): key(0), value(0), prev(nullptr), next(nullptr) {}
+    DLinkedNode(int _key, int _value): key(_key), value(_value), prev(nullptr), next(nullptr) {}
+};
+
+class LRUCache {
+private:
+    unordered_map<int, DLinkedNode*> cache;
+    DLinkedNode* head;
+    DLinkedNode* tail;
+    int size;
+    int capacity;
+
+public:
+    LRUCache(int _capacity): capacity(_capacity), size(0) {
+        // 使用伪头部和伪尾部节点
+        head = new DLinkedNode();
+        tail = new DLinkedNode();
+        head->next = tail;
+        tail->prev = head;
+    }
+    
+    int get(int key) {
+        if (!cache.count(key)) {
+            return -1;
+        }
+        // 如果 key 存在，先通过哈希表定位，再移到头部
+        DLinkedNode* node = cache[key];
+        moveToHead(node);
+        return node->value;
+    }
+    
+    void put(int key, int value) {
+        if (!cache.count(key)) {
+            // 如果 key 不存在，创建一个新的节点
+            DLinkedNode* node = new DLinkedNode(key, value);
+            // 添加进哈希表
+            cache[key] = node;
+            // 添加至双向链表的头部
+            addToHead(node);
+            ++size;
+            if (size > capacity) {
+                // 如果超出容量，删除双向链表的尾部节点
+                DLinkedNode* removed = removeTail();
+                // 删除哈希表中对应的项
+                cache.erase(removed->key);
+                // 防止内存泄漏
+                delete removed;
+                --size;
+            }
+        }
+        else {
+            // 如果 key 存在，先通过哈希表定位，再修改 value，并移到头部
+            DLinkedNode* node = cache[key];
+            node->value = value;
+            moveToHead(node);
+        }
+    }
+
+    void addToHead(DLinkedNode* node) {
+        node->prev = head;
+        node->next = head->next;
+        head->next->prev = node;
+        head->next = node;
+    }
+    
+    void removeNode(DLinkedNode* node) {
+        node->prev->next = node->next;
+        node->next->prev = node->prev;
+    }
+
+    void moveToHead(DLinkedNode* node) {
+        removeNode(node);
+        addToHead(node);
+    }
+
+    DLinkedNode* removeTail() {
+        DLinkedNode* node = tail->prev;
+        removeNode(node);
+        return node;
+    }
+};
+
+```
+
 
 # 第三十六题 二叉树的中序遍历
 
@@ -1425,15 +1621,7 @@ public:
 ![alt text](image/37.png)
 
 递归基础操作
-
-```cpp
-class Solution {
-public:
-    int maxDepth(TreeNode* root) {
-        if(!root){
-            return 0;
-        }
-        return max(maxDepth(root->left),maxDepth(root->right))+1;
+https://leetcode.cn/problems/implement-trie-prefix-tree/description/?envType=study-plan-v2&envId=top-100-liked
     }
 };
 ```
@@ -1550,6 +1738,7 @@ public:
     }
 };
 ```
+
 # 第四十二题 将有序数组转换为二叉搜索树
 
 ![alt text](image/42.png)
@@ -2112,7 +2301,104 @@ public:
 
 # 第五十三题 课程表
 
+![alt text](image/53.png)
+
+拓扑排序，基本功
+
+```cpp
+class Solution {
+private:
+    vector<vector<int>> edges;
+    vector<int> indeg;
+
+public:
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        edges.resize(numCourses);
+        indeg.resize(numCourses);
+
+        for(const auto& info: prerequisites){
+            edges[info[1]].push_back(info[0]);
+            ++indeg[info[0]];
+        }
+
+        queue<int> q;
+
+        for(int i=0;i<numCourses;i++){
+            if(indeg[i]==0){
+                q.push(i);
+            }
+        }
+
+        int visited = 0;
+
+        while(!q.empty()){
+            ++visited;
+            int u = q.front();
+            q.pop();
+            // 学习u之后后续的v就都能学了
+            for(int v:edges[u]){
+                --indeg[v];
+                if(indeg[v] == 0){
+                    q.push(v);
+                }
+            }
+        }
+
+        return visited == numCourses;
+    }
+};
+```
+
 # 第五十四题 实现 Trie (前缀树)
+
+![alt text](image/54.png)
+
+模拟，要注意的是isEnd,否则的话可能不太能区分search与startsWith
+
+```cpp
+class Trie {
+private:
+    vector<Trie*> children;
+    bool isEnd;
+
+    Trie* searchPrefix(string prefix){
+        Trie* node = this;
+        for(char ch:prefix){
+            ch -= 'a';
+            if(node->children[ch] == nullptr){
+                return nullptr;
+            }
+            node = node->children[ch];
+        }
+        return node;
+    }
+
+public:
+    Trie():children(26),isEnd(false)  {}
+    
+    void insert(string word) {
+        Trie* node = this;
+        for(char ch:word){
+            ch -= 'a';
+            if(node->children[ch] == nullptr){
+                node->children[ch] = new Trie();
+            }
+            node = node->children[ch];
+        }
+        node->isEnd = true;
+    }
+    
+    bool search(string word) {
+        Trie* node = this->searchPrefix(word);
+        return node!=nullptr && node->isEnd;
+    }
+
+    
+    bool startsWith(string prefix) {
+        return this->searchPrefix(prefix) != nullptr;
+    }
+};
+```
 
 # 第五十五题 全排列
 
@@ -2418,7 +2704,63 @@ public:
 };
 ```
 
-# 第六十一题 N 皇后
+# 第六十二题 N 皇后
+
+![alt text](image/62_1.png)
+
+回溯，先检查对应位置是否合理(isValid)，如果合理的话就放置皇后，然后回溯
+
+```cpp
+class Solution {
+private:
+    vector<vector<string>> res;
+
+public:
+    vector<vector<string>> solveNQueens(int n) {
+        vector<string> cur(n,string(n,'.'));
+        backtracking(cur,0,n);
+        return res;
+    }
+
+    void backtracking(vector<string>& cur,int level,int n){
+        if(level == n){
+            res.push_back(cur);
+            return;
+        }
+        for(int j=0;j<n;j++){
+            if(isValid(cur,level,j)){
+                cur[level][j] = 'Q';
+                backtracking(cur,level+1,n);
+                cur[level][j] = '.';
+            }
+        }
+    }
+
+    bool isValid(const vector<string>& cur,int i,int j){
+        int n = cur.size();
+        // 检查上下是否存在Q
+        for(int a = 0;a < n;a++){
+            if(cur[a][j] == 'Q'){
+                return false;
+            }
+        }
+        // 检查左上角是否存在Q
+        for(int a = i, b = j; a >= 0 && b >= 0; a--,b--){
+            if(cur[a][b] == 'Q'){
+                return false;
+            }
+        }
+        // 检查右上角是否存在Q
+        for(int a = i, b = j; a >= 0 && b < n; a--,b++){
+            if(cur[a][b] == 'Q'){
+                return false;
+            }
+        }
+
+        return true; // 其他方向都是未放过皇后的，不可能为false
+    }
+};
+```
 
 # 第六十二题 搜索插入位置
 
@@ -2430,7 +2772,7 @@ public:
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
-        int left = 0, right = nums.size()-1;
+        int left = 0, right = nums.size()-1;法v
         while(left <= right){
             int mid = (left + right) / 2;
             if(target < nums[mid]){
@@ -3298,6 +3640,7 @@ public:
 
 00011122222 再变成0
 
+
 ```cpp
 class Solution {
 public:
@@ -3318,8 +3661,6 @@ public:
 ```
 
 # 第九十八题 下一个排列
-
-
 
 # 第九十九题 寻找重复数
 
