@@ -2952,4 +2952,6 @@ int main()
 
 测试： telnet 127.0.0.1 8000
 
+cd webbench-1.5
 
+./webbench -c 5000 -t 10 http://127.0.0.1:8000/ 
